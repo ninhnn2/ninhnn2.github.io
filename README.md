@@ -1,4 +1,5 @@
-# NGUYEN NHUT NINH - EMBEDDED LINUX DEVELOPER
+# NGUYEN NHUT NINH
+# Embedded Linux Software Engineer
 
 Just another documentation theme compatible with GitHub Pages
 
