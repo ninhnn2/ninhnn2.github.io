@@ -7,14 +7,14 @@ FPT Telecom, IoT Department.                (2017 to Present)
 ## Skills
 
 - Good Knowledge & Work Experience in Embedded C/C++, ASM.
-- Expert Event-Driven Architecture programming.
-- Good Knowledge & Work Experience in STM MCU: RTOS, FOTA bootloader.
-- Good Knowledge & Work Experience: custom zigbee gateway, router, end device (CC253x, JN516x), ESPx, NRF518xx.
-- Good knowledge & Work Experience in Linux distro and Yocto development: IoT gateway, QT-HMI.
-- Good knowledge & Work Experience build Linux distro from scratch.
-- Good Knowledge & Work Experience in openwrt with mt7688.
-- Good Knowledge & Work Experience in Linux kernel, U-boot custom development.
-- Basic knowledge in bare-metal programming for bcm2835, am335x.
+- Good Knowledge & Work Experience event-driven Architecture programming.
+- Good Knowledge & Work Experience in STM32 MCU: RTOS, FOTA, bootloader.
+- Good Knowledge & Work Experience in custom zigbee gateway, router, end device (CC253x, JN516x).
+- Good knowledge & Work Experience Yocto, Buildroot, Openwrt developemt: IoT gateway, QT-HMI.
+- Good knowledge & Work Experience cross-compile application and linux distro from scratch.
+- Good Knowledge & Work Experience in platfrom: IMX7, AM335x, Allwinner (H3, H6, V3S, F1cX00S), Rockchip (RK3399, RK3308)
+- Good Knowledge & Work Experience in Linux kernel and driver development: GPIO, I2C, SPI.
+- Basic knowledge in bare-metal programming for BCM2835, AM335x.
 
 ## Quick start
 
