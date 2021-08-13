@@ -62,3 +62,20 @@ sudo apt-get install gparted
 ```shell
 sudo gparted
 ```
+![image](https://user-images.githubusercontent.com/86546911/129354373-c5bae32d-75bb-44bc-a98f-0c3bd1828fe2.png)
+
+- Chọn ổ đĩa thẻ nhớ “/dev/sdb” có bộ nhớ 16GB.
+- Chúng ta cần unmount các phân vùng của thẻ nhớ bằng cách nhấp phải tại phân vùng và chọn unmount.
+- Tiếp theo xóa hết tất cả phân vùng và tạo lại với 1 phân vùng duy nhất với định dạng ext4, thao tác này sẽ đảm bảo không có lỗi vặt khi flash rom vào thẻ nhớ.
+
+
+![image](https://user-images.githubusercontent.com/86546911/129354395-a90aa3a3-c8e6-4462-b6d9-7576c9a434ae.png)
+
+- Sau khi format thẻ nhớ xong, chúng ta giữ nguyên và tiến hành flash rom vào thẻ nhớ bằng dd tool.
+
+```shell
+       sudo dd bs=4M if=lichee-nano-normal-size .img of=/dev/sdb conv=fsync
+```
+
+- Flash xong chúng ta cắm thẻ vào Licheepi Nano và xem kết quả.
+
