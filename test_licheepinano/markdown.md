@@ -8,13 +8,13 @@ Lichee Nano là một bo mạch phát triển sử dụng Linux có kích thư�
 
 ### Thông số kỹ thuật chính
 
-- Chíp xử lý SoC- Allwinner F1C100s ARM926EJS tốc độ xung nhịp lên tới 900MHz.
+- Chip xử lý SoC- Allwinner F1C100s ARM926EJS tốc độ xung nhịp lên tới 900MHz.
 - RAM – 32MB DDR tích hợp.
 - Bộ nhớ – Micro SD card, hoặc 16M SPI flash ( không hàn theo kit).
 - Hiển thị: 40-pin RGB LCD FPC, hỗ trợ độ phân giải 272×480, 480×800, 1024×600 hoặc tùy chỉnh, cảm ứng điện dung hoặc điện trở.
 - Giải mã video – H.264 / MPEG 720p.
 - Dòng tiêu thụ – 54mA (chế độ chờ) với Linux OS, 250mA cho màn hình hiển thị.
-- Dải nhiệt độ – Bảo quản:: -40~125°C; Hoạt động: -20 to 70°C.
+- Dải nhiệt độ – Bảo quản: -40~125°C; Hoạt động: -20 to 70°C.
 
 # Header 1
 
