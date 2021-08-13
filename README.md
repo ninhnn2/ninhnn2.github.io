@@ -16,8 +16,6 @@ FPT Telecom, IoT Department.                (2017 to Present)
 - Good Knowledge & Work Experience in Linux kernel and driver development: GPIO, I2C, SPI.
 - Basic knowledge in bare-metal programming for BCM2835, AM335x.
 
-## Quick start
-
 
 ## The license
 
