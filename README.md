@@ -1,7 +1,8 @@
 # NGUYEN NHUT NINH
 # Embedded Linux Software Engineer
 
-Just another documentation theme compatible with GitHub Pages
+FPT Telecom, IoT Department.                (2017 to Present)
+
 
 ## What it does?
 
