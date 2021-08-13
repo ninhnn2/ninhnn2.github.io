@@ -31,16 +31,15 @@ Licheepi Nano là một bo mạch phát triển sử dụng linux có kích thư
 - Làm máy nghe nhạc với nhiều tính năng và cân bằng giữa kích thước, hiệu xuất và dễ sử dụng.
 - Dành cho người mới, kỹ sư phần mềm, kỹ sư phần cứng custom phục vụ cho việc học tập và nghiên cứu.
 
-### Licheepi Nano Pinout
-
-![image](https://user-images.githubusercontent.com/86546911/129346162-67505f83-0954-43d4-af8e-a2af8c52e392.png)
-
-### Serial console debug
+### Console serial trên Licheepi nano
 
 | Licheepi Nano | Serial   |
 | ------------- | -------- |
 |      E0       |   RX     |
 |      E1       |   TX     |
+
+
+
 
 
 
