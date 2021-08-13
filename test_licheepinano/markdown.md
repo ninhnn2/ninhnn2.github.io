@@ -35,6 +35,12 @@ Licheepi Nano là một bo mạch phát triển sử dụng linux có kích thư
 
 ![image](https://user-images.githubusercontent.com/86546911/129346162-67505f83-0954-43d4-af8e-a2af8c52e392.png)
 
+### Serial console debug
+
+| Licheepi Nano | Serial   |
+| ------------- | -------- |
+|      E0       |   RX     |
+|      E1       |   TX     |
 
 
 
