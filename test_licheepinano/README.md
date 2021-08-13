@@ -2,7 +2,7 @@
 sort: 1
 ---
 
-# Licheepi Nano
+# Embedded Linux Tutorial
 
 ```
 {% raw %}{% include list.liquid all=true %}{% endraw %}
