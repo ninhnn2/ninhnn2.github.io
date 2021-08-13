@@ -2,7 +2,7 @@
 sort: 1
 ---
 
-# Embedded Linux Tutorial
+# Embedded Linux Board
 
 ```
 {% raw %}{% include list.liquid all=true %}{% endraw %}
