@@ -2,7 +2,7 @@
 sort: 1
 ---
 
-# NGUYEN NHUT NINH
+# Embedded Linux System
 
 ```
 {% raw %}{% include list.liquid all=true %}{% endraw %}
