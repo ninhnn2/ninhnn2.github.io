@@ -45,7 +45,7 @@ Licheepi Nano có hỗ trợ chạy hệ điều hành trên thẻ nhớ và nor
 
 #### 1. Thiết bị cần chuẩn bị.
   - Một đầu đọc thẻ nhớ USB.
-  - Thẻ nhớ SDCARD có dung lượng 2GB trở lên.
+  - Thẻ nhớ micro sdcard có dung lượng 2GB trở lên.
   - Một máy tính cài hệ điều hành Ubuntu.
 
 
