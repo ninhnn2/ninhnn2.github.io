@@ -2,13 +2,13 @@
 sort: 1
 ---
 
-# Markdown Elements
+# Giới thiệu
 
-Text can be **bold**, _italic_, or ~~strikethrough~~. [Links](https://github.com) should be blue with no underlines (unless hovered over).
+## Lichee Nano là một bo mạch phát triển sử dụng Linux có kích thước bằng thẻ SD với nhân là bộ vi xử lý ARM9 Allwinner F1C100s.
 
-There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.
+## Thông số kỹ thuật chính
 
-There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.
+Chíp xử lý SoC- Allwinner F1C100s ARM926EJS tốc độ xung nhịp lên tới 900MHz.
 
 > There should be no margin above this first sentence.
 >
