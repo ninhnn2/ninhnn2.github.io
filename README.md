@@ -4,12 +4,17 @@
 FPT Telecom, IoT Department.                (2017 to Present)
 
 
-## What it does?
+## Skills
 
-This theme is inspired by [sphinx-rtd-theme](https://github.com/readthedocs/sphinx_rtd_theme) and refactored with:
-
-- [@primer/css](https://github.com/primer/css)
-- [github-pages](https://github.com/github/pages-gem) ([dependency versions](https://pages.github.com/versions/))
+- Good Knowledge & Work Experience in Embedded C/C++, ASM.
+- Expert Event-Driven Architecture programming.
+- Good Knowledge & Work Experience in STM MCU: RTOS, FOTA bootloader.
+- Good Knowledge & Work Experience: custom zigbee gateway, router, end device (CC253x, JN516x), ESPx, NRF518xx.
+- Good knowledge & Work Experience in Linux distro and Yocto development: IoT gateway, QT-HMI.
+- Good knowledge & Work Experience build Linux distro from scratch.
+- Good Knowledge & Work Experience in openwrt with mt7688.
+- Good Knowledge & Work Experience in Linux kernel, U-boot custom development.
+- Basic knowledge in bare-metal programming for bcm2835, am335x.
 
 ## Quick start
 
