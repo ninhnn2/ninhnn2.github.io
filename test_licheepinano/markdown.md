@@ -49,5 +49,16 @@ Licheepi Nano có hỗ trợ chạy hệ điều hành trên thẻ nhớ và nor
   - Một máy tính cài hệ điều hành Ubuntu.
 
 
-#### 2. Download bản cài hệ điều hành đã build sẵn.
+#### 2. Download bản rom cho Licheepi Nano
 - [`Licheepi Nano rom link`](https://mega.nz/file/Myp20YxZ#7GH6VL6gQFb6ywQPv-gALdYCResSTUQDG2RmtdAWigw)
+
+
+#### 3. Format thẻ nhớ với gparted
+- Install gparted
+```shell
+sudo apt-get install gparted
+```
+- Run gparted
+```shell
+sudo gparted
+```
