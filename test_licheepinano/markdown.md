@@ -6,6 +6,9 @@ sort: 1
 
 Lichee Nano là một bo mạch phát triển sử dụng Linux có kích thước bằng thẻ SD với nhân là bộ vi xử lý ARM9 Allwinner F1C100s.
 
+![image](https://user-images.githubusercontent.com/86546911/129333579-babb44fe-cbc0-4816-8a2a-40249187a8e3.png)
+
+
 ### Thông số kỹ thuật chính
 
 - Chip xử lý SoC- Allwinner F1C100s ARM926EJS tốc độ xung nhịp lên tới 900MHz.
