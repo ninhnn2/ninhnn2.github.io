@@ -4,7 +4,7 @@ sort: 1
 
 # Giới thiệu
 
-## Lichee Nano là một bo mạch phát triển sử dụng Linux có kích thước bằng thẻ SD với nhân là bộ vi xử lý ARM9 Allwinner F1C100s.
+### Lichee Nano là một bo mạch phát triển sử dụng Linux có kích thước bằng thẻ SD với nhân là bộ vi xử lý ARM9 Allwinner F1C100s.
 
 ### Thông số kỹ thuật chính
 
@@ -12,14 +12,9 @@ sort: 1
 - RAM – 32MB DDR tích hợp.
 - Bộ nhớ – Micro SD card, hoặc 16M SPI flash ( không hàn theo kit).
 - Hiển thị: 40-pin RGB LCD FPC, hỗ trợ độ phân giải 272×480, 480×800, 1024×600 hoặc tùy chỉnh, cảm ứng điện dung hoặc điện trở.
-
-
-
-> There should be no margin above this first sentence.
->
-> Blockquotes should be a lighter gray with a gray border along the left side.
->
-> There should be no margin below this final sentence.
+- Giải mã video – H.264 / MPEG 720p.
+- Dòng tiêu thụ – 54mA (chế độ chờ) với Linux OS, 250mA cho màn hình hiển thị.
+- Dải nhiệt độ – Bảo quản:: -40~125°C; Hoạt động: -20 to 70°C.
 
 # Header 1
 
