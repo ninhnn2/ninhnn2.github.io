@@ -43,7 +43,7 @@ Licheepi Nano là một bo mạch phát triển sử dụng linux có kích thư
 
 Licheepi Nano có hỗ trợ chạy hệ điều hành trên thẻ nhớ và norflash (8MB, 16MB, 32MB, ...), để dễ tiếp cận cho các bạn mới làm quen thì chúng ta sẽ chạy bo mạch bằng thẻ nhớ.
 
-#### 1. Thiết bị cần chuẩn bị.
+#### 1. Thiết bị cần chuẩn bị
   - Một đầu đọc thẻ nhớ USB.
   - Thẻ nhớ micro sdcard có dung lượng 2GB trở lên.
   - Một máy tính cài hệ điều hành Ubuntu.
