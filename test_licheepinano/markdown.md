@@ -2,7 +2,7 @@
 sort: 1
 ---
 
-# Licheepi Nano
+# Install OS Licheepi Nano
 
 
 ### Giới thiệu
