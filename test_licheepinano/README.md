@@ -2,7 +2,7 @@
 sort: 1
 ---
 
-# Embedded Linux Board
+# Lichee Pi Nano
 
 ```
 {% raw %}{% include list.liquid all=true %}{% endraw %}
