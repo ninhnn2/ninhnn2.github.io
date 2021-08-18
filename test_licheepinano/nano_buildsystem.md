@@ -21,13 +21,22 @@ Trên đây là các khái niệm cơ bản nhất cho mỗi embeded linux proje
 
 ### Get source Lichee Pi Nano build system
 
+Cái source build system này chỉ bao gồm 1 shell script và các config cần thiết, script sẽ download các toolchain, u-boot, linux kernel và buildroot cho Lichee Pi Nano.
+
+
+
+
+
+
 ```shell
 git clone https://github.com/ninhnn2/licheepi_nano_sdk.git
 
 cd licheepi_nano_sdk/
 
+# Download toolchain, u-boot, linux kernel, buildroot
 sudo ./build.sh pull_all
 
+# Bắt đầu quá trình config và tạo ra bản rom chạy trên sdcard cho Lichee Pi Nano
 sudo ./build.sh nano_tf
 ```
 
