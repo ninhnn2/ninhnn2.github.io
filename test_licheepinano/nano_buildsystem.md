@@ -5,8 +5,7 @@ sort: 2
 # LICHEE PI NANO BUILD SYSTEM
 
 ### Bốn thành phần của Embedded Linux
-Every project begins by obtaining, customizing, and deploying these four elements: the
-toolchain, the bootloader, the kernel, and the root filesystem.
+
 Mọi dự án đều bắt đầu từ việc tìm kiếm, tùy chỉnh và triển khai 4 yếu tố sau: toolchain, bootloader, kernel, root filesystem.
 
 [`Toolchain`](./): Trình biên dịch và các công cụ cần thiết để tạo mã code cho thiết bị target.
