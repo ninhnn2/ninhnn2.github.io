@@ -2,7 +2,7 @@
 sort: 1
 ---
 
-# INSTALL LICHEEPI NANO OS
+# INSTALL OS LICHEEPI NANO
 
 
 ### Giới thiệu
