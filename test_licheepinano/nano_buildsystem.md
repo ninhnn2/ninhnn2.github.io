@@ -23,8 +23,11 @@ Trên đây là các khái niệm cơ bản nhất cho mỗi embeded linux proje
 
 ```shell
 git clone https://github.com/ninhnn2/licheepi_nano_sdk.git
+
 cd licheepi_nano_sdk/
+
 sudo ./build.sh pull_all
+
 sudo ./build.sh nano_tf
 ```
 
