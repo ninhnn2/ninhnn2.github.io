@@ -31,4 +31,11 @@ sudo ./build.sh pull_all
 sudo ./build.sh nano_tf
 ```
 
-Sau khi quá trình build hoàn tất, rom sẽ được tạo ra tại thư mục output. Chúng ta chỉ việc dùng tools dd để flash rom vào sdcard.
+Sau khi quá trình build hoàn tất, rom sẽ được tạo ra tại thư mục output/image/lichee-nano-normal-size.img. Chúng ta chỉ việc dùng tools dd để flash rom vào sdcard.
+
+
+
+
+
+
+
