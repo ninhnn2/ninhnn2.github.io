@@ -17,12 +17,19 @@ Mọi dự án đều bắt đầu từ việc tìm kiếm, tùy chỉnh và tri
 [`Root filesystem`](./): Chứa các thư viện và chương trình được chạy sau khi kernel đã hoàn thành quá trình khởi tạo.
 
 Tất nhiên, còn có một yếu tố thứ năm, không được đề cập ở đây. Đó là tập hợp các chương trình dành riêng cho ứng dụng nhúng của bạn giúp thiết bị làm bất cứ điều gì mà nó phải làm, có thể là cân tự động, thu thập dữ liệu cảm biến, điều khiển robot, điều khiển máy bay không người lái.
-Trên đây là các khái niệm cơ bản nhất cho mỗi embeded linux project, các bài viết chuyên sâu về từng yếu tố sẽ được cập nhật vào các bài sau. Ở bài viết này chúng ta tập trung vào việc dùng build system để tạo một bản rom chạy trên board Lichee Pi Nano.
+Trên đây là các khái niệm cơ bản nhất cho mỗi embeded linux project, các bài viết chuyên sâu về từng yếu tố sẽ được cập nhật vào các bài sau. Ở bài viết này chúng ta tập trung vào việc dùng build system để tạo một bản rom chạy trên board LicheePi Nano.
 
-### Get source LicheePi Nano build system
+### LicheePi Nano Build System
 
-Dưới đây là repo bao gồm script và các config cần thiết để tạo rom cho LicheePi Nano, các bạn chỉ cần làm theo hướng dẫn dưới đây.
+#### Bao gồm các shell script và config cho U-boot, Linux Kernel và Buildroot.
 
+- U-boot: Bootloader hổ trợ LicheePi Nano
+
+- Linux kernel: Nhân Linux hổ trợ cpu Allwinner F1C100s trên board LicheePi Nano, ở đây mình dùng version 5.4.70.
+
+- Buildroot: Công cụ tạo ra root filesystem, thêm/bớt các ứng dụng tùy theo yêu cần của project.
+
+#### Tiến hành build rom cho LicheePi Nano
 
 ```shell
 git clone https://github.com/ninhnn2/licheepi_nano_sdk.git
