@@ -19,14 +19,9 @@ Mọi dự án đều bắt đầu từ việc tìm kiếm, tùy chỉnh và tri
 Tất nhiên, còn có một yếu tố thứ năm, không được đề cập ở đây. Đó là tập hợp các chương trình dành riêng cho ứng dụng nhúng của bạn giúp thiết bị làm bất cứ điều gì mà nó phải làm, có thể là cân tự động, thu thập dữ liệu cảm biến, điều khiển robot, điều khiển máy bay không người lái.
 Trên đây là các khái niệm cơ bản nhất cho mỗi embeded linux project, các bài viết chuyên sâu về từng yếu tố sẽ được cập nhật vào các bài sau. Ở bài viết này chúng ta tập trung vào việc dùng build system để tạo một bản rom chạy trên board Lichee Pi Nano.
 
-### Get source Lichee Pi Nano build system
+### Get source LicheePi Nano build system
 
-Cái source build system này chỉ bao gồm 1 shell script và các config cần thiết, script sẽ download các toolchain, u-boot, linux kernel và buildroot cho Lichee Pi Nano.
-
-
-
-
-
+Cái source build system này chỉ bao gồm 1 shell script và các config cần thiết, script sẽ download các toolchain, u-boot, linux kernel và buildroot cho LicheePi Nano.
 
 ```shell
 git clone https://github.com/ninhnn2/licheepi_nano_sdk.git
@@ -43,8 +38,4 @@ sudo ./build.sh nano_tf
 Sau khi quá trình build hoàn tất, rom sẽ được tạo ra tại thư mục output/image/lichee-nano-normal-size.img. Chúng ta chỉ việc dùng tools dd để flash rom vào sdcard.
 
 User/Pasword: root/000
-
-
-
-
 
