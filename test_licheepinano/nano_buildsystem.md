@@ -21,7 +21,8 @@ Trên đây là các khái niệm cơ bản nhất cho mỗi embeded linux proje
 
 ### Get source LicheePi Nano build system
 
-Cái source build system này chỉ bao gồm 1 shell script và các config cần thiết, script sẽ download các toolchain, u-boot, linux kernel và buildroot cho LicheePi Nano.
+Dưới đây là repo bao gồm script và các config cần thiết để tạo rom cho LicheePi Nano, các bạn chỉ cần làm theo hướng dẫn dưới đây.
+
 
 ```shell
 git clone https://github.com/ninhnn2/licheepi_nano_sdk.git
@@ -35,7 +36,11 @@ sudo ./build.sh pull_all
 sudo ./build.sh nano_tf
 ```
 
-Sau khi quá trình build hoàn tất, rom sẽ được tạo ra tại thư mục output/image/lichee-nano-normal-size.img. Chúng ta chỉ việc dùng tools dd để flash rom vào sdcard.
+Sau khi quá trình build hoàn tất, rom sẽ được tạo ra tại output/image/lichee-nano-normal-size.img. Chúng ta chỉ việc dùng tools dd để flash rom vào sdcard.
+
+```shell
+sudo dd bs=4M if=output/image/lichee-nano-normal-size.img of=/dev/sdx conv=fsync
+```
 
 User/Pasword: root/000
 
