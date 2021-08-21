@@ -74,7 +74,7 @@ sudo gparted
 - Sau khi format thẻ nhớ xong, chúng ta giữ nguyên và tiến hành flash rom vào thẻ nhớ bằng dd tool.
 
 ```shell
-       sudo dd bs=4M if=lichee-nano-normal-size .img of=/dev/sdb conv=fsync
+       sudo dd bs=4M if=lichee-nano-normal-size.img of=/dev/sdx conv=fsync
 ```
 
 - Flash xong chúng ta cắm thẻ vào Licheepi Nano và xem kết quả.
