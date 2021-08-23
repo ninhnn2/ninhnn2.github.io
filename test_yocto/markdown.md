@@ -6,7 +6,7 @@ sort: 1
 
 ### 1. Giới thiệu
 
-Yocto chỉ đơn giản là công cụ giúp build các thư viện, tools linux cần thiết rồi đóng gói tất cả lại thành root filesystem. Tài liệu thì rất nhiều các bạn có thể đọc trên trang chủ “yoctoproject.org”.
+Yocto chỉ đơn giản là công cụ giúp build các thư viện, tools, linux kernel, u-boot rồi đóng gói thành một bản rom linux yocto. Tài liệu thì rất nhiều các bạn có thể đọc trên trang chủ yoctoproject.org.
 
 ### 2. Tạo board support package layer cho một embeded linux board.
 
@@ -40,17 +40,17 @@ Dưới đây mình xin giải thích thêm về các câu lệnh bên trên nh�
 
 #### user# git clone -b zeus https://github.com/openembedded/meta-openembedded.git
 
-- Một layer meta chứa rất nhiều tools cần thiết cho linux, nó hầu như có tất cả các tools thông dụng chúng ta cần.
+- Một layer meta chứa rất nhiều tools, thư viện cần thiết cho linux, nó hầu như có tất cả những thứ chúng ta cần.
 
 #### user# git clone -b zeus https://github.com/meta-qt5/meta-qt5.git
 
-- Chính nó, một layer mà mình cần khi còn là sinh viên. Layer này giúp chúng ta biên dịch Qt 5 và install nó vào bản linux yocto của chúng ta.
+- Chính nó, một layer mà mình cần khi còn là sinh viên. Layer này giúp chúng ta biên dịch Qt5 và install nó vào rom linux yocto.
 
 #### user# source oe-init-build-env build-v3s
 
 - Đơn giản là lệnh chạy để khởi tạo các biến môi trường cho quá trình build yocto. Nó sẽ tạo ra một thư mục tên là build-v3s, trong thư mục  build-v3s lại có thư mục conf. Trong thư mục conf có 2 file quan trọng nhất khi chúng ta build yocto đó là “local.conf” và bblayers.conf.
 
-- local.conf: File này giúp chúng ta define machine (board) nào mà mình muốn sữ dụng. Thêm các tools, package, lib, init system nào mình muốn thêm vào bản rom linux yocto.
+- local.conf: File này giúp chúng ta define machine (board) nào mà mình muốn sử dụng. Thêm các tools, package, lib, init system nào mình muốn thêm vào bản rom linux yocto.
 
 - bblayers.conf: File này để khai báo đường dẫn layer nào mình muốn sử dụng. Giả sử mình muốn dùng meta-python thì mình phải add đường dẫn meta-python vào file này.
 
@@ -68,7 +68,7 @@ Dưới đây mình xin giải thích thêm về các câu lệnh bên trên nh�
 
 #### user# bitbake qt5-image
 
-- Rồi tiến hành build bản image “qt5-image” có sẳn Qt 5 để sử dụng cho board V3S.
+- Tiến hành build image “qt5-image” có sẳn Qt 5 để sử dụng cho board V3S.
 
 -  qt5-image: cũng là một bb file nhưng đặc biệt cái là trong đây mình có thể khai báo các tools hay thư viện mình muốn bỏ vào rom yocto linux như file local.conf luôn. Khác nhau thế nào hồi sau sẽ rõ nhé.
 
