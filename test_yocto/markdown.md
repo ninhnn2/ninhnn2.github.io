@@ -31,8 +31,7 @@ user# bitbake qt5-image
 
 Chỉ đơn giản vậy thôi bạn đã có thể build yocto cho board licheepi zero hoặc board linux nào đó dùng cpu Allwinner V3S.
 
-Ở đây mình xin giải thích thêm với lượng kiến thức ít ỏi của mình sẽ giúp cho các bạn hiểu thêm về các câu lệnh chả hiểu gì trên đây.
-
+Dưới đây mình xin giải thích thêm về các câu lệnh bên trên nhé
 
 ### user# git clone -b zeus git://git.yoctoproject.org/poky.git
 
