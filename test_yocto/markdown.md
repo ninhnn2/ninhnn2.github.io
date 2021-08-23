@@ -73,6 +73,3 @@ Dưới đây mình xin giải thích thêm về các câu lệnh bên trên nh�
 -  qt5-image: cũng là một bb file nhưng đặc biệt cái là trong đây mình có thể khai báo các tools hay thư viện mình muốn bỏ vào rom yocto linux như file local.conf luôn. Khác nhua thế nào hồi sau sẽ rõ nhé.
 
 
-
-
-## Nếu có sai sót về kiến thức đâu đó thì các bạn ddwungf ngại gửi mail cho mình nhé: nguyennhutninh@gmail.com
