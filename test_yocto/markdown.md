@@ -70,6 +70,6 @@ Dưới đây mình xin giải thích thêm về các câu lệnh bên trên nh�
 
 - Rồi tiến hành build bản image “qt5-image” có sẳn Qt 5 để sử dụng cho board V3S.
 
--  qt5-image: cũng là một bb file nhưng đặc biệt cái là trong đây mình có thể khai báo các tools hay thư viện mình muốn bỏ vào rom yocto linux như file local.conf luôn. Khác nhua thế nào hồi sau sẽ rõ nhé.
+-  qt5-image: cũng là một bb file nhưng đặc biệt cái là trong đây mình có thể khai báo các tools hay thư viện mình muốn bỏ vào rom yocto linux như file local.conf luôn. Khác nhau thế nào hồi sau sẽ rõ nhé.
 
 
