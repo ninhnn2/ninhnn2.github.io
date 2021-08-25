@@ -10,7 +10,7 @@ Yocto chỉ đơn giản là công cụ giúp build các thư viện, tools, lin
 
 ### 2. Tạo board support package layer cho một embeded linux board.
 
-Khí mới biết đến Yocto thì mình thường chỉ xem hướng dẫn của người khác trên mạng để build Yocto cho raspberry và beanglebone black. Mình tìm đến Yocto vì khi ấy đang học viết ứng dụng có giao diện cho board beglebone black mà không tài nào biên dịch được Qt Creator version 5 cho beglebone black. Thấy trên mạng có chỉ hướng dẫn build yocto có sẳn Qt 5 trên đó luôn và bắt đầu mày mò làm theo.
+Khí mới biết đến Yocto thì mình thường chỉ xem hướng dẫn của người khác trên mạng để build Yocto cho raspberry và beanglebone black. Mình tìm đến Yocto vì khi ấy đang học viết ứng dụng có giao diện cho board beglebone black mà không tài nào biên dịch được Qt Creator version 5 cho beglebone black. Thấy trên mạng có hướng dẫn build yocto có sẳn Qt5 nên đã mày mò làm theo.
 
 #### Thường trên mạng sẽ có các hướng dẫn build yocto cho một board nào đó như sau:
 
