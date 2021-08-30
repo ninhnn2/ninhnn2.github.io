@@ -34,7 +34,7 @@ make
 #### Copy blink app và thư viện lên LicheePi Nano
 Lưu ý
 
-- Nếu các bạn dùng rom được tạo ra từ licheepi nano sdk thì đã cs sẳn thư viện libfagpio, còn không các bạn phải copy file libfagpio.so cùng với app blink lên board.
+- Nếu các bạn dùng rom được tạo ra từ licheepi nano sdk thì đã có sẳn thư viện libfagpio, còn không các bạn phải copy file libfagpio.so cùng với app blink lên board.
 
 - Với bản rom dành cho norflash, các bạn copy thư viện và blink app lên thư mục "/rom/work"
 
