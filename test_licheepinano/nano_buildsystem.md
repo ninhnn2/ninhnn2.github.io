@@ -27,7 +27,7 @@ Trên đây là các khái niệm cơ bản nhất cho mỗi embeded linux proje
 
 - Linux kernel: Nhân Linux hổ trợ cpu Allwinner F1C100s trên board LicheePi Nano, ở đây mình dùng version 5.4.70.
 
-- Buildroot: Công cụ tạo ra root filesystem, thêm/bớt các ứng dụng tùy theo yêu cần của project.
+- Buildroot: Công cụ tạo ra root filesystem, thêm/bớt các ứng dụng tùy theo yêu cầu của project.
 
 #### Tiến hành build rom cho LicheePi Nano
 
