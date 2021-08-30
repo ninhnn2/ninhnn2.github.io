@@ -20,13 +20,23 @@ git clone https://github.com/ninhnn2/licheepi_nano_gpio.git
 
 cd licheepi_nano_gpio/
 
-# Biên dịch thư viện fagpio
+# Biên dịch thư viện fagpio, sau khi biên dịch sẽ tạo ra file thư viện libfagpio.so.
 make
+
+# Copy thư viện libfagpio và file header fagpio.h vào thư mục blink
+cp libfagpio.so fagpio.h  examples/
 
 # Đi tới example blink led
 cd examples/blink/
 
-# Biên dịch blink app
+# Biên dịch blink app và copy lên LicheePi Nano
 make
+
+# Run blink app
+./blink
 ```
+
+### Kết quả test gpio
+
+![gpio](https://user-images.githubusercontent.com/41134638/131280433-b473e640-51d3-4ea8-a563-22d0e42955bf.png)
 
