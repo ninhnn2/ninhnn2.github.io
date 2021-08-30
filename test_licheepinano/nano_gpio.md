@@ -1,7 +1,6 @@
 ---
 sort: 3
 ---
-
 # LICHEE PI NANO GPIO LIBRARY
 
 ### Ví dụ điều khiển gpio trên LicheePi Nano
@@ -24,19 +23,28 @@ cd licheepi_nano_gpio/
 make
 
 # Copy thư viện libfagpio và file header fagpio.h vào thư mục blink
-cp libfagpio.so fagpio.h  examples/
+cp libfagpio.so fagpio.h  examples/blink/
 
 # Đi tới example blink led
 cd examples/blink/
 
 # Biên dịch blink app và copy lên LicheePi Nano
 make
+```
+#### Copy blink app và thư viện lên LicheePi Nano
+Lưu ý
 
-# Run blink app
-./blink
+- Nếu các bạn dùng rom được tạo ra từ licheepi nano sdk thì đã cs sẳn thư viện libfagpio, còn không các bạn phải copy file libfagpio.so cùng với app blink lên board.
+
+- Với bản rom dành cho norflash, các bạn copy thư viện và blink app lên thư mục "/rom/work"
+
+#### Run app
+
+```shell
+LD_LIBRARY_PATH=./ ./blink
 ```
 
-### Kết quả test gpio
+#### Kết quả test gpio
 
 ![gpio](https://user-images.githubusercontent.com/41134638/131280433-b473e640-51d3-4ea8-a563-22d0e42955bf.png)
 
