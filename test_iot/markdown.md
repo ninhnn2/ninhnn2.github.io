@@ -2,7 +2,7 @@
 sort: 1
 ---
 
-# Cross-compile application for embeded linux
+# CROSS-COMPILE APPLICATION FOR EMBEDDED SYSTEM
 
 #### Hardware
 
