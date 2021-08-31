@@ -48,7 +48,7 @@ Dưới đây mình xin giải thích thêm về các câu lệnh bên trên nh�
 
 #### user# source oe-init-build-env build-v3s
 
-- Đơn giản là lệnh chạy để khởi tạo các biến môi trường cho quá trình build yocto. Nó sẽ tạo ra một thư mục tên là build-v3s, trong thư mục  build-v3s lại có thư mục conf. Trong thư mục conf có 2 file quan trọng nhất khi chúng ta build yocto đó là “local.conf” và bblayers.conf.
+- Đơn giản là lệnh chạy để khởi tạo các biến môi trường cho quá trình build yocto. Nó sẽ tạo ra một thư mục tên là build-v3s, trong thư mục  build-v3s lại có thư mục conf. Trong thư mục conf có 2 file quan trọng nhất khi chúng ta build yocto đó là local.conf và bblayers.conf.
 
 - local.conf: File này giúp chúng ta define machine (board) nào mà mình muốn sử dụng. Thêm các tools, package, lib, init system nào mình muốn thêm vào bản rom linux yocto.
 
