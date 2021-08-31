@@ -2,13 +2,14 @@
 sort: 1
 ---
 
-# Biên dịch chéo một ứng dụng linux
+# Cross-compile application for embeded linux
 
-#### Phần cứng
+#### Hardware
+
+Hisilicon HI3518
 
 Processor Core
 ARM926@540 MHz, 32 KB I-cache, 32 KB D-cache
-
 
 #### openssl library
 ```shell
@@ -67,17 +68,12 @@ Compress midware directory and copy to target
 sudo tar -cvjSf ./midware.tar.gz /mnt/midware
 ```
 
-#
-#
-# Compile IoT C app with Openssl and Mosquitto
-#
-#
+### Compile IoT C app with Openssl and Mosquitto
 
 #### Create a folder with 2 files below file
   
 - Makefile
 - mosq.c
-
 
 #### Makefile
 ```shell
