@@ -2,15 +2,15 @@
 sort: 1
 ---
 
-# The platform I use to compile the library is a specialized hi3518ev200 cpu for making cameras.
+# Biên dịch chéo một ứng dụng linux
 
-### Hardware specification
+#### Phần cứng
 
 Processor Core
 ARM926@540 MHz, 32 KB I-cache, 32 KB D-cache
 
 
-#### Openssl library
+#### openssl library
 ```shell
 wget --no-check-certificate https://github.com/openssl/openssl/archive/refs/tags/OpenSSL_1_0_2u.tar.gz
 
@@ -26,7 +26,7 @@ sudo make install
 ```
 
 
-#### Mosquitto library
+#### mosquitto library
 ```shell
  Mosquitto requires the openssl library to compile
     
