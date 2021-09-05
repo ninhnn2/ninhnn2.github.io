@@ -2,7 +2,7 @@
 sort: 2
 ---
 
-# TỰ TẠO LINUX DISTRO CHO LICHEEPI NANO VỚI BUILDROOT
+# TỰ TẠO LINUX DISTROS CHO LICHEEPI NANO VỚI BUILDROOT
 
 ### Bốn thành phần của Embedded Linux
 
