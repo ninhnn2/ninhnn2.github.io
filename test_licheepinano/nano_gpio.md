@@ -1,7 +1,7 @@
 ---
 sort: 3
 ---
-# LICHEE PI NANO GPIO
+# LẬP TRÌNH GPIO TRÊN KIT LICHEEPI NANO
 
 ### Ví dụ điều khiển gpio trên LicheePi Nano
 Ví dụ này sử dụng device driver “/dev/mem”, giúp chúng ta truy cập vào không gian địa chỉ vật lý, ở đây mình sẽ truy cập vào vùng nhớ vật lý điều khiển GPIO trên board LicheePi Nano.
