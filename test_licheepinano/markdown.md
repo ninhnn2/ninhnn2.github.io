@@ -2,7 +2,7 @@
 sort: 1
 ---
 
-# INSTALL OS LICHEEPI NANO
+# CÀI ĐẶT LINUX CHO KIT LICHEEPI NANO
 
 
 ### Giới thiệu
@@ -77,5 +77,5 @@ sudo gparted
        sudo dd bs=4M if=lichee-nano-normal-size.img of=/dev/sdx conv=fsync
 ```
 
-- Flash xong chúng ta cắm thẻ vào Licheepi Nano và xem kết quả.
+- Flash xong chúng ta cắm thẻ vào kit Licheepi Nano và xem kết quả.
 
