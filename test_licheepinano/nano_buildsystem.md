@@ -2,7 +2,7 @@
 sort: 2
 ---
 
-# LICHEE PI NANO BUILD SYSTEM
+# TỰ TẠO LINUX DISTRO CHO LICHEEPI NANO VỚI BUILDROOT
 
 ### Bốn thành phần của Embedded Linux
 
