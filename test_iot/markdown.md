@@ -2,7 +2,7 @@
 sort: 1
 ---
 
-# BIÊN DỊCH CHÉO MỘT ỨNG DỤNG CHO HỆ THỐNG NHÚNG LINUX
+# BIÊN DỊCH CHÉO MỘT ỨNG DỤNG CHO EMBEDED COMPUTER
 
 #### Hardware
 
