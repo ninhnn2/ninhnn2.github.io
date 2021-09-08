@@ -235,8 +235,11 @@ make -j8
 
 
 #### On target export library path
+Vì thư viện mình để ở "mnt/midware/lib", một đường dẫn riêng do mình tạo ra, nên để file thực thi biết thư viện ở đâu chúng ta cần export đường dẫn "mnt/midware/lib" vào biến môi trường "LD_LIBRARY_PATH"
+
+
 ```shell
-export LD_LIBRARY_PATH=midware/lib
+export LD_LIBRARY_PATH=/midware/lib
 ```
 
 
@@ -244,6 +247,3 @@ export LD_LIBRARY_PATH=midware/lib
 ```shell
 ./mosq
 ```
-
-
-
