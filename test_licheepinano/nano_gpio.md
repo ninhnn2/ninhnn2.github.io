@@ -4,17 +4,16 @@ sort: 3
 # LẬP TRÌNH GPIO TRÊN KIT LICHEEPI NANO
 
 ### Ví dụ điều khiển gpio trên LicheePi Nano
-Bài viết này sử dụng device driver “/dev/mem” trong linux kernel giúp chúng ta truy cập vào không gian địa chỉ vật lý
+Thư viện gpio này sử dụng device driver “/dev/mem” trong linux kernel giúp chúng ta truy cập vào không gian địa chỉ vật lý.
 
 #### Hổ trợ chức năng cơ bản:
 Điều khiển gpio output/input (E2-E7)
 Các gpio khác dành cho chức năng uart, i2c và spi hiện tại chưa hổ trợ với thư viện này.
 
 #### Tải thư viện:
-Trong repo có sẳn compiler được tạo ra trong quá trình build buildroot.
+Trong repo có sẳn compiler được tạo ra trong quá trình build buildroot. Thư mục thư viện và examples đều có các Makefile khai báo trình biên dịch.
 
 ```shell
-# Clone repo về máy tính
 git clone https://github.com/ninhnn2/licheepi_nano_gpio.git
 
 cd licheepi_nano_gpio/
@@ -25,11 +24,9 @@ make
 # Copy thư viện libfagpio và file header fagpio.h vào thư mục blink
 cp libfagpio.so fagpio.h  examples/blink/
 
-# Đi tới example blink led
+# Biên dịch example blink app
 cd examples/blink/
-
-# Biên dịch blink app và copy lên LicheePi Nano
-make
+make -j8
 ```
 #### Copy blink app và thư viện lên LicheePi Nano
 Lưu ý
@@ -39,6 +36,7 @@ Lưu ý
 - Với bản rom dành cho norflash, các bạn copy thư viện và blink app lên thư mục "/rom/work"
 
 #### Run app
+LD_LIBRARY_PATH=./: khai báo đường dẫn thư viện fagpio là vị trí hiện tại cùng thư mục với blink app
 
 ```shell
 LD_LIBRARY_PATH=./ ./blink
