@@ -28,6 +28,41 @@ cp libfagpio.so fagpio.h  examples/blink/
 cd examples/blink/
 make -j8
 ```
+
+#### Blink app
+```shell
+#include <stdio.h>
+#include "fagpio.h"         // include thư viện fagpio
+
+int main(void) {
+
+	fagpio_setup();           // hàm khởi tạo cho phép truy cập vùng nhớ vật lý
+
+	pinMode(3, 0);            // Set GPIOE3 output
+	pinMode(4, 0);            
+	pinMode(5, 0);            
+
+	while(1) {
+
+		digitalWrite(3, 1);     // Set high GPIOE3
+		digitalWrite(4, 1);
+		digitalWrite(5, 1);
+
+		usleep(118);
+
+		digitalWrite(3, 0);     // Set lơ GPIOE3
+		digitalWrite(4, 0);
+		digitalWrite(5, 0);
+
+		usleep(118);
+	}
+
+	fagpio_free();
+
+	return 0;
+}
+```
+
 #### Copy blink app và thư viện lên LicheePi Nano
 Lưu ý
 
