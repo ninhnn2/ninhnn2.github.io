@@ -23,9 +23,9 @@ Trên đây là các khái niệm cơ bản nhất cho mỗi embeded linux proje
 
 #### Bao gồm các shell script và config cho U-boot, Linux Kernel và Buildroot.
 
-- U-boot: Bootloader hổ trợ LicheePi Nano
+- U-boot: Bootloader hổ trợ   cpu Allwinner F1C100s LicheePi Nano.
 
-- Linux kernel: Nhân Linux hổ trợ cpu Allwinner F1C100s trên board LicheePi Nano, ở đây mình dùng version 5.4.70.
+- Linux kernel: Nhân Linux hổ trợ cpu Allwinner F1C100s trên board LicheePi Nano, ở đây mình dùng version 5.4.77.
 
 - Buildroot: Công cụ tạo ra root filesystem, thêm/bớt các ứng dụng tùy theo yêu cầu của project.
 
