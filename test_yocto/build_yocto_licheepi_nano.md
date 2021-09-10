@@ -76,13 +76,22 @@ user# source oe-init-build-env build-f1c100s
 user# vim conf/local.conf
 ```
 
-Giả sử mình muốn thêm thư viện mosquitto để viết app sử dung giao thức mqtt thì thêm các dòng sau vào file local.conf
+- Giả sử mình muốn thêm thư viện mosquitto để viết app sử dung giao thức mqtt thì chúng ta thêm các dòng sau vào file local.conf
 
 ```shell
 IMAGE_INSTALL_append += " \
         mosquitto \
 "
 ```
+
+- Yocto cho phép chúng ta chọn số luồng cpu để build, luồng càng nhiều thì build càng nhanh (nếu chạy full luồng trên máy thì dễ khiến máy treo). Thêm 2 dòng sau vào local.conf, số "3" là số luồng chúng ta muốn sử dụng để build.
+
+```shell
+BB_NUMBER_THREADS ?= "3"
+PARALLEL_MAKE ?= "-j 3"
+```
+
+
 
 Tiếp tục chúng ta tiến hành build như bình thường.
 
