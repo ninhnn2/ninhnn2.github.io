@@ -2,7 +2,7 @@
 sort: 2
 ---
 
-# HƯỚNG DẪN BUILD YOCTO CHO BOARD LICHEEPI NANO
+# 1. HƯỚNG DẪN BUILD YOCTO CHO BOARD LICHEEPI NANO
 
 
 #### Cài đặt môi trường development cho Ubuntu 20.04
@@ -20,8 +20,7 @@ sudo apt-get install cpio python2 python2.7 -y
 ```
 
 
-#### Lấy source và tiến hành build yocto cho board LicheePi Nano
-
+#### 2. Lấy source và tiến hành build yocto cho board LicheePi Nano
 
 
 ```shell
@@ -50,6 +49,22 @@ user# cp ../meta-f1c100s/conf/sample/local.conf.sample ./conf/local.conf
 # Tiến hành build
 user# bitbake core-image-minimal
 ```
+File rom sau khi hoàng thành quá trình build
+
+```shell
+# tmp/deploy/images/f1c100s/core-image-minimal-f1c100s-20210909112750.rootfs.sunxi-sdimg.img
+```
+
+#### 3. Flash rom vào sdcard
+
+```shell
+cd tmp-glibc/deploy/images/f1c100s/
+
+sudo đ bs=4M if=core-image-minimal-f1c100s-20210909112750.rootfs.sunxi-sdimg.img of=/dev/sdx conv=fsync
+
+```
+
+#### 4. Thêm package vào rom
 
 
 
