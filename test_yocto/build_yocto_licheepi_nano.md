@@ -52,14 +52,14 @@ user# bitbake core-image-minimal
 File image sau khi hoàn thành quá trình build
 
 ```shell
-# tmp/deploy/images/f1c100s/core-image-minimal-f1c100s-20210909112750.rootfs.sunxi-sdimg.img
+tmp/deploy/images/f1c100s/core-image-minimal-f1c100s-20210909112750.rootfs.sunxi-sdimg.img
 ```
 
 #### 3. Flash image vào sdcard
 
 ```shell
-cd tmp-glibc/deploy/images/f1c100s/
-sudo đ bs=4M if=core-image-minimal-f1c100s-20210909112750.rootfs.sunxi-sdimg.img of=/dev/sdx conv=fsync
+cd tmp/deploy/images/f1c100s/
+sudo dd bs=4M if=core-image-minimal-f1c100s-20210909112750.rootfs.sunxi-sdimg.img of=/dev/sdx conv=fsync
 ```
 
 #### 4. Thêm tool và thư viện vào image
