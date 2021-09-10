@@ -48,7 +48,7 @@ user# cp ../meta-f1c100s/conf/sample/bblayers.conf.sample ./conf/bblayers.conf
 user# cp ../meta-f1c100s/conf/sample/local.conf.sample ./conf/local.conf
 
 # Tiến hành build
-user# bitbake qt5-image
+user# bitbake core-image-minimal
 ```
 
 
