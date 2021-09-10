@@ -59,12 +59,35 @@ File image sau khi hoàn thành quá trình build
 
 ```shell
 cd tmp-glibc/deploy/images/f1c100s/
-
 sudo đ bs=4M if=core-image-minimal-f1c100s-20210909112750.rootfs.sunxi-sdimg.img of=/dev/sdx conv=fsync
-
 ```
 
-#### 4. Thêm package vào image
+#### 4. Thêm tool và thư viện vào image
+
+##### Bước 1:  Tìm tên một tool hoặc thư viện được hổ trợ bởi layer meta-openembeded các bạn truy cập vào trang này:
+
+- https://layers.openembedded.org/layerindex/branch/zeus/recipes/
+
+##### Bước 2: Thêm tool, thư viện vào file local.conf
+```shell
+user# cd
+user# cd yocto/poky/
+user# source oe-init-build-env build-f1c100s
+user# vim conf/local.conf
+```
+
+Giả sử mình muốn thêm thư viện mosquitto để viết app sử dung giao thức mqtt thì thêm các dòng sau vào file local.conf
+
+```shell
+IMAGE_INSTALL_append += " \
+        mosquitto \
+"
+```
+
+Tiếp tục chúng ta tiến hành build như bình thường.
+
+
+
 
 
 
