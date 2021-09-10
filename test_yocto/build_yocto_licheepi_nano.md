@@ -30,14 +30,27 @@ user# mkdir yocto
 user# cd yocto
 user# git clone -b zeus git://git.yoctoproject.org/poky.git
 user# cd poky
+
+# meta layer hổ trợ hầu hết các tools, thư viện cần thiết cho một distro linux
 user# git clone -b zeus https://github.com/openembedded/meta-openembedded.git
+
+# meta layer support compile qt5 và install vào rom cho LicheePi Nano
 user# git clone -b zeus https://github.com/meta-qt5/meta-qt5.git
+
+# meta layer hổ trợ cho board LicheePi Nano (Linux kernel, u-boot)
 user# git clone -b zeus https://github.com/ninhnn2/meta-f1c100s.git
+
+# Khởi tạo môi môi trường build yocto 
 user# source oe-init-build-env build-f1c100s
+
+# copy các config example mình đã chuẩn bị sẵn
 user# cp ../meta-f1c100s/conf/sample/bblayers.conf.sample ./conf/bblayers.conf
 user# cp ../meta-f1c100s/conf/sample/local.conf.sample ./conf/local.conf
+
+# Tiến hành build
 user# bitbake qt5-image
 ```
+
 
 
 
