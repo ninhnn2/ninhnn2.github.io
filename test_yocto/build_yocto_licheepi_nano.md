@@ -49,13 +49,13 @@ user# cp ../meta-f1c100s/conf/sample/local.conf.sample ./conf/local.conf
 # Tiến hành build
 user# bitbake core-image-minimal
 ```
-File rom sau khi hoàng thành quá trình build
+File image sau khi hoàn thành quá trình build
 
 ```shell
 # tmp/deploy/images/f1c100s/core-image-minimal-f1c100s-20210909112750.rootfs.sunxi-sdimg.img
 ```
 
-#### 3. Flash rom vào sdcard
+#### 3. Flash image vào sdcard
 
 ```shell
 cd tmp-glibc/deploy/images/f1c100s/
@@ -64,7 +64,7 @@ sudo đ bs=4M if=core-image-minimal-f1c100s-20210909112750.rootfs.sunxi-sdimg.im
 
 ```
 
-#### 4. Thêm package vào rom
+#### 4. Thêm package vào image
 
 
 
