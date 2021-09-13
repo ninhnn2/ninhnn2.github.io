@@ -66,7 +66,7 @@ sudo dd bs=4M if=core-image-minimal-f1c100s-20210909112750.rootfs.sunxi-sdimg.im
 
 ##### Bước 1:  Tìm tên một tool hoặc thư viện được hổ trợ bởi layer meta-openembeded các bạn truy cập vào trang này:
 
-- https://layers.openembedded.org/layerindex/branch/zeus/recipes/
+https://layers.openembedded.org/layerindex/branch/zeus/recipes/
 
 ##### Bước 2: Thêm tool, thư viện vào file local.conf
 ```shell
@@ -76,7 +76,7 @@ user# source oe-init-build-env build-f1c100s
 user# vim conf/local.conf
 ```
 
-- Giả sử mình muốn thêm thư viện mosquitto để viết app sử dung giao thức mqtt thì chúng ta thêm các dòng sau vào file local.conf
+Giả sử mình muốn thêm thư viện mosquitto để viết app sử dung giao thức mqtt thì chúng ta thêm các dòng sau vào file local.conf
 
 ```shell
 IMAGE_INSTALL_append += " \
@@ -84,7 +84,7 @@ IMAGE_INSTALL_append += " \
 "
 ```
 
-- Yocto cho phép chúng ta chọn số luồng cpu để build, luồng càng nhiều thì build càng nhanh (nếu chạy full luồng trên máy thì dễ khiến máy treo). Thêm 2 dòng sau vào local.conf, số "3" là số luồng chúng ta muốn sử dụng để build.
+Yocto cho phép chúng ta chọn số luồng cpu để build, luồng càng nhiều thì build càng nhanh (nếu chạy full luồng trên máy thì dễ khiến máy treo). Thêm 2 dòng sau vào local.conf, số "3" là số luồng chúng ta muốn sử dụng để build.
 
 ```shell
 BB_NUMBER_THREADS ?= "3"
