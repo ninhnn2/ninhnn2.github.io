@@ -5,7 +5,7 @@ sort: 1
 # HƯỚNG DẪN BUILD YOCTO CHO BOARD LICHEEPI NANO
 
 
-#### Bước 1. Cài đặt môi trường development cho Ubuntu 20.04
+#### 1. Cài đặt môi trường development cho Ubuntu 20.04
 Sau đây là các list package mà mình thường install trong quá trình development
 
 ```shell
@@ -92,7 +92,7 @@ PARALLEL_MAKE ?= "-j 3"
 ```
 
 
-##### Bước 3: Set password cho user root và tạo thêm user mới.
+##### 5. Set password cho user root và tạo thêm user mới.
 
 ```shell
 EXTRA_IMAGE_FEATURES += "debug-tweaks "
