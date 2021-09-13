@@ -18,7 +18,11 @@ FPT Telecom, IoT Department.                (2017 to Present)
 
 
 
-Personal Project
+
+
+
+## Personal Project
+
 
 <iframe width="560" height="315" src="https://youtu.be/XeEEIfbIYdg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
