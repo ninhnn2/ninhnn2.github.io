@@ -1,5 +1,5 @@
 ---
-sort: 2
+sort: 1
 ---
 
 # HƯỚNG DẪN BUILD YOCTO CHO BOARD LICHEEPI NANO
