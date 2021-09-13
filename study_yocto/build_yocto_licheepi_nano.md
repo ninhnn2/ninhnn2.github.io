@@ -93,7 +93,7 @@ BB_NUMBER_THREADS ?= "3"
 PARALLEL_MAKE ?= "-j 3"
 ```
 
-##### 6. Set password cho user root và tạo thêm user mới.
+#### 6. Set password cho user root và tạo thêm user mới
 
 ```shell
 EXTRA_IMAGE_FEATURES += "debug-tweaks "
