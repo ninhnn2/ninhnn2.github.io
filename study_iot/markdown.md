@@ -130,7 +130,8 @@ $(OBJ_DIR)/$(NAME_MODULE): $(OBJ)
 clean:
 	@echo rm -rf $(OBJ_DIR)
 	@rm -rf $(OBJ_DIR)
-
+	
+.PHONY: copy
 copy:
 	ncftpput -u root -p 000 192.168.1.111 /opt/fanning/ build_$(NAME_MODULE)/mosq
 	ncftpput -u root -p 000 192.168.1.111 /opt/fanning/ midware.tar.gz
