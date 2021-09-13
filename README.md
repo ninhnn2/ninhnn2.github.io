@@ -16,6 +16,13 @@ FPT Telecom, IoT Department.                (2017 to Present)
 - Basic knowledge in bare-metal programming for BCM2835, AM335x.
 
 
+
+
+Personal Project
+
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=XeEEIfbIYdg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
 ## The license
 
 The theme is available as open source under the terms of the MIT License
