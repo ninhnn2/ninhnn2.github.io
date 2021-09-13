@@ -64,11 +64,12 @@ sudo dd bs=4M if=core-image-minimal-f1c100s-20210909112750.rootfs.sunxi-sdimg.im
 
 #### 4. Thêm tool và thư viện vào image
 
-##### Bước 1:  Tìm tên một tool hoặc thư viện được hổ trợ bởi layer meta-openembeded các bạn truy cập vào trang này:
+Tìm tên một tool hoặc thư viện được hổ trợ bởi layer meta-openembeded các bạn truy cập vào trang này:
 
 https://layers.openembedded.org/layerindex/branch/zeus/recipes/
 
-##### Bước 2: Thêm tool, thư viện vào file local.conf
+Thêm tên tool hoặc thư viện vào file local.conf
+
 ```shell
 user# cd
 user# cd yocto/poky/
@@ -83,6 +84,7 @@ IMAGE_INSTALL_append += " \
         mosquitto \
 "
 ```
+#### 5 Cài đặt resource máy tính để build yocto
 
 Yocto cho phép chúng ta chọn số tác vụ tối đa mà Bitbake và make có thể chạy song song, luồng song song chạy càng nhiều thì build càng nhanh (lưu ý nếu chạy full luồng trên máy thì dễ khiến máy treo nếu bạn còn dùng máy với các phần mềm nặng khác). Thêm 2 dòng sau vào local.conf.
 
@@ -91,8 +93,7 @@ BB_NUMBER_THREADS ?= "3"
 PARALLEL_MAKE ?= "-j 3"
 ```
 
-
-##### 5. Set password cho user root và tạo thêm user mới.
+##### 6. Set password cho user root và tạo thêm user mới.
 
 ```shell
 EXTRA_IMAGE_FEATURES += "debug-tweaks "
@@ -105,5 +106,4 @@ EXTRA_USERS_PARAMS += "useradd -P 000 fanning;"
 # Add user fanning vào group sudo (để dùng sudo các bạn cần add thêm recipe tên là sudo như trong bước 2)
 EXTRA_USERS_PARAMS += "usermod -a -G sudo fanning;"
 ```
-
 
