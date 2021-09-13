@@ -108,7 +108,7 @@ EXTRA_USERS_PARAMS += "usermod -a -G sudo fanning;"
 ```
 Sau khi thêm các cài đặt mà chúng ta cần ở image cho board LicheePi Nano, chúng ta save file local.conf và rebuild yocto với lệnh sau.
 
-shell```
+```shell
 user# bitbake core-image-minimal
 ```
 
