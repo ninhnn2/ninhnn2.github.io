@@ -84,7 +84,7 @@ IMAGE_INSTALL_append += " \
 "
 ```
 
-Yocto cho phép chúng ta chọn số luồng cpu để build, luồng càng nhiều thì build càng nhanh (nếu chạy full luồng trên máy thì dễ khiến máy treo). Thêm 2 dòng sau vào local.conf, số "3" là số luồng chúng ta muốn sử dụng để build.
+Yocto cho phép chúng ta chọn số tác vụ tối đa mà Bitbake và make có thể chạy song song, luồng song song chạy càng nhiều thì build càng nhanh (lưu ý nếu chạy full luồng trên máy thì dễ khiến máy treo nếu bạn còn dùng máy với các phần mềm nặng khác). Thêm 2 dòng sau vào local.conf.
 
 ```shell
 BB_NUMBER_THREADS ?= "3"
@@ -92,14 +92,18 @@ PARALLEL_MAKE ?= "-j 3"
 ```
 
 
+##### Bước 3: Set password cho user root và tạo thêm user mới.
 
-Tiếp tục chúng ta tiến hành build như bình thường.
+```shell
+EXTRA_IMAGE_FEATURES += "debug-tweaks "
+INHERIT += "extrausers"
 
-
-
-
-
-
-
+# Set pasword cho user root là 000
+EXTRA_USERS_PARAMS  = "usermod -P 000 root; "
+# Thêm 1 user tên là fanning
+EXTRA_USERS_PARAMS += "useradd -P 000 fanning;"
+# Add user fanning vào group sudo (để dùng sudo các bạn cần add thêm recipe tên là sudo như trong bước 2)
+EXTRA_USERS_PARAMS += "usermod -a -G sudo fanning;"
+```
 
 
