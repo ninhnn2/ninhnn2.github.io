@@ -100,7 +100,7 @@ INHERIT += "extrausers"
 
 # Set pasword cho user root là 000
 EXTRA_USERS_PARAMS  = "usermod -P 000 root; "
-# Thêm 1 user tên là fanning
+# Thêm 1 user tên là fanning và set pasword là 000
 EXTRA_USERS_PARAMS += "useradd -P 000 fanning;"
 # Add user fanning vào group sudo (để dùng sudo các bạn cần add thêm recipe tên là sudo như trong bước 2)
 EXTRA_USERS_PARAMS += "usermod -a -G sudo fanning;"
