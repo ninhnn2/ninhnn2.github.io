@@ -26,10 +26,9 @@ make -j8
 sudo make install
 ```
 
-
 #### mosquitto library
+
 ```shell
- Mosquitto requires the openssl library to compile
     
 wget --no-check-certificate https://github.com/eclipse/mosquitto/archive/refs/tags/v1.6.6.tar.gz
 
@@ -40,6 +39,7 @@ cd mosquitto-1.6.6/
 vim config.mk
 ```
 
+Thư viện mosquitto yêu cầu có ssl để biên dịch, nên khi biên dịch mosquitto chúng ta cần trỏ đường dẫn các file header và file thư viện openssl đã build vào file config.mk của mosquitto.
 
 #### Add 2 line below to file “config.mk” with “/mnt/midware” is prefix path when we compile openssl
 ```shell
@@ -232,7 +232,6 @@ void on_message(struct mosquitto *mosq, void *obj, const struct mosquitto_messag
 cd app/
 make -j8
 ```
-
 
 
 #### On target export library path
