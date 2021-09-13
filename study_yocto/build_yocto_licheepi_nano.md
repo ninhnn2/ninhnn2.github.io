@@ -84,7 +84,7 @@ IMAGE_INSTALL_append += " \
         mosquitto \
 "
 ```
-#### 5 Cài đặt resource máy tính để build yocto
+#### 5. Cài đặt resource máy tính để build yocto
 
 Yocto cho phép chúng ta chọn số tác vụ tối đa mà Bitbake và make có thể chạy song song, luồng song song chạy càng nhiều thì build càng nhanh (lưu ý nếu chạy full luồng trên máy thì dễ khiến máy treo nếu bạn còn dùng máy với các phần mềm nặng khác). Thêm 2 dòng sau vào local.conf.
 
