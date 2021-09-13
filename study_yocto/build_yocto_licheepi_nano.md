@@ -106,4 +106,11 @@ EXTRA_USERS_PARAMS += "useradd -P 000 fanning;"
 # Add user fanning vào group sudo (để dùng sudo các bạn cần add thêm recipe tên là sudo như trong bước 2)
 EXTRA_USERS_PARAMS += "usermod -a -G sudo fanning;"
 ```
+Sau khi thêm các cài đặt mà chúng ta cần ở image cho board LicheePi Nano, chúng ta save file local.conf và rebuild yocto với lệnh sau.
+
+shell```
+user# bitbake core-image-minimal
+```
+
+
 
