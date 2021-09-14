@@ -6,7 +6,7 @@ sort: 1
 
 #### Hardware
 
-Hisilicon HI3518
+Hisilicon Hi3518
 
 Processor Core
 ARM926@540 MHz, 32 KB I-cache, 32 KB D-cache
