@@ -1,18 +1,3 @@
-![image](/assets/images/fanning.jpg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # Embedded Linux Software Engineer
 
