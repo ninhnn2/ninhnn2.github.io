@@ -1,6 +1,12 @@
 # Embedded Linux Software Engineer
 
-![image](/assets/images/page.png)
+
+
+![image](/assets/images/fanning.jpg)
+
+
+
+
 
 FPT Telecom, IoT Department.                (2017 to Present)
 
