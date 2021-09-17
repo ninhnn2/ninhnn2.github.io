@@ -1,5 +1,7 @@
 # Embedded Linux Software Engineer
 
+![image](/assets/images/page.png)
+
 FPT Telecom, IoT Department.                (2017 to Present)
 
 
