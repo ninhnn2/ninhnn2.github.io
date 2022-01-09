@@ -29,7 +29,7 @@ cd examples/blink/
 make -j8
 ```
 
-#### blink app
+#### Sample blink app
 ```shell
 #include <stdio.h>
 #include "fagpio.h"         // include thư viện fagpio
