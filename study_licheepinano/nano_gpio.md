@@ -50,7 +50,7 @@ int main(void) {
 
 		usleep(118);
 
-		digitalWrite(3, 0);     // Set lơ GPIOE3
+		digitalWrite(3, 0);     // Set low GPIOE3
 		digitalWrite(4, 0);
 		digitalWrite(5, 0);
 
