@@ -28,7 +28,10 @@ FPT Telecom, IoT Department.                (2017 to Present)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XeEEIfbIYdg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-### Smart Audio Product
+
+### Thiết bị điều khiển âm thanh và giám sát âm ly nhà yến Smart Audio
+
+https://epcb.vn/products/thiet-bi-am-thanh-va-giam-sat-am-ly-nha-yen-nesthouse-audio
 
 ![image](https://user-images.githubusercontent.com/86546911/170808668-38c71286-4edb-4b3a-9446-c7092cc978e0.jpeg)
 
