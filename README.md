@@ -24,8 +24,13 @@ FPT Telecom, IoT Department.                (2017 to Present)
 
 ## Hobby Projects
 
+### Yocto HMI with Allwinner F1C100s
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XeEEIfbIYdg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+### Smart Audio Product
+
+![image](https://user-images.githubusercontent.com/86546911/170808668-38c71286-4edb-4b3a-9446-c7092cc978e0.jpeg)
 
 
 ## The license
