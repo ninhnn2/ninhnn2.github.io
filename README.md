@@ -1,8 +1,6 @@
 
 # Embedded Linux Software Engineer
 
-FPT Telecom, IoT Department.                (2017 to Present)
-
 
 ## Skills
 
