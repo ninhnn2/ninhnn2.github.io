@@ -5,15 +5,24 @@ sort: 3
 # HƯỚNG DẪN ADD META LAYER VÀO YOCTO
 
 
-#### 1. Tạo một custom BSP layer
+#### 1. BSP layer trong Yocto là gì ?
 
-Những thay đổi cần thiết để hỗ trợ một một platfrom phần cứng, được lưu giữ trên một
+Những thay đổi cần thiết để hỗ trợ một một platform phần cứng hoặc một thiết bị , được lưu giữ trên một
 layer Yocto riêng biệt, được gọi là BSP layer. Sự tách biệt này là tốt nhất cho các bản 
-cập nhật trong tương lai và các bản vá cho hệ thống. Layer BSP có thể hỗ trợ bất kỳ số lượng
-máy mới nào và bất kỳ máy mới nào tính năng phần mềm được liên kết với chính phần cứng.
+cập nhật phần mềm trong tương lai và các bản vá hệ thống cho thiết bị. BSP layer có thể hổ trợ bất kể số 
+lượng thiết bị và tính năng mới nào được dành riêng cho platform trên thiết bị đó.
 
-#### 2. Lấy source và tiến hành build yocto cho board LicheePi Nano
+#### 2. Làm thế nào để tạo một BSP layer
 
+Theo quy ước, layer Yocto bắt đầu bằng "meta", viết tắt của siêu dữ liệu. Layer BSP có thể
+sau đó thêm một từ khóa "bsp", và cuối cùng là một tên duy nhất. Còn ở bài viết này mình sử dụng tên layer
+là "meta-gpio". Layer "meta-gpio" này sẽ hổ trợ build thư viện fagpio và install vào rootfile system cho
+licheepi nano (f1c100s).
+
+#### Có vài cách để tạo một layer mới
+- Tạo bằng tay, bạn cần biết chính xác mình cần làm những gì để hạn chế lỗi.
+- Copy một layer sample có sẳn trong poky (Yocto) tên là "meta-skeleton".
+- Dùng công cụ "bitbake-layers" để tạo (mình đang dùng phiên bản Yocto Zues, công cụ sẽ khác nếu các bạn s
 
 
 
