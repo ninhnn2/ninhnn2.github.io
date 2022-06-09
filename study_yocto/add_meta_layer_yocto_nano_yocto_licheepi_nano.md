@@ -2,7 +2,7 @@
 sort: 3
 ---
 
-# HƯỚNG DẪN ADD META LAYER VÀO YOCTO
+# Hướng dẫn add một layer BSP vào Yocto cho board LicheePi Nano
 
 
 #### 1. BSP layer trong Yocto là gì ?
