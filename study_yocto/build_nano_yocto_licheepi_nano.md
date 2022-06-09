@@ -4,6 +4,11 @@ sort: 1
 
 # HƯỚNG DẪN BUILD YOCTO CHO BOARD LICHEEPI NANO
 
+#### 0. Giới thiệu về Yocto Project
+
+Dự án Yocto (http://www.yoctoproject.org/) là một trình tạo bản phân phối nhúng Linux
+sử dụng một số dự án mã nguồn mở khác. Ở bài viết này, thuật ngữ chung Yocto dùng để chỉ Dự án Yocto.
+
 
 #### 1. Cài đặt môi trường development cho Ubuntu 20.04
 Sau đây là các list package mà mình thường install trong quá trình development
