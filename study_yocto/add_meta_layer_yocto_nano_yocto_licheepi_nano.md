@@ -47,7 +47,7 @@ sử dụng phiên bản Yocto cũ hơn).
 # bitbake-layers create-layer ../meta-gpio
 ```
 
-- Add đường dẫn "~/yocto/poky/meta-gpio"
+- Add đường dẫn meta layer mới "~/yocto/poky/meta-gpio" vào file config bblayers.conf
 ```shell
 # bitbake-layers add-layer ../meta-gpio
 ```
@@ -81,14 +81,5 @@ BBLAYERS ?= " \
   /home/fanning/yocto/poky/meta-gpio \
 "
 ```
-
-
-
-
-
-
-
-
-
 
 
