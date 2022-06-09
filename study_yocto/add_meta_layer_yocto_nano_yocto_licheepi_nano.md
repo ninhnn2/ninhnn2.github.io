@@ -22,7 +22,8 @@ licheepi nano (f1c100s).
 #### Có vài cách để tạo một layer mới
 - Tạo bằng tay, bạn cần biết chính xác mình cần làm những gì để hạn chế lỗi.
 - Copy một layer sample có sẳn trong poky (Yocto) tên là "meta-skeleton".
-- Dùng công cụ "bitbake-layers" để tạo (mình đang dùng phiên bản Yocto Zues, công cụ sẽ khác nếu các bạn s
+- Dùng công cụ "bitbake-layers" để tạo (mình đang dùng phiên bản Yocto Zues, công cụ sẽ khác nếu các bạn
+sử dụng phiên bản Yocto cũ hơn).
 
 
 
