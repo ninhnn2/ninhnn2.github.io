@@ -2,7 +2,7 @@
 sort: 3
 ---
 
-# HƯỚNG DẪN ADD MỘT LAYER BSP VÀO YOCTO L
+# HƯỚNG DẪN ADD MỘT LAYER BSP VÀO YOCTO LICHEEPI NANO
 
 
 #### 1. BSP layer trong Yocto là gì ?
