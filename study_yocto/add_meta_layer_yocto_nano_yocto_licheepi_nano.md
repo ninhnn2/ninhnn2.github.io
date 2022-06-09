@@ -10,7 +10,7 @@ sort: 3
 Những thay đổi cần thiết để hỗ trợ một một platform phần cứng hoặc một thiết bị , được lưu giữ trên một
 layer Yocto riêng biệt, được gọi là BSP layer. Sự tách biệt này là tốt nhất cho các bản 
 cập nhật phần mềm trong tương lai và các bản vá hệ thống cho thiết bị. BSP layer có thể hổ trợ bất kể số 
-lượng thiết bị và tính năng mới nào được dành riêng cho platform trên thiết bị đó.
+lượng thiết bị và tính năng mới nào được dành riêng cho platform trên thiết bị đó (licheepi nano).
 
 #### 2. Làm thế nào để tạo một BSP layer
 
@@ -20,7 +20,7 @@ là "meta-gpio". Layer "meta-gpio" này sẽ hổ trợ build thư viện fagpio
 licheepi nano (f1c100s).
 
 #### 3. Có vài cách để tạo một layer mới
-- Tạo bằng tay, bạn cần biết chính xác mình cần làm những gì để hạn chế lỗi.
+- Tự tạo bằng tay, với phương pháp này bạn cần biết chính xác mình cần làm những gì để hạn chế lỗi.
 - Copy một layer sample có sẳn trong poky (Yocto) tên là "meta-skeleton".
 - Dùng công cụ "bitbake-layers" để tạo (mình đang dùng phiên bản Yocto Zues, công cụ sẽ khác nếu các bạn
 sử dụng phiên bản Yocto cũ hơn).
