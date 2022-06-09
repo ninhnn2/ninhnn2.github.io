@@ -34,7 +34,36 @@ sử dụng phiên bản Yocto cũ hơn).
 
 Lúc này tại thư mục poky sẽ có một "meta-gpio" mới được tạo và đường dẫn tới layer này sẽ được add vào 
 file "bblayers.conf". Trong "meta-gpio" sẽ có một sample recipe tên là example, bitbake sẽ sử dụng cái 
-tên này để tìm kiếm và chạy các lệnh tr
+tên này để tìm kiếm và chạy các lệnh trong recipe này
+
+
+
+
+Dưới đây là file bblayers.conf của mình
+
+```shell
+# POKY_BBLAYERS_CONF_VERSION is increased each time build/conf/bblayers.conf
+# changes incompatibly
+POKY_BBLAYERS_CONF_VERSION = "2"
+
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+
+BBLAYERS ?= " \
+  ${TOPDIR}/../meta \
+  ${TOPDIR}/../meta-poky \
+  ${TOPDIR}/../meta-yocto-bsp \
+  ${TOPDIR}/../meta-openembedded/meta-oe \
+  ${TOPDIR}/../meta-openembedded/meta-networking \
+  ${TOPDIR}/../meta-openembedded/meta-python \
+  ${TOPDIR}/../meta-qt5 \
+  ${TOPDIR}/../meta-f1c100s \
+  /home/fanning/yocto/poky/meta-gpio \
+"
+```
+
+
+
 
 
 
