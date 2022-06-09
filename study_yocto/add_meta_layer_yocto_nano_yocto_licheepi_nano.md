@@ -26,11 +26,11 @@ licheepi nano (f1c100s).
 sử dụng phiên bản Yocto cũ hơn).
 
 #### 4. Tạo layer bằng công cụ bitbake-layers
-- # cd
-- # cd yocto/poky
-- # source oe-init-build-env build-f1c100s
-- # bitbake-layers create-layer ../meta-gpio
-- # bitbake-layers add-layer ../meta-gpio
+- cd
+- cd yocto/poky
+- source oe-init-build-env build-f1c100s
+- bitbake-layers create-layer ../meta-gpio
+- bitbake-layers add-layer ../meta-gpio
 
 
 
