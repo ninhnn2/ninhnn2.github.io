@@ -1,8 +1,8 @@
 ---
-sort: 1
+sort: 3
 ---
 
-# HƯỚNG DẪN BUILD YOCTO CHO BOARD LICHEEPI NANO
+# HƯỚNG DẪN ADD META LAYER VÀO YOCTO
 
 
 #### 1. Cài đặt môi trường development cho Ubuntu 20.04
