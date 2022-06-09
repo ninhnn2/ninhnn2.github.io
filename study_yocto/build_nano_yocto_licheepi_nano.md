@@ -4,13 +4,17 @@ sort: 1
 
 # HƯỚNG DẪN BUILD YOCTO CHO BOARD LICHEEPI NANO
 
-#### 0. Giới thiệu về Yocto Project
+#### 1. Giới thiệu về Yocto Project
 
 Dự án Yocto (http://www.yoctoproject.org/) là một trình tạo bản phân phối nhúng Linux
 sử dụng một số dự án mã nguồn mở khác. Ở bài viết này, thuật ngữ chung Yocto dùng để chỉ Dự án Yocto.
 
+Bản phân phối Linux là một tập hợp các gói phần mềm và chính sách, và có hàng trăm bản phân phối Linux.
+Hầu hết chúng không được thiết kế cho các hệ thống nhúng và chúng thiếu tính linh hoạt cần thiết để đạt
+được kích thước như yêu cầu và linh động trong việc thêm bớt chức năng, cũng như không đáp ứng tốt cho 
+các hệ thống hạn chế tài nguyên.
 
-#### 1. Cài đặt môi trường development cho Ubuntu 20.04
+#### 2. Cài đặt môi trường development cho Ubuntu 20.04
 Sau đây là các list package mà mình thường install trong quá trình development
 
 ```shell
@@ -25,7 +29,7 @@ sudo apt-get install cpio python2 python2.7 -y
 ```
 
 
-#### 2. Lấy source và tiến hành build yocto cho board LicheePi Nano
+#### 3. Lấy source và tiến hành build yocto cho board LicheePi Nano
 
 
 ```shell
@@ -60,14 +64,14 @@ File image sau khi hoàn thành quá trình build
 tmp/deploy/images/f1c100s/core-image-minimal-f1c100s-20210909112750.rootfs.sunxi-sdimg.img
 ```
 
-#### 3. Flash image vào sdcard
+#### 4. Flash image vào sdcard
 
 ```shell
 cd tmp/deploy/images/f1c100s/
 sudo dd bs=4M if=core-image-minimal-f1c100s-20210909112750.rootfs.sunxi-sdimg.img of=/dev/sdx conv=fsync
 ```
 
-#### 4. Thêm tool và thư viện vào image
+#### 5. Thêm tool và thư viện vào image
 
 Tìm tên một tool hoặc thư viện được hổ trợ bởi layer meta-openembeded các bạn truy cập vào trang này:
 
@@ -89,7 +93,7 @@ IMAGE_INSTALL_append += " \
         mosquitto \
 "
 ```
-#### 5. Cài đặt resource máy tính để build yocto
+#### 6. Cài đặt resource máy tính để build yocto
 
 Yocto cho phép chúng ta chọn số tác vụ tối đa mà Bitbake và make có thể chạy song song, luồng song song chạy càng nhiều thì build càng nhanh (lưu ý nếu chạy full luồng trên máy thì dễ khiến máy treo nếu bạn còn dùng máy với các phần mềm nặng khác). Thêm 2 dòng sau vào local.conf.
 
@@ -98,7 +102,7 @@ BB_NUMBER_THREADS ?= "3"
 PARALLEL_MAKE ?= "-j 3"
 ```
 
-#### 6. Set password cho user root và tạo thêm user mới
+#### 7. Set password cho user root và tạo thêm user mới
 
 ```shell
 EXTRA_IMAGE_FEATURES += "debug-tweaks "
