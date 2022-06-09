@@ -26,11 +26,31 @@ licheepi nano (f1c100s).
 sử dụng phiên bản Yocto cũ hơn).
 
 #### 4. Tạo layer bằng công cụ bitbake-layers
-- cd
-- cd yocto/poky
-- source oe-init-build-env build-f1c100s
-- bitbake-layers create-layer ../meta-gpio
-- bitbake-layers add-layer ../meta-gpio
+- Đi tới thư mục Home
+```shell
+# cd
+```
+- Đi đến thư mục Yocto poky
+```shell
+# cd yocto/poky
+```
+
+
+- Khởi tạo môi trường để sử dụng Yocto
+```shell
+# source oe-init-build-env build-f1c100s
+```
+
+
+- Tạo một meta layer mới tại thư mục "~/yocto/poky"
+```shell
+# bitbake-layers create-layer ../meta-gpio
+```
+
+- Add đường dẫn "~/yocto/poky/meta-gpio"
+```shell
+# bitbake-layers add-layer ../meta-gpio
+```
 
 Lúc này tại thư mục poky sẽ có một "meta-gpio" mới được tạo và đường dẫn tới layer này sẽ được add vào 
 file "bblayers.conf". Trong "meta-gpio" sẽ có một sample recipe tên là example, bitbake sẽ sử dụng cái 
