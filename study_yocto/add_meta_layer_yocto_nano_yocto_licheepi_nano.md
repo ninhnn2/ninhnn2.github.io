@@ -2,29 +2,29 @@
 sort: 3
 ---
 
-# HƯỚNG DẪN ADD MỘT META LAYER VÀO YOCTO LICHEEPI NANO
+# HƯỚNG DẪN THÊM MỘT SOFTWARE LAYER VÀO LICHEEPI NANO IMAGE
 
 
-#### 1. Meta layer trong Yocto là gì ?
+#### 1. Software layer trong Yocto là gì ?
 
 Những thay đổi cần thiết để hỗ trợ một một platform phần cứng hoặc một thiết bị , được lưu giữ trên một
 layer Yocto riêng biệt, được gọi là meta layer. Sự tách biệt này là tốt nhất cho các bản 
 cập nhật phần mềm trong tương lai và các bản vá hệ thống cho thiết bị. BSP layer có thể hổ trợ bất kể số 
 lượng thiết bị và tính năng mới nào được dành riêng cho platform trên thiết bị đó (licheepi nano).
 
-#### 2. Làm thế nào để tạo một meta layer
+#### 2. Làm thế nào để tạo một software layer
 
 Theo quy ước, layer Yocto bắt đầu bằng "meta", viết tắt của siêu dữ liệu và cuối cùng là một tên duy nhất.
 Còn ở bài viết này mình sử dụng tên layer là "meta-gpio". Layer "meta-gpio" này sẽ hổ trợ build thư viện 
 fagpio và install vào rootfs yocto licheepi nano (f1c100s).
 
-#### 3. Có các cách để tạo một meta layer
+#### 3. Có các cách để tạo một software layer
 - Tự tạo bằng tay, với phương pháp này bạn cần biết chính xác mình cần làm những gì để hạn chế lỗi.
 - Copy một layer sample có sẳn trong poky (Yocto) tên là "meta-skeleton".
 - Dùng công cụ "bitbake-layers" để tạo (mình đang dùng phiên bản Yocto Zeus, công cụ sẽ khác nếu các bạn
 sử dụng phiên bản Yocto cũ hơn).
 
-#### 4. Tạo meta layer bằng công cụ bitbake-layers
+#### 4. Tạo software layer bằng công cụ bitbake-layers
 - Đi tới thư mục Home
 ```shell
 # cd
@@ -80,3 +80,7 @@ BBLAYERS ?= " \
   /home/fanning/yocto/poky/meta-gpio \
 "
 ```
+
+
+
+
