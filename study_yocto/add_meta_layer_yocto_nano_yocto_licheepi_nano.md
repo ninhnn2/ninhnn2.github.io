@@ -50,7 +50,7 @@ sử dụng phiên bản Yocto cũ hơn).
 
 - Add đường dẫn meta layer mới "~/yocto/poky/meta-gpio" vào file config bblayers.conf
 ```shell
-# bitbake-layers add-layer ../meta-gpio
+$ bitbake-layers add-layer ../meta-gpio
 ```
 
 Lúc này tại thư mục poky sẽ có một thư mục "meta-gpio" mới được tạo và đường dẫn tới layer này sẽ được add vào 
