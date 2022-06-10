@@ -9,7 +9,7 @@ sort: 1
 Dự án Yocto (http://www.yoctoproject.org/) là một trình tạo bản phân phối nhúng Linux
 sử dụng một số dự án mã nguồn mở khác. Ở bài viết này, thuật ngữ chung Yocto dùng để chỉ Dự án Yocto.
 
-Bản phân phối Linux là một tập hợp các gói phần mềm bao gồm tools, thư viện và bootloader và nhân hệ điều hành.
+Bản phân phối Linux là một tập hợp các gói phần mềm bao gồm tools, thư viện, bootloader và nhân hệ điều hành.
 Hiện tại có hàng trăm loại Linux distro và điển hình như Ubuntu, Debian, Kali Linux..., nhưng hầu hết chúng 
 không được thiết kế để chạy cho các hệ thống nhúng nhỏ nhẹ (chạy trên eMMC, Norflash, Nand flash).
 Yocto ra đời giúp cho việc tạo một bản phân phối Linux dễ dàng và chuyên nghiệp hơn, có  thể custom cho các
