@@ -90,7 +90,6 @@ BBLAYERS ?= " \
 
 ```shell
 $ bitbake example
-
 ```
 
 #### 5. Sample nội dung recipe
