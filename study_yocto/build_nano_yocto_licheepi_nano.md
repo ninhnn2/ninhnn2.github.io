@@ -9,10 +9,11 @@ sort: 1
 Dự án Yocto (http://www.yoctoproject.org/) là một trình tạo bản phân phối nhúng Linux
 sử dụng một số dự án mã nguồn mở khác. Ở bài viết này, thuật ngữ chung Yocto dùng để chỉ Dự án Yocto.
 
-Bản phân phối Linux là một tập hợp các gói phần mềm và chính sách, và có hàng trăm bản phân phối Linux.
-Hầu hết chúng không được thiết kế cho các hệ thống nhúng và chúng thiếu tính linh hoạt cần thiết để đạt
-được kích thước như yêu cầu và linh động trong việc thêm bớt chức năng, cũng như không đáp ứng tốt cho 
-các hệ thống hạn chế tài nguyên.
+Bản phân phối Linux là một tập hợp các gói phần mềm bao gồm tools, thư viện và bootloader và nhân hệ điều hành.
+Hiện tại có hàng trăm loại Linux distro và điển hình như Ubuntu, Debian, Kali Linux..., nhưng hầu hết chúng 
+không được thiết kế để chạy cho các hệ thống nhúng nhỏ nhẹ (chạy trên eMMC, Norflash, Nand flash).
+Yocto ra đời giúp cho việc tạo một bản phân phối Linux dễ dàng và chuyên nghiệp hơn, có  thể custom cho các
+thiết bị nhỏ nhẹ nhất cũng như các thiết bị server hay super computer.
 
 #### 2. Cài đặt môi trường development cho Ubuntu 20.04
 Sau đây là các list package mà mình thường install trong quá trình development
