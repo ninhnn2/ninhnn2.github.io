@@ -34,7 +34,7 @@ $ cd
 - Đi đến thư mục Yocto poky
 ```shell
 $ cd yocto/poky
-``
+```
 
 - Khởi tạo môi trường để sử dụng Yocto
 ```shell
