@@ -123,7 +123,7 @@ python do_configure () {
 python do_build() {
     bb.plain("***********************************************");
     bb.plain("*                                             *");
-    bb.plain("*  Example recipe created by bitbake-layers   *");
+    bb.plain("*  Example recipe Nguyen Nhut Ninh build   *");
     bb.plain("*                                             *");
     bb.plain("***********************************************");
 }
