@@ -18,7 +18,7 @@ Theo quy ước, layer Yocto bắt đầu bằng "meta", viết tắt của siê
 Còn ở bài viết này mình sử dụng tên layer là "meta-gpio". Layer "meta-gpio" này sẽ hổ trợ build thư viện 
 fagpio và install vào rootfs yocto licheepi nano (f1c100s).
 
-#### 3. Có các cách để tạo một software layer
+#### 3. Các cách để tạo một software layer
 - Tự tạo bằng tay, với phương pháp này bạn cần biết chính xác mình cần làm những gì để hạn chế lỗi.
 - Copy một layer sample có sẳn trong poky (Yocto) tên là "meta-skeleton".
 - Dùng công cụ "bitbake-layers" để tạo (mình đang dùng phiên bản Yocto Zeus, công cụ sẽ khác nếu các bạn
