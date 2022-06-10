@@ -5,14 +5,16 @@ sort: 3
 # HƯỚNG DẪN THÊM MỘT SOFTWARE LAYER VÀO LICHEEPI NANO IMAGE
 
 
-#### 1. Software layer trong Yocto là gì ?
+#### 1. Meta software layer trong Yocto là gì ?
 
-Những thay đổi cần thiết để hỗ trợ một một platform phần cứng hoặc một thiết bị , được lưu giữ trên một
-layer Yocto riêng biệt, được gọi là meta layer. Sự tách biệt này là tốt nhất cho các bản 
-cập nhật phần mềm trong tương lai và các bản vá hệ thống cho thiết bị. BSP layer có thể hổ trợ bất kể số 
-lượng thiết bị và tính năng mới nào được dành riêng cho platform trên thiết bị đó (licheepi nano).
+Các tools, thư viện, các bản vá lỗi cho hệ thống filesystem, được lưu giữ trên một layer Yocto riêng biệt,
+được gọi là sofware layer. Một layer sẽ bao gồm một hoặc nhiểu recipe, mỗi recipe sẽ có các thuộc tính
+như fetch, configure, compile, install, deploy dùng để biên dịch một package (thư viện, tools...). Trong
+bài viết này, chúng ta sẽ tạo một meta layer chứa recipe có chứ năng biên dịch thư viện gpio cho board 
+licheepi nano.
 
-#### 2. Làm thế nào để tạo một software layer
+
+#### 2. Làm thế nào để tạo một meta software layer
 
 Theo quy ước, layer Yocto bắt đầu bằng "meta", viết tắt của siêu dữ liệu và cuối cùng là một tên duy nhất.
 Còn ở bài viết này mình sử dụng tên layer là "meta-gpio". Layer "meta-gpio" này sẽ hổ trợ build thư viện 
