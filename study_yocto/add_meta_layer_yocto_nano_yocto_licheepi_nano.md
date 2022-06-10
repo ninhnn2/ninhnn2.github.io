@@ -28,25 +28,30 @@ sử dụng phiên bản Yocto cũ hơn).
 
 #### 4. Tạo software layer bằng công cụ bitbake-layers
 - Đi tới thư mục Home
+
 ```shell
 $ cd
 ```
 - Đi đến thư mục Yocto poky
+
 ```shell
 $ cd yocto/poky
 ```
 
 - Khởi tạo môi trường để sử dụng Yocto
+
 ```shell
 $ source oe-init-build-env build-f1c100s
 ```
 
 - Tạo một meta layer mới tại thư mục "~/yocto/poky"
+
 ```shell
 $ bitbake-layers create-layer ../meta-gpio
 ```
 
 - Add đường dẫn meta layer mới "~/yocto/poky/meta-gpio" vào file config bblayers.conf
+
 ```shell
 $ bitbake-layers add-layer ../meta-gpio
 ```
