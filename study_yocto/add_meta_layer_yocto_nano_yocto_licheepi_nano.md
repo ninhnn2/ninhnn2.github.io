@@ -10,7 +10,7 @@ sort: 3
 Các tools, thư viện, các bản vá lỗi cho hệ thống filesystem, được lưu giữ trên một layer Yocto riêng biệt,
 được gọi là sofware layer. Một layer sẽ bao gồm một hoặc nhiểu recipe, mỗi recipe sẽ có các thuộc tính
 như fetch, configure, compile, install, deploy dùng để biên dịch một package (thư viện, tools...). Trong
-bài viết này, chúng ta sẽ tạo một meta layer chứa recipe có chứ năng biên dịch thư viện gpio cho board 
+bài viết này, chúng ta sẽ tạo một meta layer chứa recipe có chức năng biên dịch thư viện gpio cho board 
 licheepi nano.
 
 
