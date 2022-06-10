@@ -53,7 +53,7 @@ sử dụng phiên bản Yocto cũ hơn).
 # bitbake-layers add-layer ../meta-gpio
 ```
 
-Lúc này tại thư mục poky sẽ có một "meta-gpio" mới được tạo và đường dẫn tới layer này sẽ được add vào 
+Lúc này tại thư mục poky sẽ có một thư mục "meta-gpio" mới được tạo và đường dẫn tới layer này sẽ được add vào 
 file "bblayers.conf". Trong "meta-gpio" sẽ có một sample recipe tên là example, bitbake sẽ sử dụng cái 
 tên này để tìm kiếm và chạy các lệnh trong recipe này
 
@@ -82,6 +82,22 @@ BBLAYERS ?= " \
   /home/fanning/yocto/poky/meta-gpio \
 "
 ```
+
+#### 4. Biên dịch một package tỏng meta software layer
+
+```shell
+# bitbake example
+
+```
+
+
+
+
+
+
+
+
+
 
 
 
