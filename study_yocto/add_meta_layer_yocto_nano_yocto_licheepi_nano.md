@@ -36,12 +36,10 @@ $ cd
 $ cd yocto/poky
 ``
 
-
 - Khởi tạo môi trường để sử dụng Yocto
 ```shell
 $ source oe-init-build-env build-f1c100s
 ```
-
 
 - Tạo một meta layer mới tại thư mục "~/yocto/poky"
 ```shell
