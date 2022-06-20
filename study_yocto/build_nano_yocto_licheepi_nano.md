@@ -32,6 +32,10 @@ sudo apt-get install cpio python2 python2.7 -y
 
 #### 3. Lấy source và tiến hành build yocto cho board LicheePi Nano
 
+Ở đây mình sử dụng board licheepi nano vì nó có giá thành rẻ, nhỏ gọn. Hầu hết mọi người 
+đều có thể mua và học được. Từ đó các bạn có thể tự tạo cho mình một bản linux distro
+l
+
 
 ```shell
 user# cd ~
