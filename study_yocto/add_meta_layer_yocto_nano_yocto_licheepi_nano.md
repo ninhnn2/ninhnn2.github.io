@@ -107,9 +107,9 @@ Tại thư mục gpio, tạo thư mục tên là files, thư mục này chứa s
 
 SRC_URI = "file://gpio.c" : Khai báo vị trí source file gpio.c
 
-do_compile() : Hàm này sẽ được chạy khi bitbake biên dịch package gpio (EX: bitbake -c compile gpio)
+do_compile() : Hàm này sẽ được thực thi khi bitbake biên dịch package gpio (EX: bitbake -c compile gpio)
 
-do_install() : Hàm này sẽ được chạy khi bitbake install package gpio (EX: bitbake -c install gpio)
+do_install() : Hàm này sẽ được thực thi khi bitbake install package gpio (EX: bitbake -c install gpio)
 
 
 ```shell
@@ -140,10 +140,10 @@ $ bitbake gpio
 ```
 
 Với lệnh trên, bitbake sẽ tìm recipe gpio và thực thi chạy các hàm trong recipe đó bao gồm
-+ Get source từ internet (do_fetch())
-+ Configure package vừa download (do_configure())
-+ Compile package (do_package)
-+ Install package vào rootfs (do_install)
++ Get source từ internet (do_fetch() )
++ Configure package vừa download (do_configure() )
++ Compile package (do_package() )
++ Install package vào rootfs (do_install() )
 
 
 
