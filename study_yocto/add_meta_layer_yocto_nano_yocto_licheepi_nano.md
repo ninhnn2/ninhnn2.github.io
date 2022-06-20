@@ -103,7 +103,7 @@ Tại thư mục gpio, tạo thư mục tên là files, thư mục này chứa s
         └── gpio_1.0.bb
 ```
 
-#### 6. Nội dung recipe file gpio_1.0.bb 
+#### 5. Nội dung recipe file gpio_1.0.bb 
 
 SRC_URI = "file://gpio.c" : Khai báo vị trí source file gpio.c
 
@@ -133,7 +133,7 @@ do_install() {
 
 ```
 
-#### 5. Biên dịch một package trong meta software layer
+#### 6. Biên dịch một package trong meta software layer
 
 ```shell
 $ bitbake gpio
@@ -144,18 +144,6 @@ Với lệnh trên, bitbake sẽ tìm recipe gpio và thực thi chạy các hà
 + Configure package vừa download (do_configure() )
 + Compile package (do_package() )
 + Install package vào rootfs (do_install() )
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
