@@ -61,8 +61,6 @@ file "bblayers.conf". Trong "meta-gpio" sẽ có một sample recipe tên là ex
 tên này để tìm kiếm và chạy các lệnh trong recipe này
 
 
-
-
 Dưới đây là file bblayers.conf của mình
 
 ```shell
@@ -86,13 +84,33 @@ BBLAYERS ?= " \
 "
 ```
 
-#### 4. Biên dịch một package trong meta software layer
+#### 4 Cấu trúc một sofware layer
+
+Sau khi add một layer bằng bitbake-layers, thì bitbake sẽ tạo ra cho chúng ta một recipe tên là example
+và mình đã đổi tên thành gpio.
+
+Tại thư mục gpio, tạo thư mục tên là files, thư mục này chứa source file code mà chúng ta cần biên dịch.
 
 ```shell
-$ bitbake gpio
+├── conf
+│   └── layer.conf
+├── COPYING.MIT
+├── README
+└── recipes-gpio
+    └── gpio
+        ├── files
+        │   └── gpio.c
+        └── gpio_1.0.bb
 ```
 
-#### 5. Sample nội dung recipe
+#### 6. Nội dung recipe file gpio_1.0.bb 
+
+SRC_URI = "file://gpio.c" : Khai báo vị trí source file gpio.c
+
+do_compile() : Hàm này sẽ được chạy khi bitbake biên dịch package gpio (EX: bitbake -c compile gpio)
+
+do_install() : Hàm này sẽ được chạy khi bitbake install package gpio (EX: bitbake -c install gpio)
+
 
 ```shell
 DESCRIPTION = "Simple gpio example"
@@ -115,6 +133,17 @@ do_install() {
 
 ```
 
+#### 5. Biên dịch một package trong meta software layer
+
+```shell
+$ bitbake gpio
+```
+
+Với lệnh trên, bitbake sẽ tìm recipe gpio và thực thi chạy các hàm trong recipe đó bao gồm
++ Get source từ internet (do_fetch())
++ Configure package vừa download (do_configure())
++ Compile package (do_package)
++ Install package vào rootfs (do_install)
 
 
 
