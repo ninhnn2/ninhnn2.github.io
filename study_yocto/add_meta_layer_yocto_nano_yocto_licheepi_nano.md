@@ -18,7 +18,7 @@ licheepi nano.
 
 Theo quy ước, layer Yocto bắt đầu bằng "meta", viết tắt của siêu dữ liệu và cuối cùng là một tên duy nhất.
 Còn ở bài viết này mình sử dụng tên layer là "meta-gpio". Layer "meta-gpio" này sẽ hổ trợ build thư viện 
-fagpio và install vào rootfs yocto licheepi nano (f1c100s).
+gpio và install vào rootfs yocto licheepi nano (f1c100s).
 
 #### 3. Các cách để tạo một software layer
 - Tự tạo bằng tay, với phương pháp này bạn cần biết chính xác mình cần làm những gì để hạn chế lỗi.
