@@ -89,61 +89,28 @@ BBLAYERS ?= " \
 #### 4. Biên dịch một package trong meta software layer
 
 ```shell
-$ bitbake example
+$ bitbake gpio
 ```
 
 #### 5. Sample nội dung recipe
 
 ```shell
-SUMMARY = "bitbake-layers recipe"
-DESCRIPTION = "Recipe created by bitbake-layers"
+DESCRIPTION = "Simple gpio example"
+SECTION = "examples"
 LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-LICENSE = "CLOSED"
-LIC_FILES_CHKSUM = ""
+SRC_URI = "file://gpio.c"
 
-SRC_URI = "git://github.com/ninhnn2/licheepi_nano_gpio;protocol=https;branch=master"
+S = "${WORKDIR}"
 
-inherit deploy
-
-# Modify these as desired
-PV = "0.1+git${SRCPV}"
-SRCREV = "a9cc086d9050419777df2b2f602b6e7040c63cfd"
-
-S = "${WORKDIR}/git"
-
-
-python do_configure () {
-    # Specify any needed configure commands here
-    bb.plain("***********************************************");
-    bb.plain("*                                             *");
-    bb.plain("*  Example recipe Nguyen Nhut Ninh configure   *");
-    bb.plain("*                                             *");
-    bb.plain("***********************************************");
+do_compile() {
+        ${CC} -o gpio gpio.c
 }
 
-python do_build() {
-    bb.plain("***********************************************");
-    bb.plain("*                                             *");
-    bb.plain("*  Example recipe Nguyen Nhut Ninh build   *");
-    bb.plain("*                                             *");
-    bb.plain("***********************************************");
-}
-
-python do_compile() {
-    bb.plain("***********************************************");
-    bb.plain("*                                             *");
-    bb.plain("*  Example recipe Nguyen Nhut Ninh compile  *");
-    bb.plain("*                                             *");
-    bb.plain("***********************************************");
-}
-
-python do_install() {
-    bb.plain("***********************************************");
-    bb.plain("*                                             *");
-    bb.plain("*  Example recipe Nguyen Nhut Ninh install  *");
-    bb.plain("*                                             *");
-    bb.plain("***********************************************");
+do_install() {
+        install -d ${D}${bindir}
+        install -m 0755 gpio ${D}${bindir}
 }
 
 ```
