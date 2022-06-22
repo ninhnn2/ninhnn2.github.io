@@ -96,11 +96,12 @@ Tại thư mục gpio, tạo thư mục tên là files, thư mục này chứa s
 │   └── layer.conf
 ├── COPYING.MIT
 ├── README
-└── recipes-gpio
-    └── gpio
-        ├── files
-        │   └── gpio.c
-        └── gpio_1.0.bb
+└── recipes-fgpio
+    └── fgpio
+        ├── fgpio_1.0.bb
+        └── files
+            ├── fgpio.c
+            └── fgpio.h
 ```
 
 #### 5. Nội dung recipe file gpio_1.0.bb 
@@ -113,30 +114,39 @@ do_install() : Hàm này sẽ được thực thi khi bitbake install package gp
 
 
 ```shell
-DESCRIPTION = "Simple gpio example"
+DESCRIPTION = "Simple fgpio example"
 SECTION = "examples"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-SRC_URI = "file://gpio.c"
+SRC_URI = "file://fgpio.c \
+           file://fgpio.h \ 
+"
 
 S = "${WORKDIR}"
 
+PACKAGES = "${PN}"
+FILES_${PN} += "${libdir}/*"
+FILES_${PN} += "${includedir}/*"
+
 do_compile() {
-        ${CC} -o gpio gpio.c
+        ${CC} -c -Wall -Werror -fpic fgpio.c
+        ${CC} -shared -o libfgpio.so fgpio.o
 }
 
 do_install() {
-        install -d ${D}${bindir}
-        install -m 0755 gpio ${D}${bindir}
+        install -d ${D}${libdir}
+        install -d ${D}${includedir}
+        install -m 0755 libfgpio.so ${D}${libdir}
+        install -m 644 fgpio.h ${D}${includedir}/fgpio.h
 }
 
 ```
 
-#### 6. Biên dịch một package trong meta software layer
+#### 6. Biên dịch recipe trong meta software layer
 
 ```shell
-$ bitbake gpio
+$ bitbake fgpio
 ```
 
 Với lệnh trên, bitbake sẽ tìm recipe gpio và thực thi chạy các hàm trong recipe đó bao gồm
@@ -145,5 +155,18 @@ Với lệnh trên, bitbake sẽ tìm recipe gpio và thực thi chạy các hà
 + Compile package (do_package() )
 + Install package vào rootfs (do_install() )
 
+Bitback sẽ biên dịch recipe fgpio,nhưng hiện tại bản rom yocto cho licheepi nano yocto vẫn 
+chưa có thư viện fgpio. Chúng ta cần add tên recipe "fgpio" vào file local.conf.
 
+Đường dẫn file local.conf trên máy mình như sau
 
+```shell
+/home/fanning/yocto/poky/build-f1c100s/conf/local.conf
+```
+Thêm recipe vào local.conf
+
+```shell
+IMAGE_INSTALL_append += " \
+    fgpio \
+"
+```
