@@ -34,7 +34,7 @@ sudo apt-get install cpio python2 python2.7 -y
 
 Ở đây mình sử dụng board licheepi nano vì nó có giá thành rẻ, nhỏ gọn. Hầu hết mọi người 
 đều có thể mua và học được. Từ đó các bạn có thể tự tạo cho mình một bản linux distro
-licheepi nano yocto
+l
 
 
 ```shell
