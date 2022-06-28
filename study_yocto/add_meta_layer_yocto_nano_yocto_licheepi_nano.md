@@ -170,3 +170,15 @@ IMAGE_INSTALL_append += " \
     fgpio \
 "
 ```
+
+Sau đó chúng ta chỉ cần build lại image cho LicheePi Nano với lệnh sau
+```shell
+bitbake core-image-minimal
+```
+
+Như vậy, sau khi ta flash image này vào thẻ nhớ và boot LicheePi Nano
+thư viện fgpio sẽ có sẳn trên hệ thống rootfs.
+
+
+
+
