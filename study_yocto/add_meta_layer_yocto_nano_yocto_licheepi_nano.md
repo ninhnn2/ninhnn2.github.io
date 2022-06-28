@@ -186,7 +186,7 @@ Tạo file app.c với nội dung sau
 
 ```shell
 #include <stdio.h>
-#include "fgpio.h"         // include thư vi�������n fagpio
+#include "fgpio.h"
 
 int main(void) {
 
