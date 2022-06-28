@@ -6,7 +6,7 @@ sort: 4
 
 ### Mục đích
 
-Mình có gặp một trường hợp là cần dump 1 firmware camera dùng norflash, khi dùng tools
+Mình có gặp một trường hợp là cần dump một firmware camera dùng norflash, khi dùng tools
 CH341A + flashrom thì vẫn không nhận biết được norflash đó. Thế mình mới nảy ra ý tưởng
 là khò con norflash đó và hàn lên board LicheePi Nano.
 
