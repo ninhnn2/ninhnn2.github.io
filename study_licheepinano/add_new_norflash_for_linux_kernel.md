@@ -35,8 +35,8 @@ Tại source linux kernel đi tới thư mục
 cd drivers/mtd/spi-nor
 ```
 
-Ở đây mình biết norflash của hãng winbond nên chúng ta sẽ xem file chứ các
-tông tin norflash của winbond sau đây.
+Ở đây mình biết norflash cần đọc của hãng winbond nên chúng ta sẽ xem file chứa các
+thông tin norflash của winbond
 
 ```shell
 vim winbond.c
