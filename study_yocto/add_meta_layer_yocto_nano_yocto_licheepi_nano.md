@@ -180,5 +180,53 @@ Như vậy, sau khi ta flash image này vào thẻ nhớ và boot LicheePi Nano
 thư viện fgpio sẽ có sẳn trên hệ thống rootfs.
 
 
+#### 7. Chương trình C cơ bản sử dụng thư viện fgpio
 
+Tạo file app.c với nội dung sau
+
+```shell
+#include <stdio.h>
+#include "fgpio.h"         // include thư vi�������n fagpio
+
+int main(void) {
+
+        fagpio_setup();
+
+        pinMode(3, 0);            // Set GPIOE3 output
+        pinMode(4, 0);            
+        pinMode(5, 0);            
+
+        while(1) {
+
+                digitalWrite(3, 1);     // Set high GPIOE3
+                digitalWrite(4, 1);
+                digitalWrite(5, 1);
+
+                usleep(118);
+
+                digitalWrite(3, 0);     // Set low GPIOE3
+                digitalWrite(4, 0);
+                digitalWrite(5, 0);
+
+                usleep(118);
+        }
+
+        fagpio_free();
+
+        return 0;
+}
+
+```
+
+Copy file này lên LicheePi Nano và biên dịch với lệnh sau
+
+```shell
+gcc -g -o app app.c -lfgpio
+```
+
+Chạy app sau khi biên dịch
+
+```shell
+./app
+```
 
