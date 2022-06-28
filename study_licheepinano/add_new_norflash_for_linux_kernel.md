@@ -1,5 +1,5 @@
 ---
-sort: 3
+sort: 4
 ---
 
 # THÊM NORFLASH MỚI VÀO LINUX KERNEL LICHEEPI NANO
