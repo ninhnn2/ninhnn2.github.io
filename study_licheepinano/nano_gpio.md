@@ -1,7 +1,7 @@
 ---
 sort: 3
 ---
-# LẬP TRÌNH GPIO TRÊN KIT LicheePi Nano
+# LẬP TRÌNH GPIO TRÊN KIT LICHEEPI NANO
 
 ### Thư viện điều khiển gpio trên LicheePi Nano
 Thư viện gpio này sử dụng device driver “/dev/mem” trong linux kernel giúp chúng ta truy cập vào không gian địa chỉ vật lý.
