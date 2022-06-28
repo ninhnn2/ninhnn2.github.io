@@ -11,14 +11,14 @@ Các tools, thư viện, các bản vá lỗi cho hệ thống filesystem, đư�
 được gọi là sofware layer. Một layer sẽ bao gồm một hoặc nhiểu recipe, mỗi recipe sẽ có các thuộc tính
 như fetch, configure, compile, install, deploy dùng để biên dịch một package (thư viện, tools...). Trong
 bài viết này, chúng ta sẽ tạo một meta layer chứa recipe có chức năng biên dịch thư viện gpio cho board 
-licheepi nano.
+LicheePi Nano.
 
 
 #### 2. Làm thế nào để tạo một meta software layer
 
 Theo quy ước, layer Yocto bắt đầu bằng "meta", viết tắt của siêu dữ liệu và cuối cùng là một tên duy nhất.
 Còn ở bài viết này mình sử dụng tên layer là "meta-gpio". Layer "meta-gpio" này sẽ hổ trợ build thư viện 
-gpio và install vào rootfs yocto licheepi nano (f1c100s).
+gpio và install vào rootfs yocto LicheePi Nano (f1c100s).
 
 #### 3. Các cách để tạo một software layer
 - Tự tạo bằng tay, với phương pháp này bạn cần biết chính xác mình cần làm những gì để hạn chế lỗi.
@@ -155,7 +155,7 @@ Với lệnh trên, bitbake sẽ tìm recipe gpio và thực thi chạy các hà
 + Compile package (do_package() )
 + Install package vào rootfs (do_install() )
 
-Bitback sẽ biên dịch recipe fgpio,nhưng hiện tại bản rom yocto cho licheepi nano yocto vẫn 
+Bitback sẽ biên dịch recipe fgpio,nhưng hiện tại bản rom yocto cho LicheePi Nano yocto vẫn 
 chưa có thư viện fgpio. Chúng ta cần add tên recipe "fgpio" vào file local.conf.
 
 Đường dẫn file local.conf trên máy mình như sau
