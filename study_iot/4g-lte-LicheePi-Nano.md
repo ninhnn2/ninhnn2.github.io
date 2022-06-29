@@ -43,6 +43,17 @@ với Rx/Tx trên module sim A7670C là được.
 ppp (hoặc QMI/MBIM driver). Tiếp theo đó, bản rom linux chạy trên LicheePi Nano phải được cài đặt tools ppp (hoặc qmicli/mbimcli
 tương ứng với từng interface).
 
+### 6. Enable driver PPP trong Linux kernel LicheePi Nano
+
+Để thuận tiện lấy source linux kernel và toolschain để rebuild kernel với driver PPP được enable, mình nghỉ các bạn nên
+tham khảo bài viết trước của mình:
+
+[This is an external link to genome.gov]([https://www.genome.gov/](https://ninhnn2.github.io/study_licheepinano/nano_buildsystem.html))
+
+
+
+
+
 
 ### 8. Test network
 
