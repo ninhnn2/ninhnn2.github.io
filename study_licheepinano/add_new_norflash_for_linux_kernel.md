@@ -19,15 +19,15 @@ Chỉ có log kernel phun ra như sau
 spi-nor spi0.0: unrecognized JEDEC id bytes: 57 88 99 20
 ```
 
-Trong trường hợp này chúng ta có 2 bước cần làm như sau:
+#### Trong trường hợp này chúng ta có 2 bước cần làm như sau:
 
-#### 1. Download source linux kernel hổ trợ LicheePi Nano.
+Download source linux kernel hổ trợ LicheePi Nano.
 
 ```shell
 git clone https://github.com/ninhnn2/linux-5.4.77.git
 ```
 
-#### 2. Thêm JEDEC id vào driver norflash trong Linux kernel source.
+Thêm JEDEC id vào driver norflash trong Linux kernel source.
 
 Tại source linux kernel đi tới thư mục
 
