@@ -48,7 +48,7 @@ tương ứng với từng interface).
 Để thuận tiện lấy source linux kernel và toolschain để rebuild kernel với driver PPP được enable, mình nghỉ các bạn nên
 tham khảo bài viết trước của mình:
 
-[Tự tạo linux distro cho LicheePi Nano]([https://ninhnn2.github.io/study_licheepinano/nano_buildsystem.html])
+['Tự tạo linux distro cho LicheePi Nano'](https://ninhnn2.github.io/study_licheepinano/nano_buildsystem.html)
 
 
 
