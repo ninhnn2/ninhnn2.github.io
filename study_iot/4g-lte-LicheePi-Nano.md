@@ -72,8 +72,7 @@ cd licheepi_nano_sdk
 cd Lichee-Pi-linux
 ```
 
-- Update devicetree từ repo vào source linux kernel
-
+- Update device tree từ repo vào source linux kernel
 ```shell
 cp ../suniv-f1c100s-licheepi-nano.dts arch/arm/boot/dts/
 ```
@@ -88,7 +87,7 @@ cp ../linux-licheepi_nano_defconfig arch/arm/configs/
 make ARCH=arm CROSS_COMPILE=../toolchain/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabi/bin/arm-linux-gnueabi- linux-licheepi_nano_defconfig
 ```
 
-- Mở menuonifg để enable các driver cần thiết
+- Mở menuconfig để enable các driver cần thiết
 ```shell
 make ARCH=arm CROSS_COMPILE=../toolchain/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabi/bin/arm-linux-gnueabi- menuconfig
 ```
