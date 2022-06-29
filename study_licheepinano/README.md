@@ -2,7 +2,7 @@
 sort: 1
 ---
 
-# Lichee Pi Nano
+# LicheePi Nano
 
 ```
 {% raw %}{% include list.liquid all=true %}{% endraw %}
