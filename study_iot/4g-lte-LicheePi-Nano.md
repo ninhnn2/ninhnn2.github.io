@@ -17,7 +17,7 @@ nhiều protocol cùng lúc thì một gateway chạy linux được ưu tiên l
 ![image](https://user-images.githubusercontent.com/86546911/176376622-2e869c43-8eb7-49d3-8511-4aeacdd89cd7.png)
 
 
-Sử dụng uart1 LicchePi Nano để giao tiếp với module SIM A7670C
+Sử dụng uart1 LichPi Nano để giao tiếp với module SIM A7670C
 
 | Licheepi Nano | Uart 1   |
 | ------------- | -------- |
