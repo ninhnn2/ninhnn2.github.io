@@ -2,7 +2,7 @@
 sort: 2
 ---
 
-# SIMA7670C/SIM7600CE 4G LTE IOT VỚI LICHEEPI NANO
+# HƯỚNG DẪN KẾT NỐI TCP/IP Module SIM 4G SIM7600 A7670 VỚI LICHEEPI NANO
 
 ### 1. Ứng dụng 4G LTE với board LicheePi Nano
 
@@ -48,9 +48,50 @@ tương ứng với từng interface).
 Để thuận tiện lấy source linux kernel và toolschain để rebuild kernel với driver PPP được enable, mình nghỉ các bạn nên
 tham khảo bài viết trước của mình:
 
-['Tự tạo linux distro cho LicheePi Nano'](https://ninhnn2.github.io/study_licheepinano/nano_buildsystem.html)
+[Tự tạo linux distro cho LicheePi Nano](https://ninhnn2.github.io/study_licheepinano/nano_buildsystem.html)
+
+- Clone source LicheePi Nano SDK
+
+```shell
+git clone https://github.com/ninhnn2/licheepi_nano_sdk.git
+```
+
+- Đi vào thư mục licheepi_nano_sdk
+```shell
+cd licheepi_nano_sdk
+```
+
+- Pull hết source linux kernel và toolschain cần thiết
+```shell
+./build.sh pull_all
+```
 
 
+- Đi vào thư mục linux kernel
+```shell
+cd Lichee-Pi-linux
+```
+
+- Update devicetree từ repo vào source linux kernel
+
+```shell
+cp ../suniv-f1c100s-licheepi-nano.dts arch/arm/boot/dts/
+```
+
+- Update kernel config từ repo vào source linux kernel
+```shell
+cp ../linux-licheepi_nano_defconfig arch/arm/configs/
+```
+
+- Apply config linux kernel cho LicheePi Nano
+```shell
+make ARCH=arm CROSS_COMPILE=../toolchain/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabi/bin/arm-linux-gnueabi- linux-licheepi_nano_defconfig
+```
+
+- Mở menuonifg để enable các driver cần thiết
+```shell
+make ARCH=arm CROSS_COMPILE=../toolchain/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabi/bin/arm-linux-gnueabi- menuconfig
+```
 
 
 
