@@ -4,7 +4,7 @@ sort: 2
 
 # SIMA7670C/SIM7600CE 4G LTE IOT VỚI LICHEEPI NANO
 
-#### Ứng dụng 4G LTE với board LicheePi Nano
+#### 1. Ứng dụng 4G LTE với board LicheePi Nano
 
 4G LTE được ứng dụng để điều khiển thu thâp thông tin ở khoảng cách xa và không có wifi
 hoặc ethernet.Thiết bị sử dụng 4G có thể là một microcontroller (ESP, STM32...) hoặc một
@@ -12,10 +12,19 @@ gateway chạy linux. Nếu như ứng dụng của chúng ta chỉ sử dụng 
 thì chỉ cần sử dụng một con MCU + module SIM7600CE, còn nếu ứng dụng bắt buộc phải sữ dụng
 nhiều protocol cùng lúc thì một gateway chạy linux được ưu tiên lựa chọn.
 
+#### 2. LicheePi Nano pinout
 
-Board LicheePi Nano
 
-Module SIMA7670C/SIM7600CE
 
-Một sim 4G có đăng ký gòi data
+
+#### 3. Module SIM A7670C pinout
+
+
+
+
+#### 4. Sơ đồ đấu dây
+
+
+
+
 
