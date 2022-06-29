@@ -28,10 +28,7 @@ Sử dụng uart1 LichPi Nano để giao tiếp với module SIM A7670C
 
 #### 3. Module SIM A7670C pinout
 
-
-
-
-
+![image](https://user-images.githubusercontent.com/86546911/176383066-5a393fcc-4607-436a-b09d-c9017f4b2302.png)
 
 
 #### 4. Sơ đồ đấu dây
