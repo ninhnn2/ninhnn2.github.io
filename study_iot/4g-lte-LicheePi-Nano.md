@@ -40,9 +40,8 @@ với Rx/Tx trên module sim A7670C là được.
 ### 5. Làm sao để chạy được giao thức PPPOS cho LicheePi Nano
 
 Để chạy được giao thức PPPOS (hoặc QMI/MBIM interface) thì đầu tiên Linux kernel trên LicheePi Nano phải enable driver
-ppp (hoặc QMI/MBIM driver). Tiếp theo đó, bản rom linux chạy trên LicheePi Nano phải được cài đặt tools ppp hoặc
-(qmicli/mbimcli tương ứng với từng protocol).
-
+ppp (hoặc QMI/MBIM driver). Tiếp theo đó, bản rom linux chạy trên LicheePi Nano phải được cài đặt tools ppp (hoặc qmicli/mbimcli
+tương ứng với từng interface).
 
 
 ### 8. Test network
