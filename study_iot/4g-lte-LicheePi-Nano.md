@@ -74,7 +74,7 @@ cd Lichee-Pi-linux
 
 - Update device tree từ repo vào source linux kernel
 ```shell
-cp ../suniv-f1c100s-licheepi-nano.dts arch/arm/boot/dts/
+ cp ../suniv-f1c100s-licheepi-nano.dts arch/arm/boot/dts/
 ```
 
 - Update kernel config từ repo vào source linux kernel
