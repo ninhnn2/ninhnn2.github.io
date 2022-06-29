@@ -14,13 +14,17 @@ nhiều protocol cùng lúc thì một gateway chạy linux được ưu tiên l
 
 #### 2. LicheePi Nano pinout
 
+![image](https://user-images.githubusercontent.com/86546911/176376622-2e869c43-8eb7-49d3-8511-4aeacdd89cd7.png)
 
-https://user-images.githubusercontent.com/86546911/176376622-2e869c43-8eb7-49d3-8511-4aeacdd89cd7.png
+
 
 
 
 
 #### 3. Module SIM A7670C pinout
+
+
+
 
 
 
