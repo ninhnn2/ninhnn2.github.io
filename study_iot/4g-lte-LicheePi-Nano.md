@@ -30,6 +30,20 @@ Sử dụng uart1 LicheePi Nano để giao tiếp với module SIM A7670C
 
 ![image](https://user-images.githubusercontent.com/86546911/176383066-5a393fcc-4607-436a-b09d-c9017f4b2302.png)
 
+### 4. Sơ đồ đấu dây
+
+Với module A7670C của mình thì không ra chân usb, nên ở đây mình sử dụng giao thức PPPOS (Point to Point Over Serial).
+PPP là giao thức giao tiếp dữ liệu lớp cao, được sử dụng chủ yếu trong các module mạng. Ưu điểm của giao thức PPP là
+có thể gửi trực tiếp giữ liệu mà không cần phải sử dụng AT command. Vì thế chúng ta chỉ cần nối Tx/Rx trên LicheePi Nano
+với Rx/Tx trên module sim A7670C là được.
+
+### 5. Làm sao để chạy được giao thức PPPOS cho LicheePi Nano
+
+Để chạy được giao thức PPPOS (hoặc QMI/MBIM interface) thì đầu tiên Linux kernel trên LicheePi Nano phải enable driver
+ppp (hoặc QMI/MBIM driver). Tiếp theo đó, bản rom linux chạy trên LicheePi Nano phải được cài đặt tools ppp hoặc
+(qmicli/mbimcli tương ứng với từng protocol).
+
+
 
 ### 8. Test network
 
