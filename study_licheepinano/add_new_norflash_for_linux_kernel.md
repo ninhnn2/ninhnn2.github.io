@@ -120,7 +120,7 @@ static const struct flash_info winbond_parts[] = {
 Tiếp theo ta chỉ việc thêm các thông số norflash cần đọc vào mảng struct trên như sau
 
 ```shell
-{ "w25x05", INFO(0x578899, 0, 64 * 1024,  1,  SECT_4K) },
+{ "newnorflashname", INFO(0x578899, 0, 64 * 1024,  1,  SECT_4K) },
 ```
 
 Với "0x578899" là JEDEC id
