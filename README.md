@@ -1,6 +1,7 @@
 
 # Embedded Linux Engineer
 
+Email: nguyennhutninh@gmail.com
 
 ## Skills
 
