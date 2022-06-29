@@ -39,4 +39,10 @@ Sử dụng uart1 LichPi Nano để giao tiếp với module SIM A7670C
 
 
 
+#### 5. Test network
+
+```shell
+iperf3 -c iperf.biznetnetworks.com
+```
+
 
