@@ -107,6 +107,23 @@ Vào Device Drivers ---> Network device support ---> <*>   PPP (point-to-point p
 make ARCH=arm CROSS_COMPILE=../toolchain/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabi/bin/arm-linux-gnueabi- -j8
 ```
 
+### 7. Setup PPP cho LicheePi Nano
+
+Boot LicheePi Nano lên và truy cập console
+
+- Test uart1 trên LicheePi Nano bằng lệnh sau, nếu output lệnh báo error thì uart1 chưa được enable
+```shell
+cat /dev/ttyS1
+```
+
+#### Configuring ppp
+
+- Tạo file rnet
+```shell
+vim /etc/ppp/peers/rnet
+```
+
+- Thêm nội dung sau vào file rnet
 ```js
 #imis/internet is the apn for idea connection
 connect "/usr/sbin/chat -v -f /etc/chatscripts/gprs -T internet.telekom"
@@ -140,23 +157,52 @@ nocrtscts
 local
 ```
 
-
-
-### 7. Setup PPP cho LicheePi Nano
-
-Boot LicheePi Nano lên và truy cập console
-
-- Test uart1 trên LicheePi Nano bằng lệnh sau, nếu output lệnh báo error thì uart1 chưa được enable
+- Chỉnh sữa file gprs
 ```shell
-cat /dev/ttyS1
+vim /etc/chatscripts/gprs
 ```
 
-#### Configuring ppp
+- Chỉnh sửa nội dung file gprs
+```js
+# You can use this script unmodified to connect to cellular networks.
+# The APN is specified in the peers file as the argument of the -T command
+# line option of chat(8).
 
-- Tạo file rnet
-```shell
-vim /etc/ppp/peers/rnet
+# For details about the AT commands involved please consult the relevant
+# standard: 3GPP TS 27.007 - AT command set for User Equipment (UE).
+# (http://www.3gpp.org/ftp/Specs/html-info/27007.htm)
+
+ABORT   BUSY
+ABORT   VOICE
+ABORT   "NO CARRIER"
+ABORT   "NO DIALTONE"
+ABORT   "NO DIAL TONE"
+ABORT   "NO ANSWER"
+ABORT   "DELAYED"
+ABORT   "ERROR"
+
+# cease if the modem is not attached to the network yet
+ABORT   "+CGATT: 0"
+
+""  AT
+TIMEOUT 12
+OK  ATH
+OK  ATE1
+
+# +CPIN provides the SIM card PIN
+#OK "AT+CPIN=1234"
+
+# +CFUN may allow to configure the handset to limit operations to
+# GPRS/EDGE/UMTS/etc to save power, but the arguments are not standard
+# except for 1 which means "full functionality".
+#OK AT+CFUN=1
+
+OK  AT+CGDCONT=1,"IP","\T","",0,0
+OK  ATD*99#
+TIMEOUT 22
+CONNECT ""
 ```
+
 
 ### 8. Test connection
 
