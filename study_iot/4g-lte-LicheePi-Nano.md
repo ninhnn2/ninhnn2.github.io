@@ -124,7 +124,7 @@ Tạo file rnet
 vim /etc/ppp/peers/rnet
 ```
 
-Thêm nội dung sau vào file rnet
+Nội dung file rnet
 
 ```js
 #imis/internet is the apn for idea connection
@@ -159,12 +159,12 @@ nocrtscts
 local
 ```
 
-Chỉnh sữa file gprs
+Chỉnh sửa nội dung file gprs
 ```shell
 vim /etc/chatscripts/gprs
 ```
 
-Sử nội dung file gprs như sau
+Nội dung file gprs
 
 ```js
 # You can use this script unmodified to connect to cellular networks.
