@@ -125,6 +125,7 @@ vim /etc/ppp/peers/rnet
 
 - Thêm nội dùng sau vào file rnet
 ```shell
+
 #imis/internet is the apn for idea connection
 connect "/usr/sbin/chat -v -f /etc/chatscripts/gprs -T internet.telekom"
 
@@ -155,6 +156,7 @@ nocrtscts
 
 # No modem control lines with GSM Modem
 local
+
 ```
 
 - Save file rnet và exit, tiếp theo chúng ta edit file sau
@@ -162,9 +164,9 @@ local
 vim /etc/chatscripts/gprs
 ```
 
-
 - Sữa nội dung file gprs như sau
 ```shell
+
 # You can use this script unmodified to connect to cellular networks.
 # The APN is specified in the peers file as the argument of the -T command
 # line option of chat(8).
@@ -202,6 +204,7 @@ OK  AT+CGDCONT=1,"IP","\T","",0,0
 OK  ATD*99#
 TIMEOUT 22
 CONNECT ""
+
 ```
 
 Lúc này PPP đã được config xong
