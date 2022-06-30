@@ -107,6 +107,41 @@ Vào Device Drivers ---> Network device support ---> <*>   PPP (point-to-point p
 make ARCH=arm CROSS_COMPILE=../toolchain/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabi/bin/arm-linux-gnueabi- -j8
 ```
 
+```js
+#imis/internet is the apn for idea connection
+connect "/usr/sbin/chat -v -f /etc/chatscripts/gprs -T internet.telekom"
+
+# For SIM7600E use /dev/ttyUSB2 as the communication port
+# For SIM800 use /dev/ttySC1 as the communication port
+/dev/ttyUSB2
+
+# Baudrate
+115200
+
+# Assumes that your IP address is allocated dynamically by the ISP.
+noipdefault
+
+# Try to get the name server addresses from the ISP.
+usepeerdns
+
+# Use this connection as the default route to the internet.
+defaultroute
+
+# Makes PPPD "dial again" when the connection is lost.
+persist
+
+# Do not ask the remote to authenticate.
+noauth
+
+# No hardware flow control on the serial link with GSM Modem
+nocrtscts
+
+# No modem control lines with GSM Modem
+local
+```
+
+
+
 ### 7. Setup PPP cho LicheePi Nano
 
 Boot LicheePi Nano lên và truy cập console
