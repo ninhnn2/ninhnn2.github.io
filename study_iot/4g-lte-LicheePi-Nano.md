@@ -92,6 +92,14 @@ make ARCH=arm CROSS_COMPILE=../toolchain/gcc-linaro-7.4.1-2019.02-x86_64_arm-lin
 ```
 
 
+![image](https://user-images.githubusercontent.com/86546911/176582935-f27ba007-df23-41bb-85e6-bd8534d69519.png)
+
+
+
+![image](https://user-images.githubusercontent.com/86546911/176582939-cc64d7e4-4770-4330-9a71-166fe3710c90.png)
+
+
+
 
 ### 8. Test network
 
