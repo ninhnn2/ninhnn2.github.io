@@ -107,7 +107,9 @@ Vào Device Drivers ---> Network device support ---> <*>   PPP (point-to-point p
 make ARCH=arm CROSS_COMPILE=../toolchain/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabi/bin/arm-linux-gnueabi- -j8
 ```
 
-### Setup PPP cho LicheePi Nano
+### 7. Setup PPP cho LicheePi Nano
+
+Boot LicheePi Nano lên và truy cập console
 
 - Test uart1 trên LicheePi Nano bằng lệnh sau, nếu output lệnh báo error thì uart1 chưa được enable
 ```shell
