@@ -124,7 +124,7 @@ vim /etc/ppp/peers/rnet
 ```
 
 - Thêm nội dùng sau vào file rnet
-```shell
+```properties
 
 #imis/internet is the apn for idea connection
 connect "/usr/sbin/chat -v -f /etc/chatscripts/gprs -T internet.telekom"
@@ -165,7 +165,7 @@ vim /etc/chatscripts/gprs
 ```
 
 - Sữa nội dung file gprs như sau
-```shell
+```properties
 
 # You can use this script unmodified to connect to cellular networks.
 # The APN is specified in the peers file as the argument of the -T command
