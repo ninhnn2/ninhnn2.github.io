@@ -102,6 +102,12 @@ Vào Device Drivers ---> Network device support ---> <*>   PPP (point-to-point p
 ![image](https://user-images.githubusercontent.com/86546911/176582939-cc64d7e4-4770-4330-9a71-166fe3710c90.png)
 
 
+- Sau khi save config thì chúng ta rebuild lại linux kernel cho LicheePi Nano
+```shell
+make ARCH=arm CROSS_COMPILE=../toolchain/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabi/bin/arm-linux-gnueabi- -j8
+```
+
+
 
 ### 8. Test network
 
