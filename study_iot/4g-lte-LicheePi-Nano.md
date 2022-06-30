@@ -124,6 +124,7 @@ vim /etc/ppp/peers/rnet
 ```
 
 - Thêm nội dung sau vào file rnet
+
 ```js
 #imis/internet is the apn for idea connection
 connect "/usr/sbin/chat -v -f /etc/chatscripts/gprs -T internet.telekom"
