@@ -109,9 +109,8 @@ make ARCH=arm CROSS_COMPILE=../toolchain/gcc-linaro-7.4.1-2019.02-x86_64_arm-lin
 
 ### 7. Setup PPP cho LicheePi Nano
 
-Boot LicheePi Nano lên và truy cập console
-
-- Test uart1 trên LicheePi Nano bằng lệnh sau, nếu output lệnh báo error thì uart1 chưa được enable
+Test uart1 trên LicheePi Nano đã được enable chưa bằng lệnh sau, nếu output lệnh báo error thì uart1 chưa được enable.
+Để enable uart1 trên LicheePi Nano thì chúng ta cần chỉnh sửa device trong linux kernel.
 ```shell
 cat /dev/ttyS1
 ```
