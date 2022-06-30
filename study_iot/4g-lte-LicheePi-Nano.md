@@ -131,7 +131,7 @@ connect "/usr/sbin/chat -v -f /etc/chatscripts/gprs -T internet.telekom"
 
 # For SIM7600E use /dev/ttyUSB2 as the communication port
 # For SIM800 use /dev/ttySC1 as the communication port
-/dev/ttyUSB2
+/dev/ttyS1
 
 # Baudrate
 115200
