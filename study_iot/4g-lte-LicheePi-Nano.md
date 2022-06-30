@@ -12,7 +12,7 @@ gateway chạy linux. Nếu như ứng dụng của chúng ta chỉ sử dụng 
 thì chỉ cần sử dụng một con MCU + module SIM7600CE, còn nếu ứng dụng bắt buộc phải sữ dụng
 nhiều protocol cùng lúc thì một gateway chạy linux được ưu tiên lựa chọn.
 
-### 2. LicheePi Nano pinout
+### 2. LicheePi Nano Pinout
 
 ![image](https://user-images.githubusercontent.com/86546911/176376622-2e869c43-8eb7-49d3-8511-4aeacdd89cd7.png)
 
@@ -26,7 +26,7 @@ Sử dụng uart1 LicheePi Nano để giao tiếp với module SIM A7670C
 
 
 
-### 3. Module SIM A7670C pinout
+### 3. Module SIM A7670C Pinout
 
 ![image](https://user-images.githubusercontent.com/86546911/176383066-5a393fcc-4607-436a-b09d-c9017f4b2302.png)
 
