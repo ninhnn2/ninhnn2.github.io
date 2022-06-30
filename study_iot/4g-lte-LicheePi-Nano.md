@@ -53,7 +53,7 @@ tham khảo bài viết trước của mình:
 - Clone source LicheePi Nano SDK
 
 ```shell
-git clone https://github.com/ninhnn2/licheepi_nano_sdk.git
+ git clone https://github.com/ninhnn2/licheepi_nano_sdk.git
 ```
 
 - Đi vào thư mục licheepi_nano_sdk
