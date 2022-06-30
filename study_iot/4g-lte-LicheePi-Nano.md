@@ -51,7 +51,6 @@ tham khảo bài viết trước của mình:
 [Tự tạo linux distro cho LicheePi Nano](https://ninhnn2.github.io/study_licheepinano/nano_buildsystem.html)
 
 - Clone source LicheePi Nano SDK
-
 ```shell
  git clone https://github.com/ninhnn2/licheepi_nano_sdk.git
 ```
