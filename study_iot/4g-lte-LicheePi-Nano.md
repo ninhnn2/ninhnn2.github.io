@@ -126,37 +126,26 @@ vim /etc/ppp/peers/rnet
 - Thêm nội dùng sau vào file rnet
 ```properties
 
-#imis/internet is the apn for idea connection
+
 connect "/usr/sbin/chat -v -f /etc/chatscripts/gprs -T internet.telekom"
 
-# For SIM7600E use /dev/ttyUSB2 as the communication port
-# For SIM800 use /dev/ttySC1 as the communication port
 /dev/ttyUSB2
 
-# Baudrate
 115200
 
-# Assumes that your IP address is allocated dynamically by the ISP.
 noipdefault
 
-# Try to get the name server addresses from the ISP.
 usepeerdns
 
-# Use this connection as the default route to the internet.
 defaultroute
 
-# Makes PPPD "dial again" when the connection is lost.
 persist
 
-# Do not ask the remote to authenticate.
 noauth
 
-# No hardware flow control on the serial link with GSM Modem
 nocrtscts
 
-# No modem control lines with GSM Modem
 local
-
 ```
 
 - Save file rnet và exit, tiếp theo chúng ta edit file sau
