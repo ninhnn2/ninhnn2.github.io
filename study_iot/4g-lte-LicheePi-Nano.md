@@ -209,18 +209,18 @@ CONNECT ""
 
 ### 8. Test connection
 
-- Start PPP
+Chạy ppp tools
 ```shell
 pon rnet
 ```
 
-- Kiểm tra log hệ thống và interface mạng ppp0 có up thành công không
+Kiểm tra log hệ thống và interface mạng 4g lte
 ```shell
 tail -n 30 /var/log/syslog
 ifconfig
 ```
 
-- Test tốc độ mạng 4G LTE qua PPP protocol
+Đo tốc độ mạng LicheePi Nano 4G LTE với PPP protocol
 ```shell
 iperf3 -c iperf.biznetnetworks.com
 ```
