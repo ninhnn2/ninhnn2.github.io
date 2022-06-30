@@ -107,10 +107,118 @@ Vào Device Drivers ---> Network device support ---> <*>   PPP (point-to-point p
 make ARCH=arm CROSS_COMPILE=../toolchain/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabi/bin/arm-linux-gnueabi- -j8
 ```
 
+### Setup PPP cho LicheePi Nano
+
+- Test uart1 trên LicheePi Nano bằng lệnh sau, nếu output lệnh báo error thì uart1 chưa được enable
+```shell
+cat /dev/ttyS1
+```
+
+#### Configuring ppp
+
+- Tạo file rnet
+```shell
+vim /etc/ppp/peers/rnet
+```
+
+- Thêm nội dùng sau vào file rnet
+```shell
+#imis/internet is the apn for idea connection
+connect "/usr/sbin/chat -v -f /etc/chatscripts/gprs -T internet.telekom"
+
+# For SIM7600E use /dev/ttyUSB2 as the communication port
+# For SIM800 use /dev/ttySC1 as the communication port
+/dev/ttyUSB2
+
+# Baudrate
+115200
+
+# Assumes that your IP address is allocated dynamically by the ISP.
+noipdefault
+
+# Try to get the name server addresses from the ISP.
+usepeerdns
+
+# Use this connection as the default route to the internet.
+defaultroute
+
+# Makes PPPD "dial again" when the connection is lost.
+persist
+
+# Do not ask the remote to authenticate.
+noauth
+
+# No hardware flow control on the serial link with GSM Modem
+nocrtscts
+
+# No modem control lines with GSM Modem
+local
+```
+
+- Save file rnet và exit, tiếp theo chúng ta edit file sau
+```shell
+vim /etc/chatscripts/gprs
+```
 
 
-### 8. Test network
+- Sữa nội dung file gprs như sau
+```shell
+# You can use this script unmodified to connect to cellular networks.
+# The APN is specified in the peers file as the argument of the -T command
+# line option of chat(8).
 
+# For details about the AT commands involved please consult the relevant
+# standard: 3GPP TS 27.007 - AT command set for User Equipment (UE).
+# (http://www.3gpp.org/ftp/Specs/html-info/27007.htm)
+
+ABORT   BUSY
+ABORT   VOICE
+ABORT   "NO CARRIER"
+ABORT   "NO DIALTONE"
+ABORT   "NO DIAL TONE"
+ABORT   "NO ANSWER"
+ABORT   "DELAYED"
+ABORT   "ERROR"
+
+# cease if the modem is not attached to the network yet
+ABORT   "+CGATT: 0"
+
+""  AT
+TIMEOUT 12
+OK  ATH
+OK  ATE1
+
+# +CPIN provides the SIM card PIN
+#OK "AT+CPIN=1234"
+
+# +CFUN may allow to configure the handset to limit operations to
+# GPRS/EDGE/UMTS/etc to save power, but the arguments are not standard
+# except for 1 which means "full functionality".
+#OK AT+CFUN=1
+
+OK  AT+CGDCONT=1,"IP","\T","",0,0
+OK  ATD*99#
+TIMEOUT 22
+CONNECT ""
+```
+
+Lúc này PPP đã được config xong
+
+
+### 8. Test connection
+
+- Start PPP
+```shell
+pon rnet
+```
+
+- Kiểm tra log hệ thống và interface mạng ppp0 có up thành công không
+```shell
+tail -n 30 /var/log/syslog
+ifconfig
+```
+
+- Test tốc độ mạng 4G LTE qua PPP protocol
 ```shell
 iperf3 -c iperf.biznetnetworks.com
 ```
