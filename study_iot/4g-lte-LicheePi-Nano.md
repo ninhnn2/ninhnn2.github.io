@@ -2,7 +2,7 @@
 sort: 2
 ---
 
-# HƯỚNG DẪN KẾT NỐI TCP/IP MODULE SIM 4G SIM7600 A7670 VỚI LICHEEPI NANO
+# LICHEEPI NANO 4G VỚI SIM A7670C/SIM7600
 
 ### 1. Ứng dụng 4G LTE với board LicheePi Nano
 
