@@ -29,12 +29,13 @@ Vì vậy mình cần sử dụng một file .bbappend file để thêm file rne
 Tạo một cấu trúc thư mục và file như sau trong meta-f1c100s
 
 
-
+```shell
 ├── recipes-connectivity
 │   └── ppp
 │       ├── files
 │       │   └── rnet
 │       └── ppp_%.bbappend
+```
 
 
 
