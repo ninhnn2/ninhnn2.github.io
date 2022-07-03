@@ -40,12 +40,7 @@ Tạo một cấu trúc thư mục và file như sau trong meta-f1c100s
 
 
 
-
-
-
-
-
-
+-Nội dùng file rnet
 ```js
 #imis/internet is the apn for idea connection
 connect "/usr/sbin/chat -v -f /etc/chatscripts/gprs -T internet.telekom"
@@ -77,6 +72,17 @@ nocrtscts
 
 # No modem control lines with GSM Modem
 local
+```
+
+-Nội dung file ppp_%.bbappend
+```js
+FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+
+SRC_URI += "file://rnet"
+
+do_install_append() {
+    install -m 0644 ${WORKDIR}/rnet ${D}${sysconfdir}/ppp/peers
+}
 ```
 
 
