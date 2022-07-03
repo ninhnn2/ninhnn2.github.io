@@ -2,7 +2,7 @@
 sort: 4
 ---
 
-# HƯỚNG DẪN THÊM MỘT META SOFTWARE LAYER VÀO LICHEEPI NANO YOCTO IMAGE
+# HƯỚNG DẪN THÊM MỘT FILE BẤT KỲ VÀO LICHEEPI NANO YOCTO IMAGE
 
 
 #### 1. Meta software layer trong Yocto là gì ?
