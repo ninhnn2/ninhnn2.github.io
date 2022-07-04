@@ -5,28 +5,28 @@ sort: 3
 # HƯỚNG DẪN THÊM MỘT META SOFTWARE LAYER VÀO LICHEEPI NANO YOCTO IMAGE
 
 
-#### 1. Meta software layer trong Yocto là gì ?
+### 1. Meta software layer trong Yocto là gì ?
 
 Các tools, thư viện, các bản vá lỗi cho hệ thống filesystem, được lưu giữ trên một layer Yocto riêng biệt,
-được gọi là sofware layer. Một layer sẽ bao gồm một hoặc nhiểu recipe, mỗi recipe sẽ có các thuộc tính
+được gọi là sofware layer. Một layer sẽ bao gồm một hoặc nhiều recipe, mỗi recipe sẽ có các thuộc tính
 như fetch, configure, compile, install, deploy dùng để biên dịch một package (thư viện, tools...). Trong
 bài viết này, chúng ta sẽ tạo một meta layer chứa recipe có chức năng biên dịch thư viện gpio cho board 
 LicheePi Nano.
 
 
-#### 2. Làm thế nào để tạo một meta software layer
+### 2. Làm thế nào để tạo một meta software layer
 
 Theo quy ước, layer Yocto bắt đầu bằng "meta", viết tắt của siêu dữ liệu và cuối cùng là một tên duy nhất.
 Còn ở bài viết này mình sử dụng tên layer là "meta-gpio". Layer "meta-gpio" này sẽ hổ trợ build thư viện 
 gpio và install vào rootfs yocto LicheePi Nano (f1c100s).
 
-#### 3. Các cách để tạo một software layer
+### 3. Các cách để tạo một software layer
 - Tự tạo bằng tay, với phương pháp này bạn cần biết chính xác mình cần làm những gì để hạn chế lỗi.
 - Copy một layer sample có sẳn trong poky (Yocto) tên là "meta-skeleton".
 - Dùng công cụ "bitbake-layers" để tạo (mình đang dùng phiên bản Yocto Zeus, công cụ sẽ khác nếu các bạn
 sử dụng phiên bản Yocto cũ hơn).
 
-#### 4. Tạo software layer bằng công cụ bitbake-layers
+### 4. Tạo software layer bằng công cụ bitbake-layers
 - Đi tới thư mục Home
 
 ```shell
@@ -84,7 +84,7 @@ BBLAYERS ?= " \
 "
 ```
 
-#### 4 Cấu trúc một sofware layer
+### 4 Cấu trúc một sofware layer
 
 Sau khi add một layer bằng bitbake-layers, thì bitbake sẽ tạo ra cho chúng ta một recipe tên là example
 và mình đã đổi tên thành gpio.
@@ -143,7 +143,7 @@ do_install() {
 
 ```
 
-#### 6. Biên dịch recipe trong meta software layer
+### 6. Biên dịch recipe trong meta software layer
 
 ```shell
 $ bitbake fgpio
@@ -180,7 +180,7 @@ Như vậy, sau khi ta flash image này vào thẻ nhớ và boot LicheePi Nano
 thư viện fgpio sẽ có sẳn trên hệ thống rootfs.
 
 
-#### 7. Chương trình C cơ bản sử dụng thư viện fgpio
+### 7. Chương trình C cơ bản sử dụng thư viện fgpio
 
 Tạo file app.c với nội dung sau
 
