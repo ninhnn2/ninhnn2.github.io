@@ -28,6 +28,8 @@ Vì vậy mình cần sử dụng một file .bbappend file để thêm file rne
 
 Tạo một cấu trúc thư mục và file như sau trong meta-f1c100s
 
+[`meta-f1c100s`](https://github.com/ninhnn2/meta-f1c100s)
+
 
 ```shell
 ├── recipes-connectivity
