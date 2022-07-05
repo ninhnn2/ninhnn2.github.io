@@ -29,3 +29,7 @@ exclude:
   - package-lock.json
   - webpack.config.js
   - jekyll-rtd-theme.gemspec
+# Google Ads
+adsense:
+  client_id: 'ca-pub-2950224298461248' # Google Adsense client ID
+  
