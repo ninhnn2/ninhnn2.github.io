@@ -41,6 +41,7 @@ Tạo một cấu trúc thư mục và file như sau trong meta-f1c100s
 
 
 - Nội dùng file rnet
+
 ```js
 #imis/internet is the apn for idea connection
 connect "/usr/sbin/chat -v -f /etc/chatscripts/gprs -T internet.telekom"
