@@ -85,4 +85,6 @@ do_install_append() {
 }
 ```
 
+Sau đó ta chỉ việc tiến hành chạy lệnh đúc rom cho LicheePi Nano thì bitbake sẽ compile lại ppp
+đồng thời chạy file .append mà chúng ta vừa thêm vào.
 
