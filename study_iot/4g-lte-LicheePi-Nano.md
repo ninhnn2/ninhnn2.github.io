@@ -227,3 +227,9 @@ iperf3 -c iperf.biznetnetworks.com
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vpdOxkPNvK8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
+
+
+Video hướng dẫn rebuild Linux Kernel for LicheePi Nano
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0o_c29z00Iw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
