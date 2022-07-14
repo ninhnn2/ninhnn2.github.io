@@ -2,7 +2,7 @@
 sort: 1
 ---
 
-# BIÊN DỊCH CHÉO MỘT ỨNG DỤNG CHO EMBEDED COMPUTER
+# CROSS COMPILE MỘT ỨNG DỤNG CHO EMBEDED COMPUTER
 
 #### Hardware
 
