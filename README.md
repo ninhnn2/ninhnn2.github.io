@@ -1,7 +1,5 @@
 
-# Embedded Linux Engineer
-
-Email: nguyennhutninh@gmail.com
+# Fanning is an independent online publication that covers Embedded programming tutorials, projects, and more
 
 ## Skills
 
