@@ -1,5 +1,5 @@
 
-# Fanning is an independent online publication that covers Embedded programming tutorials, projects, and more
+# Embedded programming tutorials, projects, and more
 
 ## Skills
 
