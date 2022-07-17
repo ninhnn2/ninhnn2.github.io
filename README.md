@@ -26,7 +26,13 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XeEEIfbIYdg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
-### Thiết bị điều khiển âm thanh và giám sát âm ly nhà yến Smart Audio
+## Producttion Project
+
+Link sản phẩm
+
+[`Smart Audio Product`](https://epcb.vn/products/thiet-bi-am-thanh-va-giam-sat-am-ly-nha-yen-nesthouse-audio)
+
+### Thiết bị IoT điều khiển âm thanh và giám sát âm ly nhà yến Smart Audio
 - SoC: MT7628 64MB DRAM, 32MB Norflash 
 - Linux distro: Openwrt
 - Play 4 usb sound card
