@@ -28,8 +28,6 @@
 
 ## Producttion Project
 
-Link sản phẩm
-
 [`Smart Audio Product`](https://epcb.vn/products/thiet-bi-am-thanh-va-giam-sat-am-ly-nha-yen-nesthouse-audio)
 
 ### Thiết bị IoT điều khiển âm thanh và giám sát âm ly nhà yến Smart Audio
