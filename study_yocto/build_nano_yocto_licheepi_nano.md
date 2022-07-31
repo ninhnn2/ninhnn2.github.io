@@ -13,7 +13,7 @@ Bản phân phối Linux là một tập hợp các gói phần mềm bao gồm 
 Hiện tại có hàng trăm loại Linux distro, điển hình và phổ biến nhất là Ubuntu, Debian, Kali Linux..., nhưng 
 hầu hết chúng không được thiết kế để chạy cho các hệ thống nhúng nhỏ nhẹ ( chạy trên Norflash, Nand flash).
 Yocto ra đời giúp cho việc tạo một bản phân phối Linux dễ dàng và chuyên nghiệp hơn, có thể custom cho các
-thiết bị v
+thiết bị có Ram từ 128Mb đến hàng trăm GB.
 
 #### 2. Cài đặt môi trường development cho Ubuntu 20.04
 Sau đây là các list package mà mình thường install trong quá trình development
@@ -33,8 +33,8 @@ sudo apt-get install cpio python2 python2.7 -y
 #### 3. Lấy source và tiến hành build yocto cho board LicheePi Nano
 
 Ở đây mình sử dụng board licheepi nano vì nó có giá thành rẻ, nhỏ gọn. Hầu hết mọi người 
-đều có thể mua và học được. Từ đó các bạn có thể tự tạo cho mình một bản linux distro
-l
+đều có thể mua và học được. Từ đó các bạn có thể tự tạo cho mình một bản linux distro với
+đầy đủ các công cụ mà bạn cần.
 
 
 ```shell
