@@ -2,7 +2,7 @@
 sort: 1
 ---
 
-# LINUX DEVICE DRIVER
+# LINUX DEVICE DRIVER - GIỚI THIỆU
 
 ### Giới Thiệu Linux
 
