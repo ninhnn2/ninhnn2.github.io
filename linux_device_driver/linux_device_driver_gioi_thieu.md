@@ -94,6 +94,50 @@ không thực thi tuần tự. Một kernel module đăng ký để phục vụ 
 
 - Kernel module sử dụng các tệp tiêu đề khác nhau. Kernel module yêu cầu một tập hợp các tệp tiêu đề khác với các user program yêu cầu.
 
+### Khác biệt giữa Kernel Drivers and Kernel Modules
+
+- Kernel module là một đoạn code đã được biên dịch và có thể được chèn vào kernel lúc runtime bằng các lệnh insmod hoặc modprobe.
+
+- Driver là một đoạn code chạy trong kernel để giao tiếp với một số thiết bị phần cứng. Nó "điều khiển" phần cứng. Hầu hết mọi phần cứng trong
+máy tính của bạn đều có một hoặc nhiều driver liên quan.
+
+### Device Driver
+
+Device driver là một dạng ứng dụng phần mềm cụ thể được thiết kế để cho phép tương tác với các thiết bị phần cứng. Nếu không có device driver
+được yêu cầu, thiết bị phần cứng tương ứng sẽ không hoạt động.
+Device driver thường giao tiếp với phần cứng bằng hệ thống con giao tiếp hoặc bus máy tính mà phần cứng được kết nối. Device driver dành riêng
+cho hệ điều hành và phụ thuộc vào phần cứng. Device driver hoạt động như một trình dịch giữa thiết bị phần cứng và các chương trình 
+hoặc hệ điều hành sử dụng nó.
+
+### Các loại device driver
+
+Theo cách phân loại truyền thống, có 3 loại device driver:
+
+- Character device
+- Block device
+- Network device
+
+Trong Linux, mọi thứ đều là file. Ý tôi là Linux coi mọi thứ như file ngay cả phần cứng.
+
+#### Character Device
+
+Character Device là một tệp phần cứng đọc/ghi dữ liệu theo ký tự theo kiểu ký tự. Một số ví dụ cổ điển là bàn phím, chuột, máy in nối tiếp.
+Nếu người dùng sử dụng tệp char để ghi dữ liệu thì không người dùng nào khác có thể sử dụng cùng tệp char để ghi dữ liệu chặn quyền truy cập
+của người dùng khác. Các tệp ký tự sử dụng đồng bộ hóa Technic để ghi dữ liệu. Bạn quan sát thấy các tệp char được sử dụng cho mục đích giao
+tiếp và chúng không thể được gắn kết.
+
+#### Block Device
+
+Block device là một tệp phần cứng đọc/ghi dữ liệu theo khối thay vì từng ký tự. Loại tệp này rất hữu ích khi chúng ta muốn ghi / đọc dữ liệu hàng loạt.
+Tất cả các đĩa của chúng tôi như HDD, USB và CDROM đều là thiết bị khối. Đây là lý do khi chúng tôi định dạng, chúng tôi xem xét kích thước khối.
+Việc ghi dữ liệu được thực hiện theo kiểu không đồng bộ và đó là hoạt động sử dụng nhiều CPU. Các tệp thiết bị này được sử dụng để lưu trữ dữ liệu trên phần cứng thực và có thể được gắn kết để chúng tôi có thể truy cập vào dữ liệu chúng tôi đã viết.
+
+#### Network Device
+
+Đối với hệ thống mạng con của Linux, thiết bị mạng là một thực thể gửi và nhận các gói dữ liệu. Đây thường là một thiết bị vật lý như thẻ ethernet.
+Mặc dù vậy, một số thiết bị mạng chỉ là phần mềm, chẳng hạn như thiết bị lặp lại được sử dụng để gửi dữ liệu cho chính bạn.
+
+Đây là tất cả những điều cơ bản về linux device driver và Linux. Chúng ta setup ubuntu và Licheepi Nano để phát triển Linux device driver trong hướng dẫn tiếp theo.
 
 
 
