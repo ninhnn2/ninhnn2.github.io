@@ -121,10 +121,12 @@ Trong Linux, mọi thứ đều là file. Ý tôi là Linux coi mọi thứ như
 
 #### Character Device
 
-Character Device là một tệp phần cứng đọc/ghi dữ liệu theo ký tự theo kiểu ký tự. Một số ví dụ cổ điển là bàn phím, chuột, máy in nối tiếp.
-Nếu người dùng sử dụng tệp char để ghi dữ liệu thì không người dùng nào khác có thể sử dụng cùng tệp char để ghi dữ liệu chặn quyền truy cập
-của người dùng khác. Các tệp ký tự sử dụng đồng bộ hóa Technic để ghi dữ liệu. Bạn quan sát thấy các tệp char được sử dụng cho mục đích giao
-tiếp và chúng không thể được gắn kết.
+A char file is a hardware file that reads/writes data in character by character fashion. Some classic examples are keyboard, mouse, serial printer. If a user uses a char file for writing data no other user can use the same char file to write data that blocks access to another user. Character files use synchronize Technic to write data. Of you observe char files are used for communication purposes and they can not be mounted.
+
+Character Device là một tệp phần cứng đọc/ghi dữ liệu theo kiểu ký tự. Một số ví dụ điển hình như là bàn phím, chuột, máy in.
+Nếu người dùng sử dụng tệp char để ghi dữ liệu thì không có người dùng nào khác có thể sử dụng cùng tệp char đó để ghi dữ liệu.
+Các tệp ký tự sử dụng kỹ thuật đồng bộ để ghi dữ liệu. Bạn quan sát thấy các tệp char được sử dụng cho mục đích giao
+tiếp và chúng không thể mount.
 
 #### Block Device
 
