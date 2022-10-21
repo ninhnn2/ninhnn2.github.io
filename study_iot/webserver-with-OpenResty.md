@@ -134,8 +134,15 @@ curl http://localhost:8080
 
 Bạn sẽ thấy output như sau
 ```shell
-Welcome to Lapis 1.4.3
+Welcome to Lapis 1.9.0
 ```
+
+### Test trên browser
+```shell
+http://192.168.1.200:8080/
+```
+
+
 
 
 
