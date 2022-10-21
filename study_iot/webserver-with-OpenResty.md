@@ -105,10 +105,10 @@ phiên bản tùy chỉnh của Nginx có tên là OpenResty.
 
 ### Cài đặt Lapis
 ```shell
-apt-get install luarocks
-luarocks install moonscript
-luarocks install lapis
-luarocks install --server=http://rocks.moonscript.org/manifests/leafo lapis
+sudo apt-get install luarocks
+sudo luarocks install moonscript
+sudo luarocks install lapis
+sudo luarocks install --server=http://rocks.moonscript.org/manifests/leafo lapis
 ```
 
 ### Tạo một sample để test chạy
