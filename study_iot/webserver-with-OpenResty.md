@@ -15,9 +15,9 @@ Bạn cũng sẽ khám phá một số ứng dụng mẫu đơn giản với cá
 
 #### Để làm theo hướng dẫn này, bạn sẽ cần:
 
-Một máy tính dùng Ubuntu 20 hoặc một board máy tính nhúng sử dụng phiên bản Linux tương đương với Ubuntu 20.
+- Một máy tính dùng Ubuntu 20 hoặc một board máy tính nhúng sử dụng phiên bản Linux tương đương với Ubuntu 20.
 
-Lưu ý: Không nên cài đặt Nginx. Nginx đã được tích hợp sẳn trong OpenResty, nếu bạn tự cài sẽ dễ gây xung đột.
+- Không nên cài đặt Nginx. Nginx đã được tích hợp sẳn trong OpenResty, nếu bạn tự cài sẽ dễ gây xung đột.
 
 ## 1. Cài đặt OpenResty trên Linux distro
 
