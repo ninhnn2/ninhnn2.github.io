@@ -86,7 +86,7 @@ http {
 ```shell
 PATH=/opt/openresty-1.21.4.1/nginx/sbin:$PATH
 export PATH
-nginx -p `pwd`/ -c ~/web/conf/nginx.conf
+nginx -p `pwd`/ -c ~/app/conf/nginx.conf
 ```
 #### Test chạy web app với curl
 ```shell
