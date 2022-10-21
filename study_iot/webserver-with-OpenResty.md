@@ -21,6 +21,11 @@ Bạn cũng sẽ khám phá một số ứng dụng mẫu đơn giản với cá
 
 ## 1. Cài đặt OpenResty trên Linux distro
 
+Cài đặt các gói package cần thiết
+```shell
+sudo apt-get install git libreadline-dev libncurses5-dev libpcre3-dev libssl-dev perl make build-essential perl make libssl-dev
+```
+
 Lấy source code
 ```shell
 wget https://openresty.org/download/openresty-1.21.4.1.tar.gz
