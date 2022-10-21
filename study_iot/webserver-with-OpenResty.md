@@ -14,7 +14,7 @@ Trong hướng dẫn này, bạn sẽ cài đặt OpenResty từ source code; c�
 Bạn cũng sẽ khám phá một số ứng dụng mẫu đơn giản với các tính năng độc đáo của OpenResty.
 
 
-#### Điều kiện sử dụng
+Điều kiện sử dụng
 
 Để làm theo hướng dẫn này, bạn sẽ cần:
 
@@ -22,21 +22,21 @@ Một máy tính dùng Ubuntu 20 hoặc một board máy tính nhúng sử dụn
 
 Lưu ý: Không nên cài đặt Nginx. Nginx đã được tích hợp sẳn trong OpenResty, nếu bạn tự cài sẽ dễ gây xung đột.
 
-## Step 1 — Downloading OpenResty’s Source Code and Dependencies
+## 1. Tải source code OpenResty
 
 ```shell
 
-wget https://openresty.org/download/openresty-1.21.4.1.tar.gz
+- wget https://openresty.org/download/openresty-1.21.4.1.tar.gz
 
-tar -xvf openresty-1.21.4.1.tar.gz -C /opt
+- tar -xvf openresty-1.21.4.1.tar.gz -C /opt
 
-cd /opt/openresty-1.21.4.1
+- cd /opt/openresty-1.21.4.1
 
-./configure --with-cc-opt="-I/usr/include/openssl -I/usr/include" --with-ld-opt="-L/usr/include/openssl -L/usr/include" -j8 --prefix=/opt/openresty-1.21.4.1 --with-pcre-jit –with-ipv6
+- ./configure --with-cc-opt="-I/usr/include/openssl -I/usr/include" --with-ld-opt="-L/usr/include/openssl -L/usr/include" -j8 --prefix=/opt/openresty-1.21.4.1 --with-pcre-jit –with-ipv6
 
-make -j8
+- make -j8
 
-sudo mke install
+- sudo mke install
 
 
 ```
