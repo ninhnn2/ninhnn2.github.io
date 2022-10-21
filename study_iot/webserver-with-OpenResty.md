@@ -28,7 +28,7 @@ wget https://openresty.org/download/openresty-1.21.4.1.tar.gz
 
 Giải nén source vào /opt
 ```shell
-tar -xvf openresty-1.21.4.1.tar.gz -C /opt
+sudo tar -xvf openresty-1.21.4.1.tar.gz -C /opt
 ```
 
 Đi đến thư mục source openresty
@@ -38,7 +38,7 @@ cd /opt/openresty-1.21.4.1
 
 Config openresty để biên dịch
 ```shell
-./configure --with-cc-opt="-I/usr/include/openssl -I/usr/include" --with-ld-opt="-L/usr/include/openssl -L/usr/include" -j8 --prefix=/opt/openresty-1.21.4.1 --with-pcre-jit –with-ipv6
+./configure --with-cc-opt="-I/usr/include/openssl -I/usr/include" --with-ld-opt="-L/usr/include/openssl -L/usr/include" -j8 --prefix=/opt/openresty-1.21.4.1 --with-pcre-jit --with-ipv6
 ```
 
 Biên dịch source code
