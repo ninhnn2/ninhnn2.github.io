@@ -23,7 +23,11 @@ Trong repo này chứ các file sau:
 ├── setup-foo.sh
 └── teardown-foo.sh
 ```
-Nội dung file foo.service
+foo.service
+- Chọn type cho systemd là oneshot
+- Khi service được chạy sẽ thực thi lệnh chạy script "setup-foo.sh", chúng ta có thể implement
+các lệnh cần thực thi trong script này hay chạy một ứng dụng nào đó.
+
 ```shell
 [Unit]
 Description=Setup foo
@@ -40,30 +44,13 @@ StandardOutput=journal
 WantedBy=multi-user.target
 ```
 
+## Deploy service systemd
 
 - cd systemd_service_start_at_boot/
 
 - sudo chmod 777 ./ deploy.sh
 
 - sudo ./deploy.sh
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
