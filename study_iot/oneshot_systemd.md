@@ -46,7 +46,7 @@ WantedBy=multi-user.target
 
 ### Install systemd service
 
-Đi tới thực mục source
+Đi tới thư mục source
 ```shell
 cd systemd_service_start_at_boot/
 ```
