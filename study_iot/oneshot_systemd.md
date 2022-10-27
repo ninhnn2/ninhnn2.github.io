@@ -15,7 +15,7 @@ Thông thường chúng ta sẽ sử dụng các tools như crontab, nhưng như
 ### Lấy source
 - git clone https://github.com/ninhnn2/systemd_service_start_at_boot.git
 
-Trong repo này chứ các file sau:
+Trong repo này chứa các file sau:
 ```shell
 ├── deploy.sh
 ├── foo.service
