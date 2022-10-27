@@ -2,7 +2,7 @@
 sort: 4
 ---
 
-# CHẠY ỨNG DỤNG LÚC KHỞI DỘNG VỚI SYSTEMD
+# CHẠY ỨNG DỤNG LÚC START BOOT VỚI SYSTEMD
 
 Trong quá trình phát triển các ứng dụng trên Linux hoặc Gateway IoT, chúng ta thường sẽ gặp trường hợp
 cần chạy ứng dụng lúc khởi động.
