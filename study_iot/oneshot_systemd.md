@@ -44,14 +44,22 @@ StandardOutput=journal
 WantedBy=multi-user.target
 ```
 
-## Deploy service systemd
+### Install systemd service
 
-- cd systemd_service_start_at_boot/
+Đi tới thực mục source
+```shell
+cd systemd_service_start_at_boot/
+```
 
-- sudo chmod 777 ./ deploy.sh
+Cấp quyền thực thi cho script
+```shell
+sudo chmod +x ./ deploy.sh
+```
 
-- sudo ./deploy.sh
-
+Chạy script deploy để install systemd service vào hệ thống
+```shell
+sudo ./deploy.sh
+```
 
 
 
