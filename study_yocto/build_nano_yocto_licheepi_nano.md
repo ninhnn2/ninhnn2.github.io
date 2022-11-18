@@ -26,7 +26,7 @@ sudo apt-get install libcurl-ocaml-dev libmosquitto-dev libmosquittopp-dev libus
 sudo apt-get install bison flex swig libtool curl -y
 sudo apt-get install uuid-dev libacl1-dev liblzo2-dev libzstd-dev lib32z1 device-tree-compiler minicom -y
 sudo apt-get install libncurses5-dev libncursesw5-dev -y
-sudo apt-get install cpio python2 python2.7 -y
+sudo apt-get install cpio python2 python2.7 python-dev -y
 ```
 
 
