@@ -109,6 +109,8 @@ LDLIBS	+=	-lpthread				\
 		-lrt					\
 		-lm					\
 		-lmosquitto				\
+		-lssl	\
+		-lcrypto	\
 		-Xlinker -rpath=/mnt/midware/lib	\
 
 all: create $(OBJ_DIR)/$(NAME_MODULE)
