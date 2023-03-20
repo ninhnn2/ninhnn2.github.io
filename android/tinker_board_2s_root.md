@@ -40,7 +40,9 @@ adb install Magisk.apk
 - Choose “Select and Patch a File” in method, and select the boot.img file,  
 - The Magisk app will patch the boot.img file to [Internal Storage]/Download/magisk_patched_[random_strings].img
 - Pull magisk_patched_[random_strings].img to your PC
-=> adb pull /storage/emulated/0/Download/magisk_patched_[random_strings].img
+```shell
+adb pull /storage/emulated/0/Download/magisk_patched_[random_strings].img
+```
 - Flash boot image patched by magisk in fastboot mode
 ```shell
 adb reboot-bootloader
