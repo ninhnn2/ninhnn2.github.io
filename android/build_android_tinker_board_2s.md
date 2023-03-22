@@ -10,9 +10,9 @@ sort: 2
 ```shell
 mkdir -p ~/android
 cd ~/android/
+```
 
 ### Remove all keyring you has created on your host system
-
 ```shell
 gpg --delete-key <repo>
 gpg --delete-secret-key <repo>
@@ -30,6 +30,15 @@ git config --global user.email fanningnguyen@gmail.com
 ./repo init -u https://android.googlesource.com/platform/manifest
 ./repo init -u https://github.com/TinkerBoard2-Android/manifest.git -b android11-rk3399 -m tinker_board_2-android11-2.0.1.xml
 ./repo sync
+```
+
+### Compile Android 11 Tinker Board 2/2S
+
+```shell
+source build/envsetup.sh
+lunch WW_Tinker_Board_2-userdebug
+./build.sh -UCKAu
+
 ```
 
 
