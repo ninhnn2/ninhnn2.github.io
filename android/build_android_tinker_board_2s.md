@@ -32,13 +32,11 @@ git config --global user.email fanningnguyen@gmail.com
 ./repo sync
 ```
 
-### Compile Android 11 Tinker Board 2/2S
-
+## 2. Compile Android 11 Tinker Board 2/2S
 ```shell
 source build/envsetup.sh
 lunch WW_Tinker_Board_2-userdebug
 ./build.sh -UCKAu
-
 ```
 
 
