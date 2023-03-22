@@ -2,7 +2,7 @@
 sort: 1
 ---
 
-# ROOT TINKER BOARD 2S ANDROID
+# ROOT ANDROID TINKER BOARD 2S
 
 ### Cài đặt tools cần thiết trên Ubuntu 20
 
