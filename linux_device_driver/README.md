@@ -2,7 +2,7 @@
 sort: 4
 ---
 
-# LINUX DEVICE DRIVER
+# NANOPI NEO DRIVER LINUX TUTORIAL
 
 ```
 {% raw %}{% include list.liquid all=true %}{% endraw %}
