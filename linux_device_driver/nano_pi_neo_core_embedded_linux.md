@@ -2,7 +2,7 @@
 sort: 2
 ---
 
-# NANO PI NEO CORE LINUX DEVICE DRIVER
+# NANOPI NEO CORE
 
 ### Nên chọn board máy tính nhúng nào để bắt đầu học lập trình nhúng Linux
 
