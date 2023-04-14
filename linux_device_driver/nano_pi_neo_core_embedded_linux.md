@@ -45,12 +45,12 @@ nên mình sẽ cậ nhật các repo riêng để cho mọi người có thể 
 
 #### Bản cài đặt rom cho NanoPi Neo Core
 ```shell
-wget https://mega.nz/file/1mQCjYiY#8N8O_pnkttY5xUtTb_5ktZo_WfqhptVAu6eWvzAuH-I
+wget https://download1979.mediafire.com/t4561sj2lltgp0EwPBbku3vwzTcrIsJzS-uJyQHlA9IHw-jSjKLVs3sLuDQywPWni15BGzsfd3hGlkBSTR63z8A5yNmu/t3takdwm49bzkik/h3_sd_friendlycore-focal_4.14_armhf_20210618.img.zip
 ```
 
 #### Toolchain để biên dịch Linux kernel U-boot và application cho NanoPi Neo Core
 ```shell
-wget https://mega.nz/file/Qm41iIwI#W5OfHqUd4RL8BA-GFiztY0DXbBujFDyTtm7mJK3X1es
+wget https://download1085.mediafire.com/n6ua5zi7hqugDjABFbeV9kWJCJLtgM_M4x1qe08suMdK0W7MwEel7qUBSpwPPrU5RQAoCNY_astwAjQ-U9mrapLPuXDv/27ddz8zqgydcuig/arm-cortexa9-linux-gnueabihf-4.9.3-20160512.tar.xz
 ```
 
 #### U-boot source cho NanoPi Neo Core
