@@ -28,8 +28,7 @@ User space là nơi các ứng dụng người dùng được thực thi.
 
 ### Linux Kernel Modules
 
-Kernel modules là các đoạn mã có thể được loaded and unloaded vào kernel theo yêu cầu. Chúng mở rộng chức năng của kernel mà không cần
-khởi động lại hệ thống.
+Kernel modules là các đoạn mã có thể được loaded and unloaded vào kernel. Chúng mở rộng chức năng của kernel mà không cần khởi động lại hệ thống.
 
 Custom code có thể được thêm vào kernel linux thông qua hai phương pháp:
 
@@ -117,7 +116,7 @@ Theo cách phân loại truyền thống, có 3 loại device driver:
 - Block device
 - Network device
 
-Trong Linux, mọi thứ đều là file. Ý tôi là Linux coi mọi thứ như file ngay cả phần cứng.
+Trong Linux, mọi thứ đều là file. Linux coi mọi thứ như file ngay cả phần cứng.
 
 #### Character Device
 
