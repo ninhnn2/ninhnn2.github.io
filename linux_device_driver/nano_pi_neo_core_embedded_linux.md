@@ -10,4 +10,4 @@ Chúng ta nên chọn các loại board mà có nhiều tài liệu để học 
 thông tin về phần cứng như board BeagleBone Black, Raspberry thì datasheet hơi nghèo nàn nhưng đổi
 lại cộng đồng support rất nhiều và cũng có rất nhiều ví dụ cụ thể cho chúng ta học.
 
-[<img src="nanopi-neo-core-lap-trinh-nhung-linux.png" width="480"/>]()
+[<img src="../images/nanopi-neo-core-lap-trinh-nhung-linux.png" width="480"/>]()
