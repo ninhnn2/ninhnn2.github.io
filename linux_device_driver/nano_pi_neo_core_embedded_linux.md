@@ -19,7 +19,7 @@ Kèm theo đó Nano Pi Neo Core có các ưu điểm và nhược điểm mà m�
 
 #### Ưu điểm
 
-+ Giá khá rẻ khoản 24$ một board/
++ Giá khá rẻ khoản 24$ một board
 + Module Nano Pi Neo Core sử dụng chip Allwinner H3 quad core.
 + Hỗ trợ eMMC 8GB.
 + FriendlyElec sản xuất module Nano Pi Neo Core được đánh chữ "LTS" để đảm bảo sẽ sản xuất lâu dài dòng module này.
