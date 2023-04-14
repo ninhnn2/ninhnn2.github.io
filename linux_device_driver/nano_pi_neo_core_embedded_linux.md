@@ -36,11 +36,7 @@ Kèm theo đó Nano Pi Neo Core có các ưu điểm và nhược điểm mà m�
 + Đường duy nhất để bạn copy file lên board nếu không có baseboard là dùng cổng USB OTG có sẳn trên board.
 
 
-
-Dưới đây là hình ảnh của module
-
-![this screenshot](/images/nanopi-neo-core-lap-trinh-nhung-linux.png)
-
+![this screenshot](/images/nano-pi-neo-core-pinout.png)
 
 
 ### Các resource được sử dụng để dùng với NanoPi Neo Core
