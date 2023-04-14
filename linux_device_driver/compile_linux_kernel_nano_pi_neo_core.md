@@ -2,7 +2,7 @@
 sort: 3
 ---
 
-# COMPILE LINUX KERNEL CHO NANO PI NEO CORE
+# NANOPI NEO CORE LINUX KERNEL COMPILE
 
 Trước khi update custom linux kernel cho bất cứ board embedded linux nào thì chúng ta nên
 khảo sát và xem bản rom hiện tại được cấu trúc như thế nào. Xác định phiên bản rom hiện tại
