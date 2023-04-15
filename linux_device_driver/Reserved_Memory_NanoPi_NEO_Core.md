@@ -2,7 +2,7 @@
 sort: 5
 ---
 
-# NanoPi NEO Core - Linux Reserved Memory 
+# NANOPI NEO CORE - LINUX RESERVED MEMORY
 
 
 ### I. Reserved Memory là gì ?
