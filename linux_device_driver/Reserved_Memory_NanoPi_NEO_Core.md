@@ -14,7 +14,7 @@ sort: 5
 
 #### 2. Định nghĩa trong hệ thống embedded linux:
 - Reserved-Memory dự trữ các vùng bộ nhớ để sử dụng đặc biệt, loại trừ nó khỏi việc sử dụng bởi Linux Kernel và chỉ cho phép các Linux device driver tùy chỉnh sử dụng. Tính năng này được hiện
-thực bởi reserved-memory framework và gần tương tự với DMA-API và CMA trong kernel.
+thực bởi reserved-memory framework và cũng giống với DMA-API và CMA trong kernel.
 
 
 #### 3. Khai báo sử dụng Reserved Memory
@@ -57,15 +57,32 @@ Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt
 
 
 
+Phần device-tree dưới đây cũng khai báo sử dụng "reserved-memory" nhưng dùng cho CMA memory pool
+và không chỉ định vùng nhớ này ở địa chỉ đặc biệt nào trên Ram cả.
+
+Khi parser device-tree thì vùng nhớ liên tục khai báo dưới đây sẽ random vị trí trên Ram nhưng
+vẫn đảm bảo một vùng nhớ liên tục.
+
+
+```shell
+		linux,cma {
+			compatible = "shared-dma-pool";  // string dùng để match với linux driver
+			reusable;
+			size = <0x4000000>;              // Khai báo 64MB memory để sử dụng
+			alignment = <0x2000>;            // alignment 8KB
+			linux,cma-default;
+		};
+```
+
+
+Khai báo sử dụng "reserved-memory" với địa chỉ bắt đầu "0x78000000" với size là "0x800000"
+
+```shell
+		display_reserved: framebuffer@78000000 {
+			reg = <0x78000000 0x800000>;
+		};
+```
 
 
 
 
-![this screenshot](/images/nanopi-neo-core-device-tree-2.png)
-
-
-
-
-- File này định nghĩa rất nhiều về SoC Allwinner H3
-- Các board support chip H3 đều phải include file này.
-![this screenshot](/images/nanopi-neo-core-device-tree-3.png)
