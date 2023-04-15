@@ -16,8 +16,8 @@ chung một loại chip.
 - Orange Pi, Mango Pi, Panana Pi vân vân đều dùng chip Allwinner H3, chỉ khác một vài ngoại vi thôi. Để phân biệt giữa các
 board khác nhau thì ta chỉ việc tạo thêm các file device tree với tên board cần build, xong chỉ cần thêm bớt ngoại vi cho phù
 hợp. Nói thì đơn giản thế nhưng cũng cần có ít kiến thức về device tree.
-- Thường mỗi loại board  thì có developer khác nhau support hoặc công ty nào đó support, nên chúng ta cũng cần làm quen với
-từng loại  board nữa.
+- Thường mỗi loại board  thì có developer khác nhau support hoặc công ty nào đó support, nên chúng ta cũng cần làm quen cách
+implement của từng developer hay công ty support board đó.
 - File device tree "sun8i-h3-nanopi-neo-core.dts" include file "sun8i-h3-nanopi.dtsi".
 
 ![this screenshot](/images/nanopi-neo-core-device-tree-1.png)
