@@ -18,21 +18,19 @@ VÍ DỤ:
 - Orange Pi, Mango Pi, Panana Pi vân vân đều dùng chip Allwinner H3, chỉ khác một vài ngoại vi thôi. Để phân biệt giữa các
 board khác nhau thì ta chỉ việc tạo thêm các file device tree với tên board cần build, xong chỉ cần thêm bớt ngoại vi cho phù
 hợp. Nói thì đơn giản thế nhưng cũng cần có ít kiến thức về device tree.
-
 - Thường mỗi loại board  thì có developer khác nhau support hoặc công ty nào đó support, nên chúng ta cũng cần làm quen với
 từng loại  board nữa.
 
 
 - Ở file device tree này include file "sun8i-h3-nanopi.dtsi" có nhiều thông tin hơn
-- File "sun8i-h3-nanopi.dtsi" được gọi chung là file định nghĩa SoC (tức là định nghĩa cho một  loại cpu cụ thể như Allwinner H3...)
-- Nó có nhiều define chi tiết trong đây và thường mặc định là trạng thái disable, các file device tree định nghĩa board sẽ include file
-này và enable ngoại vi cần sử  dụng.
 
 ![this screenshot](/images/nanopi-neo-core-device-tree-1.png)
 
 
 
-
+- File "sun8i-h3-nanopi.dtsi" được gọi chung là file định nghĩa SoC (tức là định nghĩa cho một  loại cpu cụ thể như Allwinner H3...)
+- Nó có nhiều define chi tiết trong đây và thường mặc định là trạng thái disable, các file device tree định nghĩa board sẽ include file
+này và enable ngoại vi cần sử  dụng.
 - File này vẫn tiếp tục include file "sun8i-h3.dtsi", có nghĩa là bên công ty sản xuất NanoPi NEO Core đã tạo riêng một file "sun8i-h3-nanopi.dtsi" để kế thừa file "sun8i-h3.dtsi" và về sau họ có sản xuất board NanoPi nào khác thì cứ include tới file "sun8i-h3-nanopi.dtsi"
 của họ thôi.
 
