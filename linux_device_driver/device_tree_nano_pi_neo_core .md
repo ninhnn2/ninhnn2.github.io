@@ -36,5 +36,5 @@ và include tới  file "sun8i-h3-nanopi.dtsi".
 
 
 - File này định nghĩa rất nhiều về SoC Allwinner H3
-- 
+- Các board support chip H3 đều phải include file này.
 ![this screenshot](/images/nanopi-neo-core-device-tree-3.png)
