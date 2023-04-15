@@ -31,8 +31,8 @@ từng loại  board nữa.
 - File "sun8i-h3-nanopi.dtsi" được gọi chung là file định nghĩa SoC (tức là định nghĩa cho một  loại cpu cụ thể như Allwinner H3...)
 - Nó có nhiều define chi tiết trong đây và thường mặc định là trạng thái disable, các file device tree định nghĩa board sẽ include file
 này và enable ngoại vi cần sử  dụng.
-- File này vẫn tiếp tục include file "sun8i-h3.dtsi", có nghĩa là bên công ty sản xuất NanoPi NEO Core đã tạo riêng một file "sun8i-h3-nanopi.dtsi" để kế thừa file "sun8i-h3.dtsi" và về sau họ có sản xuất board NanoPi nào khác thì cứ include tới file "sun8i-h3-nanopi.dtsi"
-của họ thôi.
+- File này vẫn tiếp tục include file "sun8i-h3.dtsi", có nghĩa là bên công ty sản xuất NanoPi NEO Core đã tạo riêng một file "sun8i-h3-nanopi.dtsi" để kế thừa file "sun8i-h3.dtsi" và về sau họ có thêm board NanoPi nào khác thì họ cứ tạo thêm file device tree định nghĩa board
+và include tới  file "sun8i-h3-nanopi.dtsi".
 
 ![this screenshot](/images/nanopi-neo-core-device-tree-2.png)
 
