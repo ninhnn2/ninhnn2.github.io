@@ -179,6 +179,7 @@ reserved-memory {
 		linux,cma-default;
 	};
 };
+```
 
 
 Ta sẽ thêm vùng nhớ "reserved-memory" tự tạo như dưới đây
