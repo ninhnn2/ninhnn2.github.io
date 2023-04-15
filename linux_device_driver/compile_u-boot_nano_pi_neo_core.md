@@ -1,5 +1,5 @@
 ---
-sort: 4
+sort: 5
 ---
 
 # NANOPI NEO CORE U-BOOT COMPILE
