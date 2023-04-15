@@ -75,7 +75,12 @@ vẫn đảm bảo một vùng nhớ liên tục.
 ```
 
 
-Khai báo sử dụng "reserved-memory" với địa chỉ bắt đầu "0x78000000" với size là "0x800000"
+- Khai báo sử dụng "reserved-memory" với địa chỉ bắt đầu "0x78000000" với size là "0x800000"
+- Địa chỉ "0x78000000" là địa chỉ trên RAM, và việc chọn địa chỉ phải phù hợp với hệ thống embedded linux của các bạn.
+- Size vùng nhớ "0x800000" là kích thước tùy chọn phụ thuộc vào kích thước RAM và nhu cầu của
+driver sử dụng.
+- Tránh tình trạng cấp dư quá nhiều làm giảm RAM của hệ thống và khiến hệ thống giảm hiệu
+xuất nhé.
 
 ```shell
 		display_reserved: framebuffer@78000000 {
