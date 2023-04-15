@@ -44,7 +44,7 @@ sudo mkdir -p /opt/FriendlyARM/toolchain
 sudo tar -xvf ./arm-cortexa9-linux-gnueabihf-4.9.3-20160512.tar -C /opt/FriendlyARM/toolchain/
 ```
 
-### 4. NanoPi NEO Core Linux Kernel source
+### 4. NanoPi NEO Core kernel compile
 
 ```shell
 git clone https://github.com/ninhnn2/linux.git -b sunxi-4.14.y --depth 1
