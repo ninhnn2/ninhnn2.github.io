@@ -9,14 +9,13 @@ sort: 2
 Chúng ta nên chọn các loại board mà có nhiều tài liệu và example để học tập, nhất là datasheet phải đầy đủ
 thông tin về phần cứng. Có hai board các bạn có thể dùng dưới đây
 
-<strong>BeagleBone Black<strong>: board này quá kinh điển rồi, nhiều tài liệu, chip xịn của TI, nhiều ví dụ cụ thể
-<strong>Raspberry Pi<strong>    : Datasheet của Raspberry Pi thì hơi nghèo nàn, nhưng đổi lại cộng đồng support lớn
+- BeagleBone Black: board này quá kinh điển rồi, nhiều tài liệu, chip xịn của TI, nhiều ví dụ cụ thể
+- Raspberry Pi    : Datasheet của Raspberry Pi thì hơi nghèo nàn, nhưng đổi lại cộng đồng support lớn
 và rất nhiều ví dụ cụ thể để học. Có điều boot process của Raspberry hơi khác người xíu là GPU nó chạy trước rồi mới
 chạy CPU @@.
 
-Còn mình có sẳn board NanoPi NEO Core nên mình dùng nó để học lập trình luôn.
-
-Kèm theo đó Nano Pi Neo Core có các ưu điểm và nhược điểm mà mọi người có thể quan tâm:
+Còn mình có sẳn board NanoPi NEO Core nên mình dùng nó để vọc luôn. NanoPi NEO Core có các ưu điểm và nhược điểm, mình sẽ
+liệt kê bên dưới để các bạn tham khảo.
 
 ### 2. Ưu điểm
 
