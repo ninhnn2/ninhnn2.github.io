@@ -58,9 +58,9 @@ Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt
 
 
 Phần device-tree dưới đây cũng khai báo sử dụng "reserved-memory" nhưng dùng cho CMA memory pool
-và không chỉ định vùng nhớ này ở địa chỉ đặc biệt nào trên Ram cả.
+và không chỉ định vùng nhớ này ở địa chỉ đặc biệt nào trên RAM cả.
 
-Khi parser device-tree thì vùng nhớ liên tục khai báo dưới đây sẽ random vị trí trên Ram nhưng
+Khi parser device-tree thì vùng nhớ sẽ random vị trí trên RAM nhưng
 vẫn đảm bảo một vùng nhớ liên tục.
 
 
