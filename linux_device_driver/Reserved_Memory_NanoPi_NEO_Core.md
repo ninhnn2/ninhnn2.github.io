@@ -90,9 +90,11 @@ display_reserved: framebuffer@78000000 {
 
 Okay, lý thuyết đủ rồi. Giờ làm sao tạo vùng nhớ "Reserved Memory" cho NanoPi NEO Core ?
 
+Trước khi tạo vùng nhớ chúng ta khảo sát con NanoPi NEO Core
 
 
+![this screenshot](/images/memory-nanopi-neo-core-1.png)
 
 
-
-
+Có thể thấy RAM đang là 491MB, nếu chúng ta tạo "Reserved Memory" thành công thì dung
+lượng RAM này sẽ giảm đi vì đã cắt một phần để cấp cho "Reserved Memory".
