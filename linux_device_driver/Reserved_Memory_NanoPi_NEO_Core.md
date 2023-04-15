@@ -86,5 +86,13 @@ display_reserved: framebuffer@78000000 {
 ```
 
 
+#### 4. Khai báo sử dụng Reserved Memory NanoPi NEO Core
+
+Okay, lý thuyết đủ rồi. Giờ làm sao tạo vùng nhớ "Reserved Memory" cho NanoPi NEO Core ?
+
+
+
+
+
 
 
