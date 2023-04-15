@@ -295,7 +295,8 @@ Vùng địa chỉ từ 50000000 đến 53ffffff đã dùng để làm "reserved
 
 #### 5. Tổng kết
 
-Thế là chúng ta đã tạo thành công vùng nhớ "reserved-memory" trên RAM cho board NanoPi NEO Core
-Bài viết tiếp theo sẽ implement một linux driver để match với vùng nhớ trên device-tree và trao đổi dữ liệu với user space application.
+Thế là chúng ta đã tạo thành công vùng nhớ "reserved-memory" trên RAM 
+cho board NanoPi NEO Core. Bài viết tiếp theo sẽ implement một linux driver 
+để match với vùng nhớ trên device-tree và trao đổi dữ liệu với user space application.
 
 
