@@ -30,29 +30,26 @@ Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt
 
 
 ```shell
-	reserved-memory {
-		#address-cells = <1>;
-		#size-cells = <1>;
-		ranges;
-
-		/* global autoconfigured region for contiguous allocations */
-		linux,cma {
-			compatible = "shared-dma-pool";
-			reusable;
-			size = <0x4000000>;
-			alignment = <0x2000>;
-			linux,cma-default;
-		};
-
-		display_reserved: framebuffer@78000000 {
-			reg = <0x78000000 0x800000>;
-		};
-
-		multimedia_reserved: multimedia@77000000 {
-			compatible = "acme,multimedia-memory";
-			reg = <0x77000000 0x4000000>;
-		};
+reserved-memory {
+	#address-cells = <1>;
+	#size-cells = <1>;
+	ranges;
+	/* global autoconfigured region for contiguous allocations */
+	linux,cma {
+		compatible = "shared-dma-pool";
+		reusable;
+		size = <0x4000000>;
+		alignment = <0x2000>;
+		linux,cma-default;
 	};
+	display_reserved: framebuffer@78000000 {
+		reg = <0x78000000 0x800000>;
+	};
+	multimedia_reserved: multimedia@77000000 {
+		compatible = "acme,multimedia-memory";
+		reg = <0x77000000 0x4000000>;
+	};
+};
 ```
 
 
@@ -65,13 +62,13 @@ vẫn đảm bảo một vùng nhớ liên tục.
 
 
 ```shell
-		linux,cma {
-			compatible = "shared-dma-pool";  // string dùng để match với linux driver
-			reusable;
-			size = <0x4000000>;              // Khai báo 64MB memory để sử dụng
-			alignment = <0x2000>;            // alignment 8KB
-			linux,cma-default;
-		};
+linux,cma {
+	compatible = "shared-dma-pool";  // string dùng để match với linux driver
+	reusable;
+	size = <0x4000000>;              // Khai báo 64MB memory để sử dụng
+	alignment = <0x2000>;            // alignment 8KB
+	linux,cma-default;
+};
 ```
 
 
@@ -83,9 +80,9 @@ driver sử dụng.
 xuất nhé.
 
 ```shell
-		display_reserved: framebuffer@78000000 {
-			reg = <0x78000000 0x800000>;
-		};
+display_reserved: framebuffer@78000000 {
+	reg = <0x78000000 0x800000>;
+};
 ```
 
 
