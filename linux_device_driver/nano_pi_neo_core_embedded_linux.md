@@ -2,7 +2,7 @@
 sort: 2
 ---
 
-# NANOPI NEO CORE EMBEDDED LINUX
+# NANOPI NEO CORE - EMBEDDED LINUX
 
 ### 1. Nên chọn board máy tính nhúng nào để bắt đầu học lập trình nhúng Linux
 
