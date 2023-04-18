@@ -71,7 +71,7 @@ và replace vào thư mục "/boot".
 
 ### 6. NanoPi NEO Core kernel headers
 
-Các header của kernel được sử dụng để biên dịch các driver kernel module, như driver card đồ họa, driver màn hình.... Giống như các file header khác một source code, các header kernel khai báo các chức năng, biến và cấu trúc dữ liệu khác nhau, trong trường hợp này là API được cung cấp bởi kernel Linux.
+Linux kernel headers được sử dụng để biên dịch các linux kernel module, như driver card card đồ họa, driver usb wifi, vvv. Giống như các file header khác của source code, linux kernel header khai báo các chức năng, biến và cấu trúc dữ liệu khác nhau, trong trường hợp này là API được cung cấp bởi kernel Linux.
 
 Tiến hành build kernel modules và kernel header
 
