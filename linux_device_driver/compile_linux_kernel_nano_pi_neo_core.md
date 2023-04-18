@@ -56,7 +56,30 @@ make ARCH=arm CROSS_COMPILE=/opt/FriendlyARM/toolchain/4.9.3/bin/arm-linux- zIma
 ```
 
 ### 5. Install new kernel to NanoPi NEO Core
-- File linux kernel zImage (path:linux/arch/arm/boot/zImage)
-- File device tree (path:linux/arch/arm/boot/dts/sun8i-h3-nanopi-neo-core.dtb)
 
-Chúng ta chỉ việc copy 2 file này và replace vào phân vùng "boot" của sdcard và restart lại hệ thống.
+Check thư mục "/boot" trên NanoPi NEO Core như hình sau:
+
+![this screenshot](/images/nanopi-neo-core-install-new-kernel.png)
+
+Có thể thấy device tree và kernel nằm tại thư mục này, chúng ta chỉ việc copy kernel vừa build
+và replace vào thư mục "/boot".
+
+- File linux kernel zImage (path:linux/arch/arm/boot/zImage).
+- File device tree (path:linux/arch/arm/boot/dts/sun8i-h3-nanopi-neo-core.dtb).
+- Sau khi replace kernel và device tree, tiến hành reboot NanoPi NEO Core.
+
+
+### 6. NanoPi NEO Core kernel headers
+
+Các header của kernel được sử dụng để biên dịch các driver kernel module, như driver card đồ họa, driver màn hình.... Giống như các file header khác một source code, các header kernel khai báo các chức năng, biến và cấu trúc dữ liệu khác nhau, trong trường hợp này là API được cung cấp bởi kernel Linux.
+
+Tiến hành build kernel modules và kernel header
+
+```shell
+cd ./linux/
+make ARCH=arm CROSS_COMPILE=/opt/FriendlyARM/toolchain/4.9.3/bin/arm-linux- modules_install INSTALL_MOD_PATH=./nanopineo
+```
+
+
+
+
