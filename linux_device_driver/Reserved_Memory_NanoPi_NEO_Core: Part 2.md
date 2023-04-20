@@ -23,6 +23,6 @@ Nói cách khác, trong Linux driver, các platform device không nhất thiết
 
 *Đây là hai bước cần thiết khi làm việc với các thiết bị platform trong Linux driver:*
 - Đăng ký một platform driver (với tên độc nhất) sẽ quản lý các thiết bị của bạn.
-- Đăng ký thiết bị platform của bạn với cùng tên với driver và tài nguyên của chúng, để cho kernel biết rằng thiết bị của bạn đã có sẵn.
+- Đăng ký platform device của bạn với cùng tên với driver và tài nguyên của chúng, để cho kernel biết rằng thiết bị của bạn đã có sẵn.
 
 
