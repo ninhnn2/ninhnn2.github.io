@@ -2,7 +2,7 @@
 sort: 6
 ---
 
-# NANOPI NEO CORE - LINUX RESERVED MEMORY PART 2: Linux Platform Device Driver
+# NANOPI NEO CORE - LINUX RESERVED MEMORY PART 2: LINUX PLATFROM DEVICE DRIVER
 
 
 ### I. Linux Platform Device Driver
