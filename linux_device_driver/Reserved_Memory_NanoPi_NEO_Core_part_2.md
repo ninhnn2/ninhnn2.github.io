@@ -18,7 +18,7 @@ Chúng ta đều biết về các thiết bị Plug and Play. Chúng được ke
 
 ![this screenshot](/images/usb_log.png)
 
-Nói cách khác, trong Linux driver, các platform device không nhất thiết phải là các thiết bị tích hợp trên chip. Một số thiết bị được kết nối thông qua I2C hoặc SPI cũng có thể được coi là các platform device do chúng không thể được tự động phát hiện. Tuy nhiên, các thiết bị PCI hoặc USB tích hợp trên chip thường không được coi là các platform device vì chúng có thể được khám phá.`
+Nói cách khác, trong Linux driver, các platform device không nhất thiết phải là các thiết bị tích hợp trên chip. Một số thiết bị được kết nối thông qua I2C hoặc SPI cũng có thể được coi là các platform device do chúng không thể được tự động phát hiện. Tuy nhiên, các thiết bị PCI hoặc USB tích hợp trên chip thường không được coi là các platform device vì chúng có thể được phát hiện.
 
 **Đây là hai bước cần thiết khi làm việc với các thiết bị platform trong Linux driver:**
 - Đăng ký một platform driver (với tên độc nhất) sẽ quản lý các thiết bị của bạn.
