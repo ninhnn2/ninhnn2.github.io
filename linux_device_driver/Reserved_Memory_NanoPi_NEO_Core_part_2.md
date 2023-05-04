@@ -79,7 +79,7 @@ với platform driver.
 
 ```
 
-- Chuyển bar thành nodename khác với "bar@0x50000000" mặc dù để nguyên thì vẫn không lỗi.
+**Chuyển bar thành nodename khác với "bar@0x50000000" mặc dù để nguyên thì vẫn không lỗi.**
 
 **compatible = "vendor,bar"**
 "compatible" là một thuộc tính quan trọng trong device tree của Linux, nó được sử dụng để xác định các thiết bị phần cứng và phần mềm tương thích với nhau. Thuộc tính "compatible" chứa một chuỗi đặc tả về tên hãng sản xuất và mô hình của thiết bị. Chuỗi này có định dạng "<hãng sản xuất>,<mô hình>" và được khuyến khích phải đặt chính xác để tránh xung đột namespace và giúp hệ điều hành quyết định cách thức hoạt động trên thiết bị.
