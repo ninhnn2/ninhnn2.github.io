@@ -24,7 +24,7 @@ Nói cách khác, trong Linux driver, các platform device không nhất thiết
 - Đăng ký một platform driver (với tên độc nhất) sẽ quản lý các thiết bị của bạn.
 - Đăng ký platform device của bạn với cùng tên với driver và tài nguyên của chúng, để cho kernel biết rằng thiết bị của bạn đã có sẵn.
 
-### I. Matching device tree with reserved-memory platform driver
+### II. Matching device tree with reserved-memory platform driver
 
 #### Khai báo driver trong device tree
 Như trong bài viết trước chúng ta đã khai báo reserved-memory child node để reserved một vùng nhớ 64MB
