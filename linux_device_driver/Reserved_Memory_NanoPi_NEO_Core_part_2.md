@@ -54,6 +54,7 @@ Như trong bài viết trước chúng ta đã khai báo reserved-memory child n
 - Việc khai báo child node "bar: bar@0x50000000" báo cho kernel không đụng gì tới vùng nhớ này nhưng không giúp chúng ta có thể matching
 với platform driver.
 - Chúng ta cần một vài chỉnh sữa như dưới đây:
+
 ```shell
 	reserved-memory {
 		#address-cells = <1>;
@@ -69,7 +70,7 @@ với platform driver.
 		};
 
 		nodename: bar@0x50000000 {
-      compatible = "vendor,bar";
+      			compatible = "vendor,bar";
 			no-map;
 			reg = <0x50000000 0x4000000>;
 		};
@@ -77,12 +78,13 @@ với platform driver.
 	};
 
 ```
+
 - Chuyển bar thành nodename khác với "bar@0x50000000" mặc dù để nguyên thì vẫn không lỗi.
 
 **compatible = "vendor,bar"**
-- "compatible" là một thuộc tính quan trọng trong device tree của Linux, nó được sử dụng để xác định các thiết bị phần cứng và phần mềm tương thích với nhau. Thuộc tính "compatible" chứa một chuỗi đặc tả về tên hãng sản xuất và mô hình của thiết bị. Chuỗi này có định dạng "<hãng sản xuất>,<mô hình>" và được khuyến khích phải đặt chính xác để tránh xung đột namespace và giúp hệ điều hành quyết định cách thức hoạt động trên thiết bị.
+"compatible" là một thuộc tính quan trọng trong device tree của Linux, nó được sử dụng để xác định các thiết bị phần cứng và phần mềm tương thích với nhau. Thuộc tính "compatible" chứa một chuỗi đặc tả về tên hãng sản xuất và mô hình của thiết bị. Chuỗi này có định dạng "<hãng sản xuất>,<mô hình>" và được khuyến khích phải đặt chính xác để tránh xung đột namespace và giúp hệ điều hành quyết định cách thức hoạt động trên thiết bị.
 
-- Các giá trị của "compatible" được sử dụng để so khớp với các driver hoặc phần mềm tương thích với thiết bị đó, và được sử dụng để đảm bảo rằng các thiết bị sẽ hoạt động đúng cách với hệ thống Linux. Khi một driver được load vào hệ thống, kernel sẽ kiểm tra các thuộc tính "compatible" của các device tree node và chọn driver phù hợp để điều khiển thiết bị đó.
+Các giá trị của "compatible" được sử dụng để so khớp với các driver hoặc phần mềm tương thích với thiết bị đó, và được sử dụng để đảm bảo rằng các thiết bị sẽ hoạt động đúng cách với hệ thống Linux. Khi một driver được load vào hệ thống, kernel sẽ kiểm tra các thuộc tính "compatible" của các device tree node và chọn driver phù hợp để điều khiển thiết bị đó.
 
 
 
