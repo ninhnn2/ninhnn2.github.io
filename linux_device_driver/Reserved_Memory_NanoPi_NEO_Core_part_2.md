@@ -91,12 +91,12 @@ với platform driver.
 	};
 ```
 
-**Devie node foo**
-Device node foo sẽ được liên kết với reserved-memory được khai báo trong child node "nodename".
+**Devie node foo**: 
+ Device node foo sẽ được liên kết với reserved-memory được khai báo trong child node "nodename".
 Khi hệ thống khởi động, driver sẽ được tự động gọi để khởi tạo device foo và sử dụng reserved memory.
 
-**compatible = "vendor,bar"**
-"compatible" là một thuộc tính quan trọng trong device tree của Linux, nó được sử dụng để xác định các thiết bị phần cứng và driver tương thích với nhau. Thuộc tính "compatible" chứa một chuỗi đặc tả về tên hãng sản xuất và mô hình của thiết bị. Chuỗi này có định dạng "<hãng sản xuất>,<mô hình>" và được khuyến khích phải đặt chính xác để tránh xung đột với các thiết bị khác.
+**compatible = "vendor,bar"**:
+ "compatible" là một thuộc tính quan trọng trong device tree của Linux, nó được sử dụng để xác định các thiết bị phần cứng và driver tương thích với nhau. Thuộc tính "compatible" chứa một chuỗi đặc tả về tên hãng sản xuất và mô hình của thiết bị. Chuỗi này có định dạng "<hãng sản xuất>,<mô hình>" và được khuyến khích phải đặt chính xác để tránh xung đột với các thiết bị khác.
 
 Các giá trị của "compatible" được sử dụng để so khớp với các driver hoặc phần mềm tương thích với thiết bị đó, và được sử dụng để đảm bảo rằng các thiết bị sẽ hoạt động đúng cách với hệ thống Linux. Khi một driver được load vào hệ thống, kernel sẽ kiểm tra các thuộc tính "compatible" của các device tree node và chọn driver phù hợp để điều khiển thiết bị đó.
 
