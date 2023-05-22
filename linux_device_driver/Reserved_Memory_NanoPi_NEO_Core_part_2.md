@@ -232,6 +232,55 @@ module_exit(my_exit);
 
 
 
+```shell
+static struct of_device_id my_driver_ids[] = {
+	{
+		.compatible = "vendor,bar",
+	}, { /* sentinel */ }
+};
+```
+
+Đoạn mã trên định nghĩa một mảng các đối tượng of_device_id dùng để khai báo các đặc điểm (compatible) của thiết bị mà driver này hỗ trợ.
+
+- struct of_device_id là một cấu trúc trong Linux kernel dùng để khai báo thông tin của các thiết bị trong device tree.
+my_driver_ids là tên của mảng chứa các đối tượng of_device_id.
+- Mỗi phần tử trong mảng chứa một cấu trúc of_device_id.
+- Trong trường hợp này, cấu trúc of_device_id chỉ có một trường là compatible.
+- Trường compatible được sử dụng để xác định sự tương thích của driver với các thiết bị trong device tree.
+- Trong ví dụ trên, compatible được đặt là "vendor,bar" để chỉ định rằng driver này tương thích với thiết bị có compatible string là "vendor,bar".
+- Dòng cuối cùng { /* sentinel */ } là một phần tử kết thúc mảng, đánh dấu kết thúc danh sách các đặc điểm.
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### Makefile để biên dịch driver
+
+```shell
+obj-m += platform_device_driver.o
+
+all:
+	make ARCH=arm CROSS_COMPILE=/opt/FriendlyARM/toolchain/4.9.3/bin/arm-linux- -C /home/fanning/workspace/work/nanopineo/linux/fanning/lib/modules/4.14.111-ninhnn/build  M=$(PWD) modules
+
+clean: 
+	make ARCH=arm CROSS_COMPILE=/opt/FriendlyARM/toolchain/4.9.3/bin/arm-linux- -C /home/fanning/workspace/work/nanopineo/linux/fanning/lib/modules/4.14.111-ninhnn/build  M=$(PWD) clean
+```
+
+- Dòng "obj-m += platform_device_driver.o" được sử dụng trong Makefile để chỉ định cho hệ thống biên dịch kernel (kbuild) biết rằng có một module kernel được xây dựng từ tệp nguồn "platform_device_driver.c" và tên của module được đặt là "platform_device_driver"
+- Dòng "/home/fanning/workspace/work/nanopineo/linux/fanning/lib/modules/4.14.111-ninhnn/build" đường dẫn đến source compile linux kernel modules.
+
+
+
+
+
 
 
 
