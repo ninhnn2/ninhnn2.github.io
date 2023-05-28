@@ -71,7 +71,7 @@ với platform driver.
 		};
 
 		nodename: bar@0x50000000 {
-      			compatible = "vendor,bar";
+      		compatible = "vendor,bar";
 			no-map;
 			reg = <0x50000000 0x4000000>;
 		};
@@ -81,6 +81,10 @@ với platform driver.
 ```
 
 ** Và tại file device tree "sun8i-h3-nanopi.dtsi" chúng ta thêm một node driver sử dụng child node "nodename" đã khai báo phía trên **
+
+** Taọ node foo tham chiếu tới memorychildnode **
+
+
 
 ![this screenshot](/images/nanopineo_driver1.png)
 
@@ -92,15 +96,34 @@ với platform driver.
 ```
 
 **Devie node foo**: 
- Device node foo sẽ được liên kết với reserved-memory được khai báo trong child node "nodename".
+Device node foo tham chiếu tới reserved-memory child node "nodename".
 Khi hệ thống khởi động, driver sẽ được tự động gọi để khởi tạo device foo và sử dụng reserved memory.
+
+**memory-region**
+Là một thuộc tính (property) đặc biệt được sử dụng để chỉ định khu vực bộ nhớ (memory region) cho một phần tử cụ thể trong Device Tree
 
 **compatible = "vendor,bar"**:
  "compatible" là một thuộc tính quan trọng trong device tree của Linux, nó được sử dụng để xác định các thiết bị phần cứng và driver tương thích với nhau. Thuộc tính "compatible" chứa một chuỗi đặc tả về tên hãng sản xuất và mô hình của thiết bị. Chuỗi này có định dạng "<hãng sản xuất>,<mô hình>" và được khuyến khích phải đặt chính xác để tránh xung đột với các thiết bị khác.
 
-Các giá trị của "compatible" được sử dụng để so khớp với các driver hoặc phần mềm tương thích với thiết bị đó, và được sử dụng để đảm bảo rằng các thiết bị sẽ hoạt động đúng cách với hệ thống Linux. Khi một driver được load vào hệ thống, kernel sẽ kiểm tra các thuộc tính "compatible" của các device tree node và chọn driver phù hợp để điều khiển thiết bị đó.
-
 #### Viết một platform driver cơ bản và sử dụng vùng nhớ reserved-memory
+
+
+##### Makefile để biên dịch driver
+
+```shell
+obj-m += platform_device_driver.o
+
+all:
+	make ARCH=arm CROSS_COMPILE=/opt/FriendlyARM/toolchain/4.9.3/bin/arm-linux- -C /home/fanning/workspace/work/nanopineo/linux/fanning/lib/modules/4.14.111-ninhnn/build  M=$(PWD) modules
+
+clean: 
+	make ARCH=arm CROSS_COMPILE=/opt/FriendlyARM/toolchain/4.9.3/bin/arm-linux- -C /home/fanning/workspace/work/nanopineo/linux/fanning/lib/modules/4.14.111-ninhnn/build  M=$(PWD) clean
+```
+
+- Dòng "obj-m += platform_device_driver.o" được sử dụng trong Makefile để chỉ định cho hệ thống biên dịch kernel (kbuild) biết rằng có một module kernel được xây dựng từ tệp nguồn "platform_device_driver.c" và tên của module được đặt là "platform_device_driver"
+- Dòng "/home/fanning/workspace/work/nanopineo/linux/fanning/lib/modules/4.14.111-ninhnn/build" đường dẫn đến source compile linux kernel modules.
+
+#### File source driver "platform_device_driver.c"
 
 ```shell
 #include <linux/module.h>
@@ -114,7 +137,7 @@ Các giá trị của "compatible" được sử dụng để so khớp với c�
 
 /* Meta Information */
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("NinhNN 4 GNU/Linux");
+MODULE_AUTHOR("Johannes 4 GNU/Linux");
 MODULE_DESCRIPTION("A simple LKM using reserved-memory and write value to it");
 
 /* Declate the probe and remove functions */
@@ -145,12 +168,10 @@ static int dt_probe(struct platform_device *pdev) {
 
 	struct device *dev = &pdev->dev;
 	const char *label;
-	int my_value, ret;
 
 	struct device_node *node;
   	struct resource res;
-	struct resource *ress;
-  	unsigned long paddr, vaddr;
+  	unsigned long paddr;
 	size_t mem_size;
 	void *mem_va;
   	int rc = 0;
@@ -184,13 +205,13 @@ static int dt_probe(struct platform_device *pdev) {
 	if (p_malloc == NULL) {
 		printk("Virtual addr is error\n");
 	} else {
-		for(i = 0; i < 2048; i++ ) {
+		for(i = 0; i < 1024; i++ ) {
 			*p_tmp++ = 49;
 		}
 		p_tmp = p_malloc;
 
 		for(i = 0; i < 1024; i++ ) {
-			printk("%x: ", *p_tmp++);
+			printk("%d: ", *p_tmp++);
 		}
 		printk("\n");
 	}
@@ -231,6 +252,7 @@ module_exit(my_exit);
 ```
 
 
+** Giải thích từng đoạn code trong driver **
 
 ```shell
 static struct of_device_id my_driver_ids[] = {
@@ -243,39 +265,51 @@ static struct of_device_id my_driver_ids[] = {
 Đoạn mã trên định nghĩa một mảng các đối tượng of_device_id dùng để khai báo các đặc điểm (compatible) của thiết bị mà driver này hỗ trợ.
 
 - struct of_device_id là một cấu trúc trong Linux kernel dùng để khai báo thông tin của các thiết bị trong device tree.
-my_driver_ids là tên của mảng chứa các đối tượng of_device_id.
+- my_driver_ids là tên của mảng chứa các đối tượng of_device_id.
 - Mỗi phần tử trong mảng chứa một cấu trúc of_device_id.
 - Trong trường hợp này, cấu trúc of_device_id chỉ có một trường là compatible.
 - Trường compatible được sử dụng để xác định sự tương thích của driver với các thiết bị trong device tree.
 - Trong ví dụ trên, compatible được đặt là "vendor,bar" để chỉ định rằng driver này tương thích với thiết bị có compatible string là "vendor,bar".
-- Dòng cuối cùng { /* sentinel */ } là một phần tử kết thúc mảng, đánh dấu kết thúc danh sách các đặc điểm.
 
-
-
-
-
-
-
-
-
-
-
-
-
-#### Makefile để biên dịch driver
 
 ```shell
-obj-m += platform_device_driver.o
-
-all:
-	make ARCH=arm CROSS_COMPILE=/opt/FriendlyARM/toolchain/4.9.3/bin/arm-linux- -C /home/fanning/workspace/work/nanopineo/linux/fanning/lib/modules/4.14.111-ninhnn/build  M=$(PWD) modules
-
-clean: 
-	make ARCH=arm CROSS_COMPILE=/opt/FriendlyARM/toolchain/4.9.3/bin/arm-linux- -C /home/fanning/workspace/work/nanopineo/linux/fanning/lib/modules/4.14.111-ninhnn/build  M=$(PWD) clean
+static struct platform_driver my_driver = {
+	.probe = dt_probe,
+	.remove = dt_remove,
+	.driver = {
+		.name = "foo",
+		.of_match_table = my_driver_ids,
+	},
+};
 ```
 
-- Dòng "obj-m += platform_device_driver.o" được sử dụng trong Makefile để chỉ định cho hệ thống biên dịch kernel (kbuild) biết rằng có một module kernel được xây dựng từ tệp nguồn "platform_device_driver.c" và tên của module được đặt là "platform_device_driver"
-- Dòng "/home/fanning/workspace/work/nanopineo/linux/fanning/lib/modules/4.14.111-ninhnn/build" đường dẫn đến source compile linux kernel modules.
+
+Khai báo một struct platform_driver có tên là my_driver.
+
+- Nó chỉ định các hàm probe và remove của driver lần lượt là dt_probe và dt_remove.
+- Trường .driver của my_driver là một struct device_driver cung cấp thông tin về driver.
+- Trường .name được đặt là "foo", đây là tên của driver.
+- Trường .of_match_table được sử dụng để chỉ định bảng khớp (match table) của driver với các phần tử trong Device Tree
+và ở đây bản "match table" đã được chúng ta khai báo bên trên (my_driver_ids)
+
+
+``shell
+static int dt_probe(struct platform_device *pdev) {
+	
+	...
+	return 0;
+}
+```
+- Hàm dt_probe là một hàm callback được đăng ký trong struct platform_driver để xử lý sự kiện "probe" khi một thiết bị tương thích được tìm thấy và khớp với driver này. Ở platform driver, khi chúng ta insmod driver vào hệ thống thì lúc này kernel sẽ
+tìm kiếm các từ khóa "compatible" hoặc "of_match_table" parser các dữ liệu trong các thuộc tính này và đem đi duyệt so sánh với device tree được lưu trữ trong bộ nhớ, nếu match nó sẽ gắn kết thiết bị với driver và bắt đầu gọi hàm probe.
+- Tại hàm probe chúng ta sẽ parser các thông tin device đã match với device tree và lấy các thông tin cần thiết:
+	- "device_property_present(dev, "memory-region")" kiểm tra thuộc tính "memory-region" có tồn tại ở device tree node hay không.
+	- "of_parse_phandle" trích xuất node phân cấp có chứa thuộc tính "memory-region".
+	- "of_address_to_resource(node, 0, &res)" địa chỉ node trích xuất được từ "of_parse_phandle" và ánh xạ nó thành cấu trúc
+	"struct resource res".
+	- "paddr = res.start" lấy phần tử đầu tiên trong cấu trúc resource, ở đây ta sẽ có được địa chỉ vật lý khai báo trong child node reserved-memory "0x50000000" là địa chỉ bắt đầu của vùng nhớ reserved-memory.
+	- "mem_size = resource_size(&res)" lấy kích thước vùng nhớ "reserved-memory".
+
 
 
 
