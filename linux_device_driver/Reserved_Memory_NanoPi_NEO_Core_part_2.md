@@ -293,7 +293,7 @@ Khai báo một struct platform_driver có tên là my_driver.
 và ở đây bản "match table" đã được chúng ta khai báo bên trên (my_driver_ids)
 
 
-``shell
+```shell
 static int dt_probe(struct platform_device *pdev) {
 	
 	...
