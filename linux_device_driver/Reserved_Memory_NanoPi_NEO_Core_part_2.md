@@ -452,7 +452,7 @@ unsigned long parse_int (char *str) {
 ở vùng nhớ reserved-memory
 - Chúng ta copy hai file lên NanoPi Neo Core rồi biên dịch ra binary
 
-Tiến hành đọc 0x1000 bytes từ vị trí địa chỉ bắt đầu vùng nhớ reserved-mamoery 0x50000000
+Tiến hành đọc 0x1000 bytes từ vị trí địa chỉ bắt đầu vùng nhớ reserved-memory 0x50000000
 
 ```shell
 sudo ./read 0x50000000 0x1000
