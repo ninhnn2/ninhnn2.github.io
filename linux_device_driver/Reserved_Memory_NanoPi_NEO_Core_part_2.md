@@ -448,23 +448,20 @@ unsigned long parse_int (char *str) {
 
 ```
 
+- App C sử dụng "/dev/mem" mapping địa chỉ vật lý sang địa chỉ ảo để chúng ta truy cập và đọc dữ liệu
+ở vùng nhớ reserved-memory
+- Chúng ta copy hai file lên NanoPi Neo Core rồi biên dịch ra binary
+
+Tiến hành đọc 0x1000 bytes từ vị trí địa chỉ bắt đầu vùng nhớ reserved-mamoery 0x50000000
+
+```shell
+sudo ./read 0x50000000 0x1000
+```
+
+Kết quả như hình
+
+![this screenshot](/images/nanopi-neo-core-device-tree-4.png)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Bài kế tiếp chúng ta sẽ implement phần trao đổi data kỹ hơn...
