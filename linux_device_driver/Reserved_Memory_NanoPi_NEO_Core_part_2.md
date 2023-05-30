@@ -126,14 +126,14 @@ clean:
 #### File source driver "platform_device_driver.c"
 
 ```shell
-#include <linux/module.h>
 #include <linux/init.h>
-#include <linux/mod_devicetable.h>
+#include <linux/sizes.h>
+#include <linux/module.h>
 #include <linux/property.h>
-#include <linux/platform_device.h>
 #include <linux/of_device.h>
 #include <linux/of_address.h>
-#include <linux/sizes.h>
+#include <linux/platform_device.h>
+#include <linux/mod_devicetable.h>
 
 /* Meta Information */
 MODULE_LICENSE("GPL");
@@ -198,23 +198,25 @@ static int dt_probe(struct platform_device *pdev) {
 	dev_info(dev, "PhyAddr    : 0x%8X\n", PhyAddr);
 	dev_info(dev, "PhyMemSize : 0x%8X\n", PhyMemSize);
 
-	char* VirtualPtr = (char*)ioremap(PhyAddr, PhyMemSize);
-	char* *VirtualPtrData = VirtualPtr;
+	unsigned char* VirtualPtr = (unsigned char*)ioremap(PhyAddr, PhyMemSize);
+	unsigned char* *VirtualPtrData = VirtualPtr;
 
 	int index = 0;
 
 	if (VirtualPtr == NULL) {
 		printk("Virtual addr is error\n");
+		return -1;
 	} else {
 		for(index = 0; index < 1024; index++ ) {
 			*VirtualPtrData++ = 49;
 		}
 		VirtualPtrData = VirtualPtr;
 
-		for(index = 0; index < 1024; index++ ) {
-			//printk("%d: ", *p_tmp++);
-		}
-		printk("\n");
+		/* Read data back for testing */
+		# for(index = 0; index < 1024; index++ ) {
+		# 	printk("%d: ", *p_tmp++);
+		# }
+		# printk("\n");
 	}
 	return 0;
 }
@@ -310,6 +312,143 @@ tìm kiếm các từ khóa "compatible" hoặc "of_match_table" parser các d�
 	"struct resource res".
 	- "paddr = res.start" lấy phần tử đầu tiên trong cấu trúc resource, ở đây ta sẽ có được địa chỉ vật lý khai báo trong child node reserved-memory "0x50000000" là địa chỉ bắt đầu của vùng nhớ reserved-memory.
 	- "mem_size = resource_size(&res)" lấy kích thước vùng nhớ "reserved-memory" size 0x4000000.
+	- Physical Memory: Là vùng bộ nhớ vật lý trong hệ thống.
+	- ioremap(): Là hàm được sử dụng để ánh xạ một vùng bộ nhớ vật lý vào vùng bộ nhớ ảo.
+	- Virtual Memory: Là vùng bộ nhớ ảo được ánh xạ từ Physical Memory thông qua ioremap().
+	- VirtualPtr: Là một con trỏ kiểu char* trỏ tới vùng bộ nhớ ảo.
+	- VirtualPtrData: Là một con trỏ kiểu char** trỏ tới địa chỉ của con trỏ VirtualPtr.
+	- Việc sử dụng con trỏ VirtualPtrData cho phép ta truy cập và thao tác trên dữ liệu tại địa chỉ ảo mà VirtualPtr đã ánh xạ đến.
+
+
+
+```shell
+	for(index = 0; index < 1024; index++ ) {
+		*VirtualPtrData++ = 49;
+	}
+```
+Write 1024 bytes với giá trị 49, write 49 thì theo bảng mã Ascii thì khi đọc ra hiển thị là số 1.
+
+
+### II. Write C program to read reserved-memory on userspace
+
+**Makefile for compile**
+
+```shell
+EXECUTABLE = read
+OBJECTS = read.o
+
+CFLAGS = -Wall -Wextra -pedantic -std=c99
+
+all: $(EXECUTABLE)
+
+$(EXECUTABLE): $(OBJECTS)
+
+clean:
+	-rm -f $(EXECUTABLE) $(OBJECTS)
+
+.PHONY: all clean
+```
+
+
+**C source file**
+```shell
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/mman.h>
+#include <fcntl.h>
+#include <unistd.h>
+
+unsigned long parse_int (char *str);
+
+int main (int argc, char *argv[]) {
+	unsigned long addr, length;
+
+	int devmem;
+	void *mapping;
+
+	long page_size;
+	off_t map_base, extra_bytes;
+
+	char *buf;
+	ssize_t ret;
+
+	if (argc != 3) {
+		fprintf(stderr, "Usage: %s ADDR LENGTH\n", argv[0]);
+		exit(EXIT_FAILURE);
+	}
+
+	addr = parse_int(argv[1]);
+	length = parse_int(argv[2]);
+
+	devmem = open("/dev/mem", O_RDONLY);
+	if (devmem == -1) {
+		perror("Could not open /dev/mem");
+		goto open_fail;
+	}
+
+	page_size = sysconf(_SC_PAGE_SIZE);
+	map_base = addr & ~(page_size - 1);
+	extra_bytes = addr - map_base;
+
+	mapping = mmap(NULL, length + extra_bytes, PROT_READ, MAP_SHARED,
+	               devmem, map_base);
+	if (mapping == MAP_FAILED) {
+		perror("Could not map memory");
+		goto map_fail;
+	}
+
+	buf = malloc(length);
+	if (buf == NULL) {
+		fprintf(stderr, "Failed to allocate memory\n");
+		goto alloc_fail;
+	}
+
+	/*
+	 * Using a separate buffer for write stops the kernel from
+	 * complaining quite as much as if we passed the mmap()ed
+	 * buffer directly to write().
+	 */
+	memcpy(buf, (char *)mapping + extra_bytes, length);
+
+	ret = write(STDOUT_FILENO, buf, length);
+	if (ret == -1) {
+		perror("Could not write data");
+	} else if (ret != (ssize_t)length) {
+		fprintf(stderr, "Only wrote %zd bytes\n", ret);
+	}
+
+	free(buf);
+
+alloc_fail:
+	munmap(mapping, length + extra_bytes);
+
+map_fail:
+	close(devmem);
+
+open_fail:
+	return EXIT_SUCCESS;
+}
+
+unsigned long parse_int (char *str) {
+	long long result;
+	char *endptr; 
+
+	result = strtoll(str, &endptr, 0);
+	if (str[0] == '\0' || *endptr != '\0') {
+		fprintf(stderr, "\"%s\" is not a valid number\n", str);
+		exit(EXIT_FAILURE);
+	}
+
+	return (unsigned long)result;
+}
+
+```
+
+
 
 
 
