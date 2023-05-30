@@ -137,7 +137,7 @@ clean:
 
 /* Meta Information */
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Johannes 4 GNU/Linux");
+MODULE_AUTHOR("NinhNN 4 GNU/Linux");
 MODULE_DESCRIPTION("A simple LKM using reserved-memory and write value to it");
 
 /* Declate the probe and remove functions */
