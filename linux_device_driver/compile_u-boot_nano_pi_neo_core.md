@@ -30,3 +30,5 @@ dd if=/dev/zero of=${card} bs=1M count=1
 ```shell
 dd if=/dev/zero of=${card} bs=1k count=1023 seek=1
 ```
+
+**to be continued**

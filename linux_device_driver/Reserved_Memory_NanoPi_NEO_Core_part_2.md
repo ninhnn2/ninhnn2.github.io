@@ -166,15 +166,12 @@ MODULE_DEVICE_TABLE(of, my_driver_ids);
 static int dt_probe(struct platform_device *pdev) {
 	printk("dt_probe - Now I am in the probe function!\n");
 
+	int ret = 0;
+	unsigned long PhyAddr;
+	size_t PhyMemSize;
 	struct device *dev = &pdev->dev;
-	const char *label;
-
-	struct device_node *node;
-  	struct resource res;
-  	unsigned long paddr;
-	size_t mem_size;
-	void *mem_va;
-  	int rc = 0;
+	struct device_node *DeviceNode;
+  	struct resource NodeResource;
 
 	/* Check for device properties */
 	if(!device_property_present(dev, "memory-region")) {
@@ -183,35 +180,39 @@ static int dt_probe(struct platform_device *pdev) {
 	}
 
 	  /* Get reserved memory region from Device-tree */
-  	node = of_parse_phandle(dev->of_node, "memory-region", 0);
-  	if (!node) {
+  	DeviceNode = of_parse_phandle(dev->of_node, "memory-region", 0);
+  	if (!DeviceNode) {
     	dev_err(dev, "No %s specified\n", "memory-region");
     	return 0;
   	}
 
-	rc = of_address_to_resource(node, 0, &res);
-  	if (rc) {
+	ret = of_address_to_resource(DeviceNode, 0, &NodeResource);
+  	if (ret) {
     	dev_err(dev, "No memory address assigned to the region\n");
 		return 0;
   	}
     
-  	paddr = res.start;
-	mem_size = resource_size(&res);
-	dev_info(dev, "memsize: %d\n", mem_size);
+  	PhyAddr = NodeResource.start;
+	PhyMemSize = resource_size(&NodeResource);
 
-	char* p_malloc = (char*)ioremap(paddr, mem_size);
-	char* *p_tmp = p_malloc;
-	int i = 0;
-	if (p_malloc == NULL) {
+	dev_info(dev, "PhyAddr    : 0x%8X\n", PhyAddr);
+	dev_info(dev, "PhyMemSize : 0x%8X\n", PhyMemSize);
+
+	char* VirtualPtr = (char*)ioremap(PhyAddr, PhyMemSize);
+	char* *VirtualPtrData = VirtualPtr;
+
+	int index = 0;
+
+	if (VirtualPtr == NULL) {
 		printk("Virtual addr is error\n");
 	} else {
-		for(i = 0; i < 1024; i++ ) {
-			*p_tmp++ = 49;
+		for(index = 0; index < 1024; index++ ) {
+			*VirtualPtrData++ = 49;
 		}
-		p_tmp = p_malloc;
+		VirtualPtrData = VirtualPtr;
 
-		for(i = 0; i < 1024; i++ ) {
-			printk("%d: ", *p_tmp++);
+		for(index = 0; index < 1024; index++ ) {
+			//printk("%d: ", *p_tmp++);
 		}
 		printk("\n");
 	}
@@ -252,13 +253,13 @@ module_exit(my_exit);
 ```
 
 
-** Giải thích từng đoạn code trong driver **
+**Giải thích từng đoạn code trong driver**
 
 ```shell
 static struct of_device_id my_driver_ids[] = {
 	{
 		.compatible = "vendor,bar",
-	}, { /* sentinel */ }
+	},{ /* sentinel */ }
 };
 ```
 
@@ -308,7 +309,7 @@ tìm kiếm các từ khóa "compatible" hoặc "of_match_table" parser các d�
 	- "of_address_to_resource(node, 0, &res)" địa chỉ node trích xuất được từ "of_parse_phandle" và ánh xạ nó thành cấu trúc
 	"struct resource res".
 	- "paddr = res.start" lấy phần tử đầu tiên trong cấu trúc resource, ở đây ta sẽ có được địa chỉ vật lý khai báo trong child node reserved-memory "0x50000000" là địa chỉ bắt đầu của vùng nhớ reserved-memory.
-	- "mem_size = resource_size(&res)" lấy kích thước vùng nhớ "reserved-memory".
+	- "mem_size = resource_size(&res)" lấy kích thước vùng nhớ "reserved-memory" size 0x4000000.
 
 
 
