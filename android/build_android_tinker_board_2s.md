@@ -18,6 +18,20 @@ gpg --delete-key <repo>
 gpg --delete-secret-key <repo>
 ```
 
+## 2. Install conda and setup env for python 3.5/3.6
+
+### Setup env python3.5 with conda
+```shell
+conda create -n tinkerandroid python=3.5
+```
+
+## 3. Get Android source and Compile
+
+### Activate env using python3.5
+```shell
+conda activate tinkerandroid
+```
+
 ### Get repo tool and init source
 ```shell
 wget https://storage.googleapis.com/git-repo-downloads/repo
@@ -31,8 +45,7 @@ git config --global user.email fanningnguyen@gmail.com
 ./repo init -u https://github.com/TinkerBoard2-Android/manifest.git -b android11-rk3399 -m tinker_board_2-android11-2.0.1.xml
 ./repo sync
 ```
-
-## 2. Compile Android 11 Tinker Board 2/2S
+## 4. Compile Android 11 Tinker Board 2/2S
 ```shell
 source build/envsetup.sh
 lunch WW_Tinker_Board_2-userdebug
