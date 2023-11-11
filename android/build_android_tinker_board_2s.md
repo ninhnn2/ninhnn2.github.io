@@ -21,6 +21,7 @@ gpg --delete-secret-key <repo>
 ### Get repo tool and init source
 ```shell
 wget https://storage.googleapis.com/git-repo-downloads/repo
+sudo chmod 777 ./repo
 curl -s https://storage.googleapis.com/git-repo-downloads/repo.asc | gpg --verify - ${REPO} && install -m 755 ${REPO} ./repo
 export REPO=$(mktemp /tmp/repo.XXXXXXXXX)
 gpg --recv-key 8BB9AD793E8E6153AF0F9A4416530D5E920F5C65
