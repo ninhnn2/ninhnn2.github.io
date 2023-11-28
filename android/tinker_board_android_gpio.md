@@ -22,12 +22,10 @@ mount -o rw,remount / (for permission write access)
 On Tinker Board 2S
 
 ```shell
-cd /sys/class/leds
-
 # Control act-led on (Led near power led)
-echo "1" >> act-led/brightness
+echo "1" >> /sys/class/leds/act-led/brightness
 # Control act-led off (Led near power led)
-echo "0" >> act-led/brightness
+echo "0" >> /sys/class/leds/act-led/brightness
 ```
 
 
