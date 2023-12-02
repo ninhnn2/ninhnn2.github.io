@@ -1,5 +1,5 @@
 ---
-sort: 3
+sort: 4
 ---
 
 # TINKER BOARD 2S ANDROID CONTROL GPIO
