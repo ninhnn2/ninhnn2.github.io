@@ -35,7 +35,7 @@ Chose Tinker Board 2s device
 
 
 
-
+tinker_board_2s_android_vs_linux.png
 
 
 
