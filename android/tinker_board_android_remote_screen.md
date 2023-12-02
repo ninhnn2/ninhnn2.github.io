@@ -17,7 +17,11 @@ Download Adb Remote Screen tools
 
 [Adb Remote Screen](https://github.com/MajeurAndroid/Adb-Remote-Screen/releases/download/3.0/AdbRemoteScreen-3.0.jar)
 
+Run Adb Remote Screen tools
 
+```shell
+java -jar ./AdbRemoteScreen-3.0.jar
+```
 
 
 
