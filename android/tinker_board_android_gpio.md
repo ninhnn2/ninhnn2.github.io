@@ -2,7 +2,7 @@
 sort: 3
 ---
 
-# CONTROL GPIO ON TINKER BOARD 2S ANDROID
+# TINKER BOARD 2S ANDROID CONTROL GPIO
 
 ## I. Access Tinker Board 2S with root permistion
 
