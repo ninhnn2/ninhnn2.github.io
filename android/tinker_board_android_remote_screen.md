@@ -23,6 +23,9 @@ Run Adb Remote Screen tools
 java -jar ./AdbRemoteScreen-3.0.jar
 ```
 
+![this screenshot](/images/tinker_board_2s_remote_1.png)
+
+
 
 
 
