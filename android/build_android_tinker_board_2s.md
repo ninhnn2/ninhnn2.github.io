@@ -2,7 +2,7 @@
 sort: 2
 ---
 
-# BUILD ANDROID TINKER BOARD 2S
+# TINKER BOARD 2S BUILD ANDROID
 
 ## 1. Install repo tool on Ubuntu 20.04.5 LTS
 
