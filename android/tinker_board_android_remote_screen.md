@@ -13,9 +13,9 @@ sudo apt install default-jre default-jdk default-jre-headless -y
 
 ```
 
-Download AdbRemoteScreen
+Download Adb Remote Screen tools
 
-[An Internal Link to a Section Heading](https://github.com/MajeurAndroid/Adb-Remote-Screen/releases/download/3.0/AdbRemoteScreen-3.0.jar)
+[Adb Remote Screen](https://github.com/MajeurAndroid/Adb-Remote-Screen/releases/download/3.0/AdbRemoteScreen-3.0.jar)
 
 
 
