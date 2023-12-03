@@ -19,7 +19,7 @@ su
 mount -o rw,remount / (for permission write access)
 
 ```
-On Tinker Board 2S
+## II. Simple control gpio on Tinker Board 2S with root permistion
 
 ```shell
 cd /sys/class/leds
