@@ -9,5 +9,3 @@ sort: 5
 ```
 
 {{ site.data.list | jsonify }}
-
-<!-- {% include list.liquid all=true %} -->
