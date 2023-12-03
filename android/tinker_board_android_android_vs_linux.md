@@ -2,7 +2,7 @@
 sort: 5
 ---
 
-## TINKER BOARD 2S ANDROID REMOTE SCREEN
+## TINKER BOARD 2S ANDROID VS LINUX
 
 ### I. Hardware and HAL
 Unlike traditional Linux based systems, Android applications communicate with the underlying hardware 
