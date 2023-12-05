@@ -40,6 +40,7 @@ Control gpio using shell script
 #!/system/bin/sh
 echo 1 >> act-led/brightness
 ```
+
 Run shell script
 ```shell
 sh gpio_on.sh
