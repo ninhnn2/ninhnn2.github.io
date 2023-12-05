@@ -21,6 +21,8 @@ mount -o rw,remount / (for permission write access)
 ```
 ## II. Simple control gpio on Tinker Board 2S with root permistion
 
+Using command on terminal
+
 ```shell
 cd /sys/class/leds
 
@@ -29,6 +31,33 @@ echo "1" >> act-led/brightness
 # Control act-led off (Led near power led)
 echo "0" >> act-led/brightness
 ```
+
+Control gpio using shell script
+
+- gpio_on.sh file
+
+```shell
+#!/system/bin/sh
+echo 1 >> act-led/brightness
+```
+Run shell script
+```shell
+sh gpio_on.sh
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
