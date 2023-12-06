@@ -1,7 +1,7 @@
 title: Fanning
 description: Embedded Linux Blog
 
-theme: jekyll-rtd-theme
+theme: none
 
 debug:
   compress: true
