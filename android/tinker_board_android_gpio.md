@@ -30,15 +30,12 @@ cd /sys/class/leds
 echo "1" >> act-led/brightness
 # Control act-led off (Led near power led)
 echo "0" >> act-led/brightness
-
-#!/system/bin/sh
-echo 1 >> act-led/brightness
-
 ```
 
-Control gpio using shell script
+### So we add commandline to shell script as below:
 
-- gpio_on.sh file
+Create a file with the contend as below on Laptop host with the name file "gpio_on.sh"
+Tạo một file với nội dung như dưới đây trên laptop tên là "gpio_on.sh"
 
 ```shell
 #!/system/bin/sh
