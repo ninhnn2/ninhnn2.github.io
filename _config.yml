@@ -1,12 +1,12 @@
 title: Fanning
 description: Embedded Linux Blog
 
-theme: none
+theme: null
 
-debug:
-  compress: true
-  dist: false
-  shortcodes: true
+# debug:
+#   compress: true
+#   dist: false
+#   shortcodes: true
 
 readme_index:
   with_frontmatter: true
