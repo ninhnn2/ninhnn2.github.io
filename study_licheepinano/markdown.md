@@ -8,6 +8,7 @@ sort: 1
 ### Giới thiệu
 
 Licheepi Nano là một bo mạch phát triển sử dụng linux có kích thước bằng thẻ SD với nhân là bộ vi xử lý ARM9 Allwinner F1C100s.
+Với giá thành rẻ và kích thước nhỏ gọn, nó có thể được dùng làm các project thực tế.
 
 ![image](https://user-images.githubusercontent.com/86546911/129333579-babb44fe-cbc0-4816-8a2a-40249187a8e3.png)
 
