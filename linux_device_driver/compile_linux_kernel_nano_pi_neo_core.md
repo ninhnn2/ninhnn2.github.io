@@ -35,7 +35,7 @@ root và work.
 
 ### 3. Install toolchain for compiling
 ```
-wget https://download1085.mediafire.com/n6ua5zi7hqugDjABFbeV9kWJCJLtgM_M4x1qe08suMdK0W7MwEel7qUBSpwPPrU5RQAoCNY_astwAjQ-U9mrapLPuXDv/27ddz8zqgydcuig/arm-cortexa9-linux-gnueabihf-4.9.3-20160512.tar.xz
+wget wget https://download1587.mediafire.com/m0vp8jqd9bag4v69bgyeSa9e_EI-QNmp2hkyupSNcpMyhQea2v9qm078vVk21ZtRbDhqBuG8OfmM13_OsSqhDJXSr8pvOv3oRGxlbiL0xmcYGxmBs88IXZq7gbzbvjb63atyYSUNmE49AuD0f4btWVj2krfhiBTJBfXjA4Q0Tg835vg/27ddz8zqgydcuig/arm-cortexa9-linux-gnueabihf-4.9.3-20160512.tar.xz
 
 unxz ./arm-cortexa9-linux-gnueabihf-4.9.3-20160512.tar.xz
 
