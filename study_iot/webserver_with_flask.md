@@ -2,7 +2,7 @@
 sort: 5
 ---
 
-# INSTALL GPROF TO ANALYS C/C++ APP
+# CROSS-COMPILE GPROF TO ANALYS C/C++ APP
 ```shell
 #!/bin/bash
 wget https://mirror.csclub.uwaterloo.ca/gnu/binutils/binutils-2.33.1.tar.xz
