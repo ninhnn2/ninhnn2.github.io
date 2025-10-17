@@ -21,7 +21,7 @@ mount -o rw,remount / (for permission write access)
 ```
 ## II. Simple control gpio on Tinker Board 2S with root permistion
 
-### Using command on terminal
+Using command on terminal
 
 ```shell
 cd /sys/class/leds
@@ -30,13 +30,15 @@ cd /sys/class/leds
 echo "1" >> act-led/brightness
 # Control act-led off (Led near power led)
 echo "0" >> act-led/brightness
+
+#!/system/bin/sh
+echo 1 >> act-led/brightness
+
 ```
 
-### So we add commandline to shell script as below:
+Control gpio using shell script
 
--Create a file with the contend as below on Laptop host with the name file "gpio_on.sh"
-
--Tạo một file với nội dung như dưới đây trên laptop tên là "gpio_on.sh"
+- gpio_on.sh file
 
 ```shell
 #!/system/bin/sh

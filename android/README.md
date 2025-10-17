@@ -2,7 +2,7 @@
 sort: 5
 ---
 
-# Tinker Board 2S Android
+# Android Tinker Board 2S
 
 ```
 {% raw %}{% include list.liquid all=true %}{% endraw %}
