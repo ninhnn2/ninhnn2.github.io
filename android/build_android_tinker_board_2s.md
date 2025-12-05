@@ -38,6 +38,8 @@ source build/envsetup.sh
 lunch WW_Tinker_Board_2-userdebug
 ./build.sh -UCKAu
 ```
+**build not clean u-boot**
+./build.sh -CKAu
 
 
 
