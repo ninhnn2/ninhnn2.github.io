@@ -3,6 +3,7 @@
 
 ## Skills
 
+- Good Knowledge & Work Experience in Image processing
 - Good Knowledge & Work Experience in Embedded C/C++, ASM.
 - Good Knowledge & Work Experience event-driven Architecture programming.
 - Good Knowledge & Work Experience in STM32 MCU: RTOS, FOTA, bootloader.

@@ -1,0 +1,7 @@
+contributors:
+  - name: "John Doe"
+    profile: "https://github.com/johndoe"
+    avatar: "https://github.com/johndoe.png"
+  - name: "Jane Smith"
+    profile: "https://github.com/janesmith"
+    avatar: "https://github.com/janesmith.png"
