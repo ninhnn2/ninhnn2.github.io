@@ -1,0 +1,554 @@
+// ============================================================
+// Fanning.vn — custom UI layer (light polish + dark mode)
+// Compiled standalone via scssify and inlined after theme.css
+// ============================================================
+
+$accent: #2980b9;
+$accent-dark: #58a6ff;
+
+// ---------- global polish (both modes) ----------
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body,
+.container,
+.content-wrap,
+.markdown-body {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.markdown-body {
+  line-height: 1.65;
+
+  img {
+    border-radius: 6px;
+  }
+
+  .highlight pre,
+  pre {
+    border-radius: 8px;
+  }
+
+  code,
+  tt {
+    border-radius: 4px;
+  }
+
+  blockquote {
+    border-left-width: 4px;
+    border-radius: 0 6px 6px 0;
+  }
+}
+
+::selection {
+  background: rgba(41, 128, 185, 0.25);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid $accent;
+  outline-offset: 2px;
+}
+
+// sidebar niceties
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.toctree a {
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.toasts {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+// ---------- theme toggle button ----------
+
+#theme-toggle {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 120;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  background: #ffffff;
+  color: #57606a;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+#theme-toggle:hover {
+  transform: translateY(-2px);
+  color: $accent;
+}
+
+// ---------- copy-code button ----------
+
+.markdown-body pre {
+  position: relative;
+}
+
+.markdown-body pre .copy-code {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  padding: 4px 9px;
+  font-size: 12px;
+  line-height: 1.4;
+  border-radius: 6px;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  background: #ffffff;
+  color: #57606a;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.markdown-body pre:hover .copy-code {
+  opacity: 1;
+}
+
+.markdown-body pre .copy-code:hover {
+  color: $accent;
+}
+
+.markdown-body .d-lang:after {
+  transition: opacity 0.15s ease;
+}
+
+.markdown-body .d-lang:hover:after {
+  opacity: 0;
+}
+
+// ---------- homepage components ----------
+
+.home-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 14px;
+  margin: 16px 0 24px;
+}
+
+.home-cards .home-card {
+  display: block;
+  padding: 16px;
+  border: 1px solid #d0d7de;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+.home-cards .home-card:hover {
+  text-decoration: none;
+  border-color: $accent;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.home-cards .home-card .fa {
+  font-size: 20px;
+  color: $accent;
+}
+
+.home-cards .home-card .card-title {
+  display: block;
+  margin: 8px 0 4px;
+  font-weight: 600;
+  color: #24292e;
+}
+
+.home-cards .home-card .desc {
+  display: block;
+  font-size: 13px;
+  color: #57606a;
+}
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  aspect-ratio: 16 / 9;
+  margin: 16px 0;
+}
+
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 10px;
+}
+
+// ============================================================
+// Dark mode
+// ============================================================
+
+$d-bg: #0d1117;
+$d-surface: #161b22;
+$d-surface2: #21262d;
+$d-border: #30363d;
+$d-text: #c9d1d9;
+$d-muted: #8b949e;
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  // expanded sidebar submenu backgrounds (theme uses --toc-N vars)
+  $toc-dark: (#161b22, #1b2129, #212730, #272e38);
+  @for $i from 1 through 12 {
+    $idx: $i % 4;
+    @if $idx == 0 {
+      $idx: 4;
+    }
+    --toc-#{$i}: #{nth($toc-dark, $idx)};
+  }
+}
+
+html[data-theme="dark"] {
+  .container,
+  .content-wrap {
+    background: $d-bg;
+    color: $d-text;
+  }
+
+  ::selection {
+    background: rgba(88, 166, 255, 0.35);
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline-color: $accent-dark;
+  }
+
+  // ----- markdown content -----
+
+  .markdown-body {
+    color: $d-text;
+
+    a {
+      color: $accent-dark;
+
+      &:hover {
+        color: #79c0ff;
+      }
+
+      code,
+      tt {
+        color: $accent-dark;
+      }
+    }
+
+    hr {
+      background-color: $d-border;
+      border-color: $d-border;
+    }
+
+    blockquote {
+      color: $d-muted;
+      border-left-color: $d-border;
+    }
+
+    table {
+      tr {
+        background-color: $d-bg;
+        border-color: $d-surface2;
+      }
+
+      tr:nth-child(2n) {
+        background-color: $d-surface;
+      }
+
+      th,
+      td {
+        border-color: $d-border;
+      }
+    }
+
+    kbd {
+      color: $d-text;
+      background-color: $d-surface;
+      border-color: $d-border;
+      box-shadow: inset 0 -1px 0 $d-border;
+    }
+
+    code,
+    tt {
+      color: #ff8f88;
+      background-color: rgba(110, 118, 129, 0.2);
+      border-color: $d-border;
+    }
+
+    .highlight pre,
+    pre {
+      background-color: $d-surface;
+      border-color: $d-border;
+    }
+
+    pre > code {
+      color: $d-text;
+      background: transparent;
+      border: 0;
+    }
+
+    .d-lang:after {
+      color: #6e7681;
+    }
+
+    .mermaid-wrap {
+      background: #f6f8fa;
+      border-radius: 8px;
+      padding: 8px;
+    }
+  }
+
+  // ----- syntax highlighting (GitHub-dark palette) -----
+
+  .highlight {
+    .c,
+    .c1,
+    .cm,
+    .cs,
+    .cd {
+      color: $d-muted;
+    }
+
+    .k,
+    .kd,
+    .kn,
+    .kp,
+    .kr,
+    .kt,
+    .kv,
+    .o,
+    .ow {
+      color: #ff7b72;
+    }
+
+    .s,
+    .sa,
+    .sb,
+    .sc,
+    .dl,
+    .sd,
+    .s2,
+    .se,
+    .sh,
+    .si,
+    .sx,
+    .sr,
+    .s1,
+    .ss {
+      color: #a5d6ff;
+    }
+
+    .m,
+    .mb,
+    .mf,
+    .mh,
+    .mi,
+    .il,
+    .mo,
+    .mx,
+    .bp,
+    .nb,
+    .no,
+    .nl,
+    .na {
+      color: #79c0ff;
+    }
+
+    .nf,
+    .fm,
+    .nd {
+      color: #d2a8ff;
+    }
+
+    .nc,
+    .nn,
+    .ne,
+    .nv,
+    .vc,
+    .vg,
+    .vi {
+      color: #ffa657;
+    }
+
+    .nt {
+      color: #7ee787;
+    }
+
+    .nx,
+    .p,
+    .w {
+      color: $d-text;
+    }
+
+    .gh,
+    .gu {
+      color: #79c0ff;
+      font-weight: 600;
+    }
+
+    .gd {
+      color: #ffdcd7;
+      background-color: rgba(248, 81, 73, 0.15);
+    }
+
+    .gi {
+      color: #aff5b4;
+      background-color: rgba(46, 160, 67, 0.15);
+    }
+
+    .gp {
+      color: $d-muted;
+    }
+
+    .err {
+      color: #f85149;
+      background: transparent;
+    }
+  }
+
+  // ----- chrome: breadcrumbs, buttons, footer -----
+
+  .content > hr,
+  hr {
+    background-color: $d-surface2;
+    border-color: $d-surface2;
+  }
+
+  .breadcrumb-item {
+    color: $d-muted;
+
+    a {
+      color: $accent-dark;
+    }
+
+    & + .breadcrumb-item::before {
+      color: #6e7681;
+    }
+  }
+
+  .navigation-top .edit {
+    color: $accent-dark;
+  }
+
+  .btn {
+    color: $d-text;
+    background-color: $d-surface2;
+    background-image: none;
+    border-color: $d-border;
+    box-shadow: none;
+
+    &:hover {
+      background-color: $d-border;
+      border-color: #8b949e;
+    }
+  }
+
+  .text-gray {
+    color: $d-muted !important;
+  }
+
+  // ----- sidebar expanded submenu -----
+
+  .toctree .toc.current a {
+    color: $d-text;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+  }
+
+  .toctree > ul .toc.current a.current {
+    background: $d-bg;
+    border-top-color: $d-border;
+    border-bottom-color: $d-border;
+  }
+
+  // ----- admonitions -----
+
+  .toasts {
+    color: $d-text;
+
+    .title {
+      color: #ffffff;
+    }
+
+    &.note {
+      background-color: rgba(41, 128, 185, 0.15);
+    }
+
+    &.tip {
+      background-color: rgba(26, 188, 156, 0.15);
+    }
+
+    &.warning {
+      background-color: rgba(230, 126, 34, 0.15);
+    }
+
+    &.danger {
+      background-color: rgba(231, 76, 60, 0.15);
+    }
+  }
+
+  // ----- widgets -----
+
+  #theme-toggle {
+    background: $d-surface2;
+    color: #e6edf3;
+    border-color: $d-border;
+
+    &:hover {
+      color: $accent-dark;
+    }
+  }
+
+  .markdown-body pre .copy-code {
+    background: $d-surface2;
+    color: $d-muted;
+    border-color: $d-border;
+
+    &:hover {
+      color: $accent-dark;
+    }
+  }
+
+  .home-cards .home-card {
+    border-color: $d-border;
+
+    .fa {
+      color: $accent-dark;
+    }
+
+    .card-title {
+      color: #e6edf3;
+    }
+
+    .desc {
+      color: $d-muted;
+    }
+
+    &:hover {
+      border-color: $accent-dark;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    }
+  }
+}

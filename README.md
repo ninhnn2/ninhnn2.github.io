@@ -1,49 +1,64 @@
+# Fanning — Embedded Linux Engineer
 
-# Embedded programming tutorials, projects, and more
+Chào mừng đến với blog của tôi — nơi chia sẻ kiến thức và kinh nghiệm thực chiến về **lập trình nhúng**: Linux kernel, device driver, U-Boot, Yocto / Buildroot / OpenWrt, Android BSP và IoT.
 
-## Skills
+## Chuyên mục
 
-- Good Knowledge & Work Experience in Embedded C/C++, ASM.
-- Good Knowledge & Work Experience event-driven Architecture programming.
-- Good Knowledge & Work Experience in STM32 MCU: RTOS, FOTA, bootloader.
-- Good Knowledge & Work Experience in custom zigbee gateway, router, end device (CC253x, JN516x).
-- Good knowledge & Work Experience Yocto, Buildroot, Openwrt developemt: IoT gateway, QT-HMI.
-- Good knowledge & Work Experience cross-compile application and linux distro from scratch.
-- Good Knowledge & Work Experience in platform: IMX7, AM335x, H3, H6, V3S, F1cX00S, Rockchip (RK3399, RK3308)
-- Good Knowledge & Work Experience in Linux kernel and driver development: GPIO, I2C, SPI.
-- Basic knowledge in bare-metal programming for BCM2835, AM335x.
+<div class="home-cards">
+  <a class="home-card" href="/linux_device_driver/">
+    <i class="fa fa-linux" aria-hidden="true"></i>
+    <span class="card-title">Linux Device Driver</span>
+    <span class="desc">NanoPi NEO Core — biên dịch kernel, U-Boot, device tree, reserved memory</span>
+  </a>
+  <a class="home-card" href="/android/">
+    <i class="fa fa-android" aria-hidden="true"></i>
+    <span class="card-title">Android BSP</span>
+    <span class="desc">Tinker Board 2S — build Android, root, GPIO, remote screen</span>
+  </a>
+  <a class="home-card" href="/study_yocto/">
+    <i class="fa fa-cubes" aria-hidden="true"></i>
+    <span class="card-title">Yocto</span>
+    <span class="desc">Meta layer, build image cho LicheePi Nano, tối ưu boot time</span>
+  </a>
+  <a class="home-card" href="/study_licheepinano/">
+    <i class="fa fa-microchip" aria-hidden="true"></i>
+    <span class="card-title">LicheePi Nano</span>
+    <span class="desc">Allwinner F1C100s — build system, GPIO, NOR flash</span>
+  </a>
+  <a class="home-card" href="/study_iot/">
+    <i class="fa fa-wifi" aria-hidden="true"></i>
+    <span class="card-title">IoT</span>
+    <span class="desc">Web server OpenResty / Flask, systemd, 4G LTE</span>
+  </a>
+</div>
 
+## Kỹ năng chính
 
+- **Ngôn ngữ**: Embedded C/C++, ASM; kiến trúc lập trình event-driven.
+- **MCU — STM32**: RTOS, FOTA, bootloader; bare-metal BCM2835, AM335x.
+- **Zigbee**: gateway, router, end device tùy biến trên CC253x, JN516x.
+- **Embedded Linux**: Yocto, Buildroot, OpenWrt — IoT gateway, Qt HMI; cross-compile ứng dụng và build Linux distro from scratch.
+- **SoC platforms**: i.MX7, AM335x, Allwinner (H3, H6, V3S, F1C100s), Rockchip (RK3399, RK3308).
+- **Linux kernel & driver**: GPIO, I2C, SPI.
 
+## Dự án
 
+### Sản phẩm thương mại — [Smart Audio](https://epcb.vn/products/thiet-bi-am-thanh-va-giam-sat-am-ly-nha-yen-nesthouse-audio)
 
+Thiết bị IoT điều khiển âm thanh và giám sát âm ly nhà yến:
 
-
-## Hobby Projects
-
-### Yocto HMI with Allwinner F1C100s
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XeEEIfbIYdg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-
-## Producttion Project
-
-[`Smart Audio Product`](https://epcb.vn/products/thiet-bi-am-thanh-va-giam-sat-am-ly-nha-yen-nesthouse-audio)
-
-### Thiết bị IoT điều khiển âm thanh và giám sát âm ly nhà yến Smart Audio
-- SoC: MT7628 64MB DRAM, 32MB Norflash 
-- Linux distro: Openwrt
-- Play 4 usb sound card
+- SoC MT7628 — 64 MB DRAM, 32 MB NOR flash, chạy OpenWrt
+- Phát đồng thời 4 USB sound card
 - RS485 gateway
 
-![image](https://user-images.githubusercontent.com/86546911/170808668-38c71286-4edb-4b3a-9446-c7092cc978e0.jpeg)
+![Smart Audio](https://user-images.githubusercontent.com/86546911/170808668-38c71286-4edb-4b3a-9446-c7092cc978e0.jpeg)
 
+### Hobby — Yocto HMI với Allwinner F1C100s
 
-### Ardruino Zigbee Shield
+<div class="video-embed">
+  <iframe src="https://www.youtube.com/embed/XeEEIfbIYdg" title="Yocto HMI with Allwinner F1C100s" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
 
-![image](https://user-images.githubusercontent.com/86546911/173174115-d857a134-ecfc-4e16-bbdf-e5098cc04d06.jpeg)
+### Arduino Zigbee Shield
 
-
-## The license
-
-The theme is available as open source under the terms of the MIT License
+![Arduino Zigbee Shield](https://user-images.githubusercontent.com/86546911/173174115-d857a134-ecfc-4e16-bbdf-e5098cc04d06.jpeg)

@@ -8,6 +8,8 @@ _site
 # bundler
 *.gem
 Gemfile.lock
+vendor
+.bundle
 
 
 # python

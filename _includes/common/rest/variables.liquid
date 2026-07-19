@@ -1,10 +1,9 @@
 {%- comment %} variables {% endcomment -%}
 {%- assign version = theme_alias | split: "@" | last -%}
 {%- assign docs = site.github -%}
-{%- assign rest = docs.public_repositories | where: "html_url", docs.repository_url | first -%}
 
-{%- assign rest_created_at = rest.created_at | default: site.time -%}
-{%- assign rest_updated_at = rest.updated_at | default: site.time -%}
+{%- assign rest_created_at = site.since | default: site.time -%}
+{%- assign rest_updated_at = site.time -%}
 
 {%- comment %} defaults {% endcomment -%}
 {%- assign direction = site.direction | default: "auto" -%}
@@ -23,6 +22,9 @@
 {%- assign schema_date = page.date | default: rest_created_at | date_to_xmlschema -%}
 {%- assign schema_modi = site.time | date_to_xmlschema -%}
 {%- assign schema_surl = page.url  | absolute_url | xml_escape -%}
+
+{%- comment %} social share image {% endcomment -%}
+{%- assign og_image = page.image | default: site.og_image -%}
 
 {% comment %} debug {% endcomment %}
 {%- if site.debug -%}

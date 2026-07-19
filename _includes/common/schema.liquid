@@ -7,7 +7,7 @@
             "@id": "{{ schema_surl }}"
         },
         "headline": "{{ title }}",
-        "image": [{% for image in page.images %}"{{ image }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
+        "image": [{% for image in page.images %}"{{ image }}"{% unless forloop.last %},{% endunless %}{% else %}"{{ og_image | absolute_url }}"{% endfor %}],
         "author": {
             "@type": "Person",
             "name": "{{ author }}"

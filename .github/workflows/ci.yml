@@ -7,76 +7,25 @@ on:
     branches: [develop]
 
 jobs:
-  checkout:
+  build:
     runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.matching.outputs.version }}
     steps:
       - uses: actions/checkout@v4
-      - name: Match the commit message whether to Release!
-        run: |
-          MESSAGE=$(git log -1 --format="%s")
-          if [[ ${MESSAGE} =~ ^v[0-9]+\.[0-9]+\.[0-9]+ ]]; then
-              echo "::set-output name=version::${MESSAGE:1}"
-          fi
-        id: matching
-        if: ${{ github.event_name == 'push' }}
-  release:
-    runs-on: ubuntu-latest
-    needs: checkout
-    if: ${{ needs.checkout.outputs.version }}
-    env:
-      VERSION: ${{ needs.checkout.outputs.version }}
-    steps:
-      - uses: actions/checkout@main
+
+      - uses: ruby/setup-ruby@v1
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@main
-      - uses: actions/setup-ruby@main
+          ruby-version: "3.3"
+          bundler-cache: true
 
-      - name: Generate changelog and Auto update version!
-        run: |
-          LAST_TAG=$(git describe --tags --abbrev=0)
-          git log ${LAST_TAG}..HEAD --no-merges --format="- %h %s @%an" > action.changelog.md
-          sed -i "s/${LAST_TAG:1}/${VERSION}/g" jekyll-rtd-theme.gemspec
-          sed -i "s/${LAST_TAG:1}/${VERSION}/g" _includes/rest/defaults.liquid
-
-      - name: Prettier check and Build theme assets!
-        run: |
-          npm install
-          npm run format && npm run build
-
-      - name: Save changes!
-        run: |
-          git remote set-url origin "https://${GITHUB_ACTOR}:${{ secrets.AUTH_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
-          git config user.name "${GITHUB_ACTOR}"
-          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git add .
-          git commit -m "💎 v${VERSION}" && git push
-
-      - name: Create release!
-        uses: actions/create-release@main
-        with:
-          release_name: ${{ needs.checkout.outputs.version }}
-          tag_name: v${{ needs.checkout.outputs.version }}
-          commitish: ${{ github.ref }}
-          body_path: action.changelog.md
+      - name: Build site
+        run: bundle exec jekyll build --strict_front_matter
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JEKYLL_ENV: production
+          JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PAGES_REPO_NWO: ${{ github.repository }}
 
-      - name: Configure gem credentials and Build gemspec!
+      - name: Check output
         run: |
-          CONFIG=${HOME}/.gem/credentials
-          mkdir -p ${HOME}/.gem && touch ${CONFIG} && chmod 0600 ${CONFIG}
-          echo "---" > ${CONFIG}
-          echo ":github: Bearer ${GITHUB_TOKEN}" >> ${CONFIG}
-          echo ":rubygems_api_key: ${RUBYGEMS_AUTH_TOKEN}" >> ${CONFIG}
-          gem build *.gemspec
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RUBYGEMS_AUTH_TOKEN: ${{ secrets.RUBYGEMS_AUTH_TOKEN }}
-
-      - name: Publish rubygems!
-        run: |
-          gem push *.gem
-          gem push --KEY github --host https://rubygems.pkg.github.com/${{ github.repository_owner }} *.gem
+          test -f _site/index.html
+          test -f _site/sitemap.xml
+          test -f _site/404.html

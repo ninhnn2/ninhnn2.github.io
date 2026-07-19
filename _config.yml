@@ -1,7 +1,18 @@
 title: Fanning
-description: Embedded Linux Blog
+description: Embedded Linux Blog — lập trình nhúng, Linux kernel, device driver, Yocto, Android BSP và IoT
 
-theme: minima
+url: "https://fanning.vn"
+baseurl: ""
+repository: ninhnn2/ninhnn2.github.io
+
+lang: vi
+timezone: Asia/Ho_Chi_Minh
+
+# Năm bắt đầu blog — hiển thị trong copyright ở footer
+since: 2021-01-01
+
+# Ảnh mặc định khi chia sẻ trang lên mạng xã hội (og:image / twitter:image)
+og_image: /assets/images/og-image.jpg
 
 debug:
   compress: true
@@ -15,25 +26,39 @@ plugins:
   - jemoji
   - jekyll-avatar
   - jekyll-mentions
-  - jekyll-seo-tag
   - jekyll-github-metadata
 
-repository: username/project
+# Bản dịch chuỗi giao diện của theme
+translate:
+  search_docs: Tìm kiếm bài viết...
+  search: Tìm kiếm
+  searching: Đang tìm kiếm
+  search_results: Kết quả tìm kiếm
+  search_results_found: "Tìm thấy # kết quả phù hợp"
+  search_results_not_found: Không tìm thấy kết quả nào. Hãy thử từ khóa khác.
+  previous: Trang trước
+  next: Trang sau
+  revision: '· phiên bản'
+  edit: Sửa trang này trên GitHub
+  not_found: Không tìm thấy trang bạn yêu cầu.
+  homepage: Trang chủ
+  download: Tải xuống
+  note: Ghi chú
+  tip: Mẹo
+  warning: Cảnh báo
+  danger: Nguy hiểm
+
+# Google
+google:
+  adsense: ca-pub-2950224298461248
 
 exclude:
-  - Makefile
   - CNAME
   - LICENSE
-  - update.sh
   - Gemfile
   - Gemfile.lock
-  - requirements.txt
+  - vendor
   - node_modules
-  - package.json
-  - package-lock.json
-  - webpack.config.js
-  - jekyll-rtd-theme.gemspec
-# Google Ads
-adsense:
-  client_id: 'ca-pub-2950224298461248' # Google Adsense client ID
-  
+  - git_push.sh
+  - git_remote_clean.sh
+  - git_remote_push.sh
