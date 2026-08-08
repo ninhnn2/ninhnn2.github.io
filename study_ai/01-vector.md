@@ -61,38 +61,52 @@ hay 4096 chiều — không vẽ ra giấy được (bài tập 3).
 
 ## 1.1 Vector là gì
 
-**Trong toán:** một điểm trong không gian D chiều, hoặc một mũi tên từ gốc toạ độ
-tới điểm đó. Viết `v = [v0, v1, ..., v_{D-1}]`.
-
-**Trong lập trình — đây là điều bạn đã biết mà không gọi tên nó:**
+Bắt đầu bằng một dòng bạn đã gõ hàng nghìn lần:
 
 ```c
-float v[128];   // đây CHÍNH LÀ một vector 128 chiều
+float v[128];
 ```
 
-Không khác gì buffer mẫu bạn dùng cho FIR filter hay FFT. Điểm khác duy nhất: trong
-DSP, chỉ số của mảng thường mang nghĩa *thời gian* (`x[n]` = mẫu tại thời điểm n).
-Trong AI, chỉ số mang nghĩa **một chiều đặc trưng học được** — không ai biết trước
-chiều thứ 37 nghĩa là gì, mạng tự học ra cách dùng nó.
+Nếu bạn viết C, bạn đã dùng vector hàng nghìn lần rồi — chỉ là chưa ai gọi nó bằng
+cái tên đó. Dòng trên **chính là** một vector 128 chiều. Không có lớp bọc nào,
+không có kiểu dữ liệu đặc biệt: một vector D chiều là một mảng D số thực, hết.
 
-**Hai đại lượng mô tả một vector:**
+Toán học nhìn đúng dòng đó theo một cách khác, và cách nhìn này sẽ có ích ngay ở
+đoạn dưới: coi 128 con số là toạ độ của **một điểm trong không gian 128 chiều** —
+hoặc một mũi tên từ gốc toạ độ tới điểm đó — viết `v = [v0, v1, ..., v_{D-1}]`. Hai
+cách nhìn, cùng một vùng nhớ.
+
+Nó không khác gì buffer mẫu bạn dùng cho FIR filter hay FFT. Điểm khác duy nhất:
+trong DSP, chỉ số của mảng thường mang nghĩa *thời gian* (`x[n]` = mẫu tại thời điểm
+n). Trong AI, chỉ số mang nghĩa **một chiều đặc trưng học được** — không ai biết
+trước chiều thứ 37 nghĩa là gì, mạng tự học ra cách dùng nó.
+
+Giờ nhìn hai vector này:
 
 ```
-magnitude (độ lớn, norm)  = √(v0² + v1² + ... + v_{D-1}²)         -- "vector này mạnh cỡ nào"
+a = [   1,    1,    1]
+b = [1000, 1000, 1000]
+```
+
+Không cần công thức nào, bạn thấy ngay đúng hai điều. Thứ nhất, chúng **chỉ về cùng
+một phía**: `b` chẳng qua là `a` nhân 1000, ba thành phần vẫn bằng nhau y hệt. Thứ
+hai, `b` **dài hơn `a` rất nhiều**.
+
+Đó cũng chính là hai đại lượng duy nhất mô tả một vector, và toán học đặt tên cho
+chúng:
+
+```
+magnitude (độ lớn, norm)  = √(v0² + v1² + ... + v_{D-1}²)         -- "vector này dài cỡ nào"
 direction (hướng)         = v / magnitude(v)                        -- "vector này trỏ về đâu", đã chuẩn hoá độ dài = 1
 ```
 
-Hai đại lượng này **độc lập nhau** — ví dụ quen thuộc nhất với dân DSP:
+Thay số vào: `magnitude(a) = √3 ≈ 1.73` còn `magnitude(b) = 1000·√3 ≈ 1732` — lệch
+đúng 1000 lần, trong khi hướng không đổi một chút nào. Hai đại lượng **độc lập
+nhau**: đổi cái này không đụng tới cái kia.
 
-```
-a = [   1,    1,    1]      magnitude = √3        ≈ 1.73
-b = [1000, 1000, 1000]      magnitude = 1000·√3   ≈ 1732
-```
-
-Cùng **một hướng** (b = 1000·a), lệch nhau 1000 lần về **độ lớn**. Đúng cặp tín hiệu
-bạn gặp mỗi ngày: cùng dạng sóng, khác biên độ. Magnitude ở đây chính là năng lượng
-tín hiệu, còn RMS = `magnitude/√D` là biên độ hiệu dụng — chia cho `√D` để con số
-không phụ thuộc việc bạn lấy 128 hay 1024 mẫu.
+Đây đúng là cặp tín hiệu bạn gặp mỗi ngày: cùng dạng sóng, khác biên độ. Magnitude ở
+đây chính là năng lượng tín hiệu, còn RMS = `magnitude/√D` là biên độ hiệu dụng —
+chia cho `√D` để con số không phụ thuộc việc bạn lấy 128 hay 1024 mẫu.
 
 Normalize (`v / ‖v‖`) là bước ép mọi vector về cùng biên độ để **chỉ còn lại hướng**:
 
@@ -231,9 +245,15 @@ cat    vs the   : cos = -0.137
 cat    vs king  : cos = +0.249
 ```
 
-**Dừng lại ở 16 số đầu tiên đó một chút.** Đấy là toàn bộ những gì model biết về
-token `cat` ở tầng embedding — không có từ điển, không có luật, không có `if`. 128
-số float, hết. Ba điều đọc được ngay từ chúng:
+**Có thể bạn hơi thất vọng.** Nhìn 16 số đó, bạn không đọc ra được gì cả — không có
+số nào nói "mèo", không số nào nói "động vật". Cảm giác hụt hẫng đó hoàn toàn đúng,
+và bản thân nó chính là bài học.
+
+Embedding không giống một `struct` trong C, nơi mỗi field có tên riêng và đọc phát
+hiểu ngay. Nó ngược lại: đấy là toàn bộ những gì model biết về token `cat` ở tầng
+embedding — không từ điển, không luật, không một câu `if` nào — và **một embedding
+chỉ có nghĩa khi đem so với embedding khác**. Ba điều cụ thể đọc được từ đống số
+trên:
 
 - **Giá trị nhỏ và quanh 0** (std 0.071, biên độ ±0.18). Đúng như mong đợi: chúng
   khởi tạo từ `nn.init.normal_` rồi bị gradient descent nắn dần, chứ không ai gán
@@ -292,24 +312,43 @@ thế được cho nhau trong câu".
 
 ## 1.3 Khoảng cách giữa các vector
 
-Bắt đầu từ chỗ bạn đã đứng sẵn. Đầu ra bộ lọc FIR tại mẫu `n`:
+Có lẽ bạn đã viết đoạn code này vài trăm lần rồi:
+
+```c
+float a[] = {1, 2, 3};
+float b[] = {4, 5, 6};
+
+float sum = 0;
+for (int i = 0; i < 3; i++)
+    sum += a[i] * b[i];
+```
+
+Vòng lặp làm đúng hai việc: **nhân từng cặp phần tử**, rồi **cộng dồn tất cả lại**.
 
 ```
-y[n] = Σ h[k] · x[n-k]        k = 0..N-1
+1×4 =  4
+2×5 = 10
+3×6 = 18
+            ↓
+    4 + 10 + 18 = 32
 ```
 
-Nhân từng cặp rồi cộng dồn. Gọi `h` là vector hệ số và `x[n-N+1..n]` là cửa sổ tín
-hiệu, thì `y[n]` **chính là dot product của hai vector đó**. Bạn đã tính dot product
-hàng triệu lần mỗi giây, chỉ chưa gọi tên nó. Viết ra công thức:
+Toán học gọi phép tính đó là **dot product** (tích vô hướng). Đến giờ mới cần công
+thức, và công thức chỉ là vòng `for` trên viết gọn lại:
 
 ```
 dot(a,b)     = Σ aᵢbᵢ = ‖a‖ ‖b‖ cos(θ)     θ = góc giữa hai vector
 ```
 
-Vế phải mới là chỗ AI khai thác: một phép nhân-cộng rẻ tiền, chạy nhanh trên mọi
-kiến trúc, lại **đo được góc** giữa hai vector. Attention (chương 6) không làm gì
-khác — hàng triệu dot product giữa vector "query" và vector "key" — chỉ khác chỗ cả
-hai vector đều **học được** thay vì thiết kế bằng tay như hệ số FIR.
+Vế trái là đoạn code bạn vừa đọc. **Vế phải mới là chỗ bất ngờ**: đúng phép nhân-cộng
+rẻ tiền đó, không thêm gì cả, lại đo được **góc** giữa hai vector. Một vòng `for` ba
+dòng trả lời được câu "hai thứ này giống nhau tới đâu" — đó là lý do nó nằm trong mọi
+lớp của mọi mạng nơ-ron.
+
+Và bạn cũng đã viết đúng vòng lặp này trong bộ lọc FIR: `y[n] = Σ h[k]·x[n-k]` chính
+là dot product giữa vector hệ số `h` và cửa sổ tín hiệu. Attention (chương 6) không
+làm gì khác — hàng triệu dot product giữa vector "query" và vector "key" — chỉ khác
+chỗ cả hai vector đều **học được** thay vì thiết kế bằng tay như hệ số FIR.
 
 Từ đúng công thức đó sinh ra ba phép đo, ba câu hỏi khác nhau — chọn sai phép đo là
 lỗi hay gặp nhất:
@@ -346,21 +385,36 @@ print("cos(a,c)   =", torch.cosine_similarity(a, c, dim=0).item())  # 0.0
 
 ## 1.4 Projection — chiếu vector
 
-Chiếu vector `a` lên vector `b` là tách `a` thành hai phần: một phần **song song**
-với `b`, một phần **vuông góc** với `b`.
+Đặt một câu hỏi rất thực dụng trước, chưa cần công thức nào:
+
+> Có một vector `x`. Làm sao biết nó **giống hướng A tới mức nào**?
+
+Bạn đã có sẵn câu trả lời từ §1.3: lấy dot product của `x` với A. Số càng lớn thì
+càng giống hướng đó, bằng 0 là vuông góc — không liên quan gì nhau.
+
+Và đó **chính xác là việc một lớp `nn.Linear` làm**, lặp lại hàng nghìn lần. Mỗi
+hàng `wᵢ` của ma trận trọng số là **một hướng**. Mỗi số ở đầu ra, `yᵢ = dot(wᵢ, x)`,
+trả lời **một câu hỏi**: "x giống hướng `wᵢ` bao nhiêu?". Một lớp Linear là cả một
+bộ câu hỏi như thế, hỏi cùng một lúc.
+
+Viết gọn lại thì đúng là công thức bạn đã gặp ở mọi nơi:
+
+```
+y = Wx
+```
+
+Về mặt hình học, `dot(wᵢ, x)` là **độ dài hình chiếu của `x` lên hướng `wᵢ`** (sai
+khác một hệ số `‖wᵢ‖`) — và từ đó suy ra phép tách một vector thành phần song song
+với một hướng cho trước và phần vuông góc còn lại:
 
 ```
 thành phần song song:  a_∥ = (dot(a,b) / dot(b,b)) · b
 thành phần vuông góc:  a_⊥ = a - a_∥
 ```
 
-Đây không phải kiến thức trang trí — nó là **phép toán mà mỗi lớp `nn.Linear` thực
-hiện, lặp lại hàng nghìn lần**. Một lớp Linear `y = Wx` tính, với mỗi hàng `wᵢ` của
-`W`, giá trị `yᵢ = dot(wᵢ, x)` — đó chính xác là **độ dài của hình chiếu của `x` lên
-hướng `wᵢ`** (sai khác một hệ số `‖wᵢ‖`). Nói cách khác: **một lớp Linear là một tập
-câu hỏi "x giống hướng này bao nhiêu?"**, mỗi hàng của ma trận trọng số là một câu
-hỏi. Đây là cách nghĩ sẽ dùng lại nguyên vẹn ở chương 3 (Matrix Multiplication) và
-chương 6 (Attention — Q·K chính là "token này giống câu hỏi kia bao nhiêu?").
+Đây không phải kiến thức trang trí: cách nghĩ "mỗi hàng weight là một câu hỏi về
+hướng" sẽ dùng lại nguyên vẹn ở chương 3 (Matrix Multiplication) và chương 6
+(Attention — Q·K chính là "token này giống câu hỏi kia bao nhiêu?").
 
 ## 1.5 Tensor — vector tổng quát hoá
 
