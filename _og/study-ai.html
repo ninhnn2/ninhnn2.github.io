@@ -1,0 +1,150 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1200px; height:630px; }
+  body {
+    font-family: -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    background:#080d18;
+    color:#e6edf3;
+    position:relative;
+    overflow:hidden;
+  }
+  /* nền: lưới mạch in mờ */
+  .grid {
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(88,166,255,.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(88,166,255,.055) 1px, transparent 1px);
+    background-size:48px 48px;
+  }
+  .glow {
+    position:absolute; width:900px; height:900px; border-radius:50%;
+    right:-260px; top:-300px;
+    background:radial-gradient(circle, rgba(3,102,214,.30) 0%, rgba(3,102,214,.10) 38%, transparent 66%);
+  }
+  .glow2 {
+    position:absolute; width:620px; height:620px; border-radius:50%;
+    left:-240px; bottom:-330px;
+    background:radial-gradient(circle, rgba(31,214,168,.14) 0%, transparent 65%);
+  }
+  .wrap { position:relative; height:100%; display:flex; align-items:center; padding:0 74px; gap:36px; }
+  .left { flex:1; }
+
+  .eyebrow {
+    display:flex; align-items:center; gap:12px;
+    font-size:20px; letter-spacing:.16em; text-transform:uppercase;
+    color:#58a6ff; font-weight:600; margin-bottom:26px;
+  }
+  .eyebrow .dot { width:9px; height:9px; border-radius:50%; background:#1fd6a8; box-shadow:0 0 14px #1fd6a8; }
+
+  h1 {
+    font-size:78px; line-height:1.04; font-weight:800; letter-spacing:-.022em;
+    background:linear-gradient(180deg,#ffffff 30%,#a9c7ee 100%);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .sub {
+    margin-top:24px; font-size:29px; line-height:1.42; color:#9fb2c8; font-weight:400; max-width:600px;
+  }
+  .sub b { color:#e6edf3; font-weight:650; }
+
+  .tags { margin-top:34px; display:flex; gap:11px; flex-wrap:wrap; }
+  .tag {
+    font-size:19px; padding:9px 17px; border-radius:999px;
+    color:#a9c7ee; border:1px solid rgba(88,166,255,.34);
+    background:rgba(88,166,255,.085);
+  }
+
+  .site {
+    position:absolute; left:74px; bottom:44px;
+    font-size:23px; color:#6f8098; letter-spacing:.02em;
+  }
+  .site b { color:#c9d6e4; font-weight:650; }
+</style>
+
+<div class="grid"></div>
+<div class="glow"></div>
+<div class="glow2"></div>
+
+<div class="wrap">
+  <div class="left">
+    <div class="eyebrow"><span class="dot"></span> Giáo trình</div>
+    <h1>AI cho<br>kỹ sư nhúng</h1>
+    <div class="sub">Từ vector tới một mô hình ngôn ngữ<br><b>28,9&nbsp;triệu tham số</b> chạy trên <b>ESP32-S3</b>.</div>
+    <div class="tags">
+      <span class="tag">vector</span>
+      <span class="tag">transformer</span>
+      <span class="tag">quantization</span>
+      <span class="tag">roofline</span>
+      <span class="tag">CUDA</span>
+    </div>
+  </div>
+
+  <!-- Robot dựng từ hình một con chip: thân IC, chân pin, mắt phát sáng -->
+  <svg width="392" height="440" viewBox="0 0 392 440" fill="none">
+    <defs>
+      <linearGradient id="body" x1="60" y1="90" x2="330" y2="390" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#1d2739"/><stop offset="1" stop-color="#111a2b"/>
+      </linearGradient>
+      <linearGradient id="eye" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#7fd4ff"/><stop offset="1" stop-color="#2b8fe8"/>
+      </linearGradient>
+      <filter id="eyeGlow" x="-70%" y="-70%" width="240%" height="240%">
+        <feGaussianBlur stdDeviation="9" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+        <feGaussianBlur stdDeviation="5" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+
+    <!-- ăng-ten -->
+    <line x1="196" y1="82" x2="196" y2="44" stroke="#3d5470" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="196" cy="34" r="13" fill="#1fd6a8" filter="url(#softGlow)"/>
+
+    <!-- chân pin trái / phải -->
+    <g fill="#c9a227">
+      <rect x="34"  y="150" width="34" height="15" rx="4"/>
+      <rect x="34"  y="196" width="34" height="15" rx="4"/>
+      <rect x="34"  y="242" width="34" height="15" rx="4"/>
+      <rect x="34"  y="288" width="34" height="15" rx="4"/>
+      <rect x="324" y="150" width="34" height="15" rx="4"/>
+      <rect x="324" y="196" width="34" height="15" rx="4"/>
+      <rect x="324" y="242" width="34" height="15" rx="4"/>
+      <rect x="324" y="288" width="34" height="15" rx="4"/>
+    </g>
+
+    <!-- thân IC = đầu robot -->
+    <rect x="62" y="82" width="268" height="290" rx="34" fill="url(#body)" stroke="#31445e" stroke-width="3"/>
+    <!-- dấu chân số 1 của IC -->
+    <circle cx="92" cy="112" r="7.5" fill="#31445e"/>
+
+    <!-- mắt -->
+    <g filter="url(#eyeGlow)">
+      <rect x="106" y="176" width="72" height="46" rx="15" fill="url(#eye)"/>
+      <rect x="214" y="176" width="72" height="46" rx="15" fill="url(#eye)"/>
+    </g>
+
+    <!-- "miệng" = thanh ghi / dãy bit -->
+    <g fill="#2c3d55">
+      <rect x="118" y="286" width="24" height="16" rx="4"/>
+      <rect x="150" y="286" width="24" height="16" rx="4"/>
+      <rect x="182" y="286" width="24" height="16" rx="4"/>
+      <rect x="214" y="286" width="24" height="16" rx="4"/>
+      <rect x="246" y="286" width="24" height="16" rx="4"/>
+    </g>
+    <rect x="150" y="286" width="24" height="16" rx="4" fill="#1fd6a8"/>
+    <rect x="214" y="286" width="24" height="16" rx="4" fill="#58a6ff"/>
+
+    <!-- đường mạch chạy ra từ chip -->
+    <path d="M358 158 H384 V116" stroke="#28405c" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M358 296 H384 V344" stroke="#28405c" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M34 204 H8 V262"    stroke="#28405c" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="384" cy="112" r="5" fill="#28405c"/>
+    <circle cx="384" cy="348" r="5" fill="#28405c"/>
+    <circle cx="8"   cy="266" r="5" fill="#28405c"/>
+  </svg>
+</div>
+
+<div class="site"><b>fanning.vn</b> &nbsp;·&nbsp; Embedded Linux &amp; AI</div>

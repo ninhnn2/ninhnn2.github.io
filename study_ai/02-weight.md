@@ -1,5 +1,6 @@
 ---
 sort: 2
+image: /assets/images/og-study-ai.jpg
 ---
 
 # 2. Weight — kiến thức của mô hình
