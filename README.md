@@ -1,10 +1,15 @@
 # Fanning — Embedded Linux Engineer
 
-Chào mừng đến với blog của tôi — nơi chia sẻ kiến thức và kinh nghiệm thực chiến về **lập trình nhúng**: Linux kernel, device driver, U-Boot, Yocto / Buildroot / OpenWrt, Android BSP và IoT.
+Chào mừng đến với blog của tôi — nơi chia sẻ kiến thức và kinh nghiệm thực chiến về **lập trình nhúng**: Linux kernel, device driver, U-Boot, Yocto / Buildroot / OpenWrt, Android BSP và IoT — và gần đây là **AI cho kỹ sư nhúng**: chạy một mô hình ngôn ngữ 28,9 triệu tham số trên con chip ESP32-S3 giá 8 đô.
 
 ## Chuyên mục
 
 <div class="home-cards">
+  <a class="home-card" href="/study_ai/">
+    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+    <span class="card-title">AI cho kỹ sư nhúng</span>
+    <span class="desc">Từ vector tới LLM 28.9M tham số chạy trên ESP32-S3 — toán nền, transformer, quantization</span>
+  </a>
   <a class="home-card" href="/linux_device_driver/">
     <i class="fa fa-linux" aria-hidden="true"></i>
     <span class="card-title">Linux Device Driver</span>
