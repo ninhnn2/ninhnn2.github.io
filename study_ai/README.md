@@ -71,7 +71,7 @@ x86-64 chỉ có CPU.
 | # | Bài | Trạng thái |
 |---|---|---|
 | 1 | [Vector — dữ liệu trong AI](01-vector.html) | đã đăng |
-| 2 | Weight — kiến thức của mô hình | đang viết |
+| 2 | [Weight — kiến thức của mô hình](02-weight.html) | đã đăng |
 | 3 | Matrix Multiplication — phép toán ăn 90% thời gian | đang viết |
 | 4 | Gradient — mô hình học bằng cách nào | đang viết |
 | 5 | Backpropagation | đang viết |
