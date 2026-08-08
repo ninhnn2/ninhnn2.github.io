@@ -1,6 +1,6 @@
 ---
 sort: 1
-image: /assets/images/og-study-ai.jpg
+image: /assets/images/og-study-ai-v2.jpg
 ---
 
 # 1. Vector — dữ liệu trong AI

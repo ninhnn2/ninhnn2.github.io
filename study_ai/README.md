@@ -1,6 +1,6 @@
 ---
 sort: 6
-image: /assets/images/og-study-ai.jpg
+image: /assets/images/og-study-ai-v2.jpg
 ---
 
 # AI cho kỹ sư nhúng
