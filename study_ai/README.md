@@ -160,7 +160,7 @@ là nền móng của gần như toàn bộ phần còn lại.
 | P | [Dataset: TinyStories có gì bên trong](dataset-tinystories.html) | phụ lục, số đo trên file 315 MB |
 | 1 | [Vector: dữ liệu trong AI](01-vector.html) | đã đăng |
 | 2 | [Weight: kiến thức của mô hình](02-weight.html) | đã đăng |
-| 3 | Matrix Multiplication: phép toán ăn 90% thời gian | đang viết |
+| 3 | [Matrix Multiplication: phép toán ăn 90% thời gian](03-matrix.html) | đã đăng |
 | 4 | Gradient: mô hình học bằng cách nào | đang viết |
 | 5 | Backpropagation | đang viết |
 | 6 | Transformer thật: ráp những viên gạch đầu tiên | đang viết |
