@@ -123,14 +123,8 @@ Chia cho `√D` để con số không phụ thuộc việc bạn lấy 128 hay 1
 
 Normalize (`v / ‖v‖`) là bước ép mọi vector về cùng biên độ để **chỉ còn lại hướng**:
 
-```
-trước normalize                    sau normalize
-                                   (cả hai nằm trên đường tròn bán kính 1)
-      ● b   (dài)
-    ● a     (ngắn)                       ● a ≡ b   (trùng khít)
-  ╱                                    ╱
- gốc                                  gốc
-```
+![Normalize: hai vector cùng hướng khác độ lớn, sau khi chia cho norm thì rơi vào
+đúng một điểm trên đường tròn đơn vị](/assets/images/study_ai/vector-normalize.svg)
 
 Vì `a` và `b` chỉ khác biên độ, sau normalize chúng **trùng khít** nhau. Đó chính là
 lý do cosine similarity (§1.3), vốn là dot product của hai vector đã normalize,
@@ -361,6 +355,9 @@ thức, và công thức chỉ là vòng `for` trên viết gọn lại:
 dot(a,b)     = Σ aᵢbᵢ = ‖a‖ ‖b‖ cos(θ)     θ = góc giữa hai vector
 ```
 
+![Hai vector a=(1,3) và b=(4,2) xuất phát từ gốc toạ độ, góc giữa chúng đúng 45 độ;
+tổng nhân-cộng bằng 10, đúng bằng norm a nhân norm b nhân cos 45 độ](/assets/images/study_ai/vector-dot-angle.svg)
+
 Vế trái là đoạn code bạn vừa đọc. **Vế phải mới là chỗ bất ngờ**: đúng phép nhân-cộng
 rẻ tiền đó, không thêm gì cả, lại đo được **góc** giữa hai vector. Một vòng `for` ba
 dòng trả lời được câu "hai thứ này giống nhau tới đâu", đó là lý do nó nằm trong mọi
@@ -432,6 +429,14 @@ với một hướng cho trước và phần vuông góc còn lại:
 thành phần song song:  a_∥ = (dot(a,b) / dot(b,b)) · b
 thành phần vuông góc:  a_⊥ = a - a_∥
 ```
+
+![Chiếu a lên b: a song song nằm trên đường thẳng chứa b, a vuông góc nối từ ngọn
+a song song tới ngọn a, và góc giữa chúng là 90 độ](/assets/images/study_ai/vector-projection.svg)
+
+Hình trên vẽ đúng cặp số này, bạn kiểm lại bằng tay được: với `a = (1,3)` và
+`b = (4,2)` thì `a·b = 1·4 + 3·2 = 10`, `b·b = 20`, nên hệ số đúng bằng `½` và
+`a_∥ = (2,1)`. Phần còn lại `a_⊥ = a - a_∥ = (-1,2)`, kiểm chứng vuông góc bằng
+`a_⊥·b = -1·4 + 2·2 = 0`. Góc giữa `a` và `b` ở đây tình cờ tròn đúng 45°.
 
 Đây không phải kiến thức trang trí: cách nghĩ "mỗi hàng weight là một câu hỏi về
 hướng" sẽ dùng lại nguyên vẹn ở chương 3 (Matrix Multiplication) và chương 6
