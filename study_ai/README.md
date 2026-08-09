@@ -5,84 +5,156 @@ image: /assets/images/og-study-ai-v2.jpg
 
 # AI cho kỹ sư nhúng
 
-Chuyên mục này là một giáo trình AI viết riêng cho người đã làm firmware, không
-phải bản dịch của một khoá data science, cũng không phải hướng dẫn dùng ChatGPT.
+Mình bắt đầu học AI từ một vị trí khá khác với nhiều người: đã quen với C, firmware,
+buffer, DMA, fixed-point và đọc memory map, nhưng lại không thực sự hiểu bên trong
+một model AI đang làm gì.
 
-## Học AI gì ở đây
+Vì vậy mình gom lại những gì mình học được trong series này.
 
-Mục tiêu duy nhất: **hiểu một mô hình ngôn ngữ (LLM) tới mức đọc được từng dòng của
-nó, rồi tự tay chạy được nó trên phần cứng có 512KB SRAM.**
+Mình bắt đầu từ những thứ rất cơ bản (**vector, matrix, dot product**) rồi đi dần
+đến **embedding, Transformer, attention, quantization và runtime**. Mục tiêu cuối
+cùng không phải là biết gọi một API để chạy model, mà là có thể mở code lên và hiểu:
 
-Cụ thể là học đủ ba tầng, theo đúng thứ tự một kỹ sư nhúng cần:
+> **dữ liệu đang ở đâu, phép toán nào đang được thực hiện, và tại sao nó tốn từng ấy
+> thời gian và bộ nhớ.**
 
-| Tầng | Nội dung | Vì sao cần |
-|---|---|---|
-| **Toán nền** | vector, ma trận, gradient, backpropagation | không có tầng này thì mọi tầng trên chỉ là gọi thư viện |
-| **Kiến trúc** | embedding, attention, transformer, KV cache, sampling | để biết thời gian chạy đi đâu, chứ không chỉ biết gọi `model.generate()` |
-| **Triển khai** | quantization, memory hierarchy, roofline, TensorRT / ONNX / TIDL | phần mà kỹ sư nhúng có lợi thế hơn hẳn dân ML thuần |
+Cuối cùng, mình muốn đưa một LLM thực sự lên phần cứng chỉ có **512KB SRAM**.
 
-Điểm khác biệt so với phần lớn tài liệu AI tiếng Việt: **mọi khái niệm đều được neo
-vào code chạy được và số đo thật**, không dừng ở công thức. Nói `RMSNorm` thì chỉ ra
-đúng dòng trong `model.py`; nói "ma trận nhân tốn bao lâu" thì có lệnh để bạn tự đo
-trên chính CPU của mình; nói "model 28.9M vừa 16MB flash" thì có file `model.bin` để
-bạn `hexdump`.
+## Mình đang học những gì?
 
-## Học AI gì thì KHÔNG có ở đây
+Series đi qua ba lớp, nhưng mình không cố tách chúng thành những môn riêng biệt.
 
-Nói rõ ngay từ đầu để bạn khỏi mất thời gian:
+**Đầu tiên là toán.**
 
-- **Không** dạy prompt engineering hay cách dùng API của các mô hình thương mại.
-- **Không** dạy data science, pandas, thống kê, hay quy trình phân tích dữ liệu.
-- **Không** dạy train mô hình nền tảng quy mô lớn: chuyện đó cần hàng nghìn GPU.
-- **Không** dạy computer vision như một chuyên ngành riêng (chỉ chạm khi nói VLA cho
-  robot ở chương cuối).
+Vector, matrix, dot product, gradient, backpropagation.
 
-Đổi lại, thứ bạn nhận được là năng lực hiếm: **đứng giữa hai thế giới AI và embedded
-mà dịch qua lại được**: nhìn một tensor PyTorch và biết nó nằm ở byte offset nào
-trong flash, nhìn một vòng `for` trong C và biết nó đang tính lớp nào của mạng.
+Đây là những thứ tưởng khá xa AI, nhưng khi nhìn từ góc độ embedded thì lại có rất
+nhiều thứ quen thuộc: mảng số, phép nhân-cộng, convolution, accumulation...
 
-## Bãi thực hành
+**Sau đó là model.**
 
-Toàn bộ giáo trình bám vào một repo mã nguồn mở:
-[**PLE TinyLM**](https://github.com/ninhnn2/machineai), một mô hình ngôn ngữ
-**28,9 triệu tham số chạy trên ESP32-S3**, con chip giá khoảng 8 đô, tốc độ ~9,5
-token/giây, không cần mạng, không gửi gì lên server.
+Embedding, attention, Transformer, KV cache, sampling.
 
-Điều làm repo này thành bãi tập tốt là **cùng một file `model.bin` chạy trên ba kiến
-trúc khác hẳn nhau**:
+Đây là lúc những phép toán ở phần trước bắt đầu ghép thành một model hoàn chỉnh.
+Thay vì chỉ biết `model.generate()`, mình muốn hiểu từng khối bên trong đang làm gì.
 
+**Cuối cùng là runtime.**
+
+Quantization, memory hierarchy, performance, ONNX Runtime, TensorRT, TIDL...
+
+Đây là phần mình thấy kinh nghiệm embedded bắt đầu phát huy tác dụng rõ nhất: model
+nằm ở đâu, dữ liệu đi qua memory thế nào, bottleneck nằm ở compute hay bandwidth, và
+một model lớn đến mức nào thì còn có thể nhét lên thiết bị.
+
+Mình cố giữ một nguyên tắc xuyên suốt:
+
+> **Nếu có thể chỉ vào code và đo được thì mình sẽ không chỉ nói bằng công thức.**
+
+Nói về `RMSNorm` thì mở đúng dòng code đang thực hiện nó. Nói về memory thì xem trực
+tiếp `model.bin`. Nói một phép toán mất bao lâu thì chạy benchmark thay vì đoán.
+
+## Không chỉ riêng ESP32
+
+ESP32-S3 chỉ là con chip mình chọn làm mốc, vì nó nhỏ tới mức mọi thứ lãng phí đều
+lộ ra ngay. Nhưng thứ mình thật sự muốn hiểu là **một model gặp một loại silicon thì
+chuyện gì xảy ra**, và chuyện đó lặp lại gần như y hệt trên mọi nền:
+
+| Silicon | Đơn vị tăng tốc | Runtime | Ở series này |
+|---|---|---|---|
+| **ESP32-S3** (Xtensa LX7) | không có, chỉ SIMD hẹp | C thuần, tự viết | mốc chính, chạy thật |
+| **CPU** x86-64 / ARM / Apple Silicon | AVX2, NEON | C thuần + OpenMP | benchmark chạy được ngay trên máy bạn |
+| **NVIDIA** Jetson, GPU rời | Tensor Core | CUDA, TensorRT | runtime thật trong repo, và chương 9 |
+| **TI** TDA4VM, AM68A, AM69A | **C7x DSP + MMA** | TIDL qua ONNX Runtime EP | chương 9, ánh xạ từng khái niệm sang TensorRT |
+| **Qualcomm** Snapdragon | **Hexagon Tensor Accelerator** | QNN, SNPE | mới nhắc ở chương 3, như một biến thể của cùng một MAC array |
+
+Nói thẳng để bạn khỏi mất công tìm: TI và NVIDIA có nội dung cụ thể, còn Hexagon thì
+hiện mới xuất hiện đúng một dòng trong bảng phần cứng ở chương 3. Mình để nó ở đó vì
+nó thuộc cùng một họ, chưa phải vì mình đã làm việc đủ sâu với nó.
+
+Điều mình thấy thú vị nhất khi đọc chéo: xem tài liệu TIDL của TI sau khi đã hiểu
+TensorRT thì gần như không có gì mới. Cùng một bài toán (cắt đồ thị thành subgraph,
+calibrate INT8, op nào không nuốt được thì rơi về CPU), chỉ khác tên gọi và khác nhà
+sản xuất. Hiểu một cái là đọc được cái còn lại, và đó mới là thứ đáng học chứ không
+phải thuộc lòng API của một hãng.
+
+## Những thứ mình không đi theo
+
+Series này không nhằm trở thành một khóa học data science đầy đủ.
+
+Mình không đi vào:
+
+* prompt engineering hay cách sử dụng API của các model thương mại;
+* pandas, thống kê và quy trình phân tích dữ liệu;
+* training các foundation model quy mô lớn;
+* computer vision như một chuyên ngành riêng.
+
+Computer vision chỉ xuất hiện khi cần để nối sang những hướng như VLA và robot.
+
+Thứ mình muốn hiểu nằm ở giao điểm giữa **AI và embedded**: nhìn một tensor PyTorch
+và biết nó sẽ trở thành những byte nào trong runtime; nhìn một vòng `for` trong C và
+nhận ra nó đang thực hiện phép toán nào của model.
+
+## Repo mình dùng để học
+
+Mình dùng [**PLE TinyLM**](https://github.com/ninhnn2/machineai) làm repo xuyên suốt
+series.
+
+Đây là một LLM khoảng **28,9 triệu tham số**, có runtime chạy trên **ESP32-S3**,
+cùng các runtime cho CPU và Jetson.
+
+Điều mình thích ở repo này là cùng một file `model.bin` đi qua được nhiều tầng phần
+cứng khác hẳn nhau:
+
+```text
+              src/model.py  (PyTorch)
+                     │
+                     │ export
+                     ▼
+                  model.bin
+                     │
+      ┌──────────────┼──────────────┐
+      ▼              ▼              ▼
+  ESP32-S3          CPU          Jetson
+  Xtensa LX7    x86 / ARM /       CUDA
+  C thuần       Apple Silicon
 ```
-src/model.py (PyTorch)  ──export──>  model.bin  ──┬──> ESP32-S3   (Xtensa LX7, C thuần, không OS)
-                                                  ├──> CPU        (x86-64 / ARM / Apple Silicon)
-                                                  └──> Jetson     (CUDA)
-```
 
-Cùng một thuật toán, ba nút thắt hiệu năng khác nhau. So sánh đó chính là bài học,
-và nó chỉ hiện ra khi bạn tự đo, không ai kể lại thay được.
+Cùng một thuật toán, nhưng đổi phần cứng thì bottleneck cũng đổi theo. Trên ESP32
+nghẽn nằm ở băng thông đọc weight; trên Jetson thì model lại nhỏ tới mức chi phí
+khởi động kernel mới là thứ chiếm phần lớn thời gian.
 
-## Yêu cầu đầu vào
+Đó là một trong những thứ mình muốn tự kiểm chứng bằng benchmark thay vì chỉ đọc lý
+thuyết.
 
-Bạn cần biết C và quen với tư duy nhúng (con trỏ, bộ nhớ, fixed-point, DMA). Không
-cần biết Python nâng cao, **không cần biết gì về AI**, và **không cần GPU**, 8 trên
-10 chương chạy được trên laptop, kể cả MacBook Apple Silicon (dùng MPS) hay một máy
-x86-64 chỉ có CPU.
+## Nếu bạn đã làm embedded
 
-## Lộ trình
+Bạn sẽ không cần biết trước machine learning để bắt đầu.
 
-| # | Bài | Trạng thái |
+Nếu đã quen với C, pointer, buffer, fixed-point, DMA và memory thì càng tốt. Python
+chỉ xuất hiện vừa đủ để đọc checkpoint, inspect tensor và chạy một số experiment.
+
+Cũng không cần GPU để bắt đầu. Phần lớn experiment chạy được trên CPU, kể cả Apple
+Silicon.
+
+Điểm xuất phát của series chính là **vector**, một thứ nhìn rất đơn giản, nhưng lại
+là nền móng của gần như toàn bộ phần còn lại.
+
+## Series
+
+| # | Chủ đề | Trạng thái |
 |---|---|---|
-| 1 | [Vector, dữ liệu trong AI](01-vector.html) | đã đăng |
-| 2 | [Weight, kiến thức của mô hình](02-weight.html) | đã đăng |
-| 3 | Matrix Multiplication, phép toán ăn 90% thời gian | đang viết |
-| 4 | Gradient, mô hình học bằng cách nào | đang viết |
+| 1 | [Vector: dữ liệu trong AI](01-vector.html) | đã đăng |
+| 2 | [Weight: kiến thức của mô hình](02-weight.html) | đã đăng |
+| 3 | Matrix Multiplication: phép toán ăn 90% thời gian | đang viết |
+| 4 | Gradient: mô hình học bằng cách nào | đang viết |
 | 5 | Backpropagation | đang viết |
-| 6 | Transformer thật, ráp 5 viên gạch đầu tiên | đang viết |
+| 6 | Transformer thật: ráp những viên gạch đầu tiên | đang viết |
 | 7 | KV Cache và Token Sampling | đang viết |
-| 8 | Quantization, từ Q15 bạn đã biết tới int4 | đang viết |
+| 8 | Quantization: từ Q15 bạn đã biết tới int4 | đang viết |
 | 9 | Runtime: TensorRT, ONNX Runtime, TIDL | đang viết |
-| 10 | VLA, mô hình ngôn ngữ cho robot | đang viết |
+| 10 | VLA: mô hình ngôn ngữ cho robot | đang viết |
 
-Bản đầy đủ của giáo trình (kể cả các chương chưa đăng ở đây) nằm trong
+Các chương chưa đăng mình cũng giữ trong
 [`docs/`](https://github.com/ninhnn2/machineai/tree/main/docs) của repo.
 
 {% include list.liquid all=true %}
