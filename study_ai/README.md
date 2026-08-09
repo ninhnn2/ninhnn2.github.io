@@ -155,6 +155,7 @@ là nền móng của gần như toàn bộ phần còn lại.
 | # | Chủ đề | Trạng thái |
 |---|---|---|
 | D | [**Demo: mổ bụng một token**](demo-token.html) | tương tác, số thật từ checkpoint |
+| D2 | [**Demo: nhìn AI học**](demo-learn.html) | tương tác, chain rule tay so với autograd |
 | P | [Dataset: TinyStories có gì bên trong](dataset-tinystories.html) | phụ lục, số đo trên file 315 MB |
 | 1 | [Vector: dữ liệu trong AI](01-vector.html) | đã đăng |
 | 2 | [Weight: kiến thức của mô hình](02-weight.html) | đã đăng |
