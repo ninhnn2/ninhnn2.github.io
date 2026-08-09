@@ -5,41 +5,46 @@
 <button id="lang-toggle" type="button" hidden aria-label="Switch language / Đổi ngôn ngữ">EN</button>
 
 <script>
-  // Bước 3 của việc chọn ngôn ngữ: hỏi quốc gia theo IP.
-  //
-  // GitHub Pages không có tầng server nào để đọc IP, nên việc này bắt buộc phải
-  // làm từ trình duyệt qua một dịch vụ ngoài. Hệ quả phải chấp nhận:
-  //   * tốn một request và khoảng 100-300ms;
-  //   * dịch vụ có thể hỏng, bị chặn hoặc hết hạn mức -> khi đó giữ nguyên
-  //     ngôn ngữ hiện tại, không làm gì cả;
-  //   * VPN hoặc proxy sẽ cho ra kết quả sai.
-  // Vì vậy nó chỉ chạy khi trình duyệt KHÔNG khai báo tiếng Việt và người đọc
-  // CHƯA từng tự chọn. Chọn tay xong là không bao giờ hỏi lại.
-  (function () {
-    var I = window.__I18N;
-    if (!I || !I.hasTranslation) return;
+/*
+  Bước 3 của việc chọn ngôn ngữ: hỏi quốc gia theo IP.
 
-    var stored = null;
-    try { stored = localStorage.getItem("lang"); } catch (e) {}
-    if (stored === "vi" || stored === "en") return;
+  GitHub Pages không có tầng server nào để đọc IP, nên việc này bắt buộc phải làm
+  từ trình duyệt qua một dịch vụ ngoài. Hệ quả phải chấp nhận: tốn một request và
+  khoảng 100-300ms; dịch vụ có thể hỏng, bị chặn hoặc hết hạn mức, khi đó giữ
+  nguyên ngôn ngữ hiện tại; VPN hoặc proxy sẽ cho kết quả sai.
 
-    var nav = (navigator.language || "").toLowerCase();
-    if (nav.indexOf("vi") === 0) return; // đã kết luận ở head.html
+  Vì vậy nó chỉ chạy khi trình duyệt KHÔNG khai báo tiếng Việt và người đọc CHƯA
+  từng tự chọn. Chọn tay xong là không bao giờ hỏi lại.
 
-    var done = false;
-    var timer = setTimeout(function () { done = true; }, 1500); // hỏng thì thôi
+  LƯU Ý CHO NGƯỜI SỬA SAU: chỉ dùng comment khối như thế này, đừng dùng dấu gạch
+  chéo đôi. Trình nén của theme dồn cả script vào một dòng, và khi đó comment
+  một dòng sẽ nuốt sạch phần code phía sau nó.
+*/
+(function () {
+  var I = window.__I18N;
+  if (!I || !I.hasTranslation) return;
 
-    fetch("https://ipapi.co/country/", { cache: "force-cache" })
-      .then(function (r) { return r.ok ? r.text() : null; })
-      .then(function (country) {
-        if (done || !country) return;
-        clearTimeout(timer);
-        var want = country.trim().toUpperCase() === "VN" ? "vi" : "en";
-        try { localStorage.setItem("lang", want); } catch (e) {}
-        if (want !== I.current) {
-          location.replace(want === "en" ? I.enPath : I.viPath);
-        }
-      })
-      .catch(function () { /* im lặng: giữ nguyên trang đang mở */ });
-  })();
+  var stored = null;
+  try { stored = localStorage.getItem("lang"); } catch (e) {}
+  if (stored === "vi" || stored === "en") return;
+
+  var nav = (navigator.language || "").toLowerCase();
+  if (nav.indexOf("vi") === 0) return;
+
+  var done = false;
+  var timer = setTimeout(function () { done = true; }, 1500);
+
+  fetch("https://ipapi.co/country/", { cache: "force-cache" })
+    .then(function (r) { return r.ok ? r.text() : null; })
+    .then(function (country) {
+      if (done || !country) return;
+      clearTimeout(timer);
+      var want = country.trim().toUpperCase() === "VN" ? "vi" : "en";
+      try { localStorage.setItem("lang", want); } catch (e) {}
+      if (want !== I.current) {
+        location.replace(want === "en" ? I.enPath : I.viPath);
+      }
+    })
+    .catch(function () {});
+})();
 </script>

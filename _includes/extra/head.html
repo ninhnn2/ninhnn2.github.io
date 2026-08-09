@@ -50,45 +50,46 @@
 </script>
 
 <script>
-  // Chọn ngôn ngữ TRƯỚC khi trang vẽ ra, để không nháy nội dung.
-  //
-  // Thứ tự ưu tiên, có lý do cho từng bước:
-  //   1. Lựa chọn đã lưu   -- người đọc bấm nút thì phải luôn thắng máy đoán.
-  //   2. Ngôn ngữ trình duyệt -- tín hiệu trực tiếp nhất về thứ tiếng họ đọc
-  //      được, và có ngay lập tức, không tốn một request nào.
-  //   3. Quốc gia theo IP  -- chỉ hỏi khi hai bước trên không kết luận được.
-  //      Đây là bước duy nhất cần mạng, nên nó chạy bất đồng bộ ở body.html
-  //      chứ không chặn việc hiển thị.
-  (function () {
-    var path = location.pathname;
-    var isEn = path.indexOf("/en/") === 0;
-    var viPath = isEn ? path.replace(/^\/en/, "") : path;
-    var pairs = window.__I18N_PAIRS || [];
-    var hasTranslation = pairs.indexOf(viPath) !== -1;
+/*
+  Chọn ngôn ngữ TRƯỚC khi trang vẽ ra, để không nháy nội dung.
 
-    window.__I18N = {
-      current: isEn ? "en" : "vi",
-      viPath: viPath,
-      enPath: "/en" + viPath,
-      hasTranslation: hasTranslation
-    };
+  Thứ tự ưu tiên, có lý do cho từng bước:
+    1. Lựa chọn đã lưu. Người đọc bấm nút thì phải luôn thắng máy đoán.
+    2. Ngôn ngữ trình duyệt. Tín hiệu trực tiếp nhất về thứ tiếng họ đọc được, và
+       có ngay lập tức, không tốn request nào.
+    3. Quốc gia theo IP. Chỉ hỏi khi hai bước trên không kết luận được; chạy bất
+       đồng bộ ở body.html chứ không chặn việc hiển thị.
 
-    if (!hasTranslation) return; // trang chưa dịch: không đụng vào
+  LƯU Ý: chỉ dùng comment khối, đừng dùng gạch chéo đôi. Trình nén của theme gộp
+  cả script vào một dòng và comment một dòng sẽ nuốt hết code phía sau.
+*/
+(function () {
+  var path = location.pathname;
+  var isEn = path.indexOf("/en/") === 0;
+  var viPath = isEn ? path.replace(/^\/en/, "") : path;
+  var pairs = window.__I18N_PAIRS || [];
+  var hasTranslation = pairs.indexOf(viPath) !== -1;
 
-    var stored = null;
-    try {
-      stored = localStorage.getItem("lang");
-    } catch (e) {}
+  window.__I18N = {
+    current: isEn ? "en" : "vi",
+    viPath: viPath,
+    enPath: "/en" + viPath,
+    hasTranslation: hasTranslation
+  };
 
-    var want = stored;
-    if (want !== "vi" && want !== "en") {
-      var nav = (navigator.language || navigator.userLanguage || "").toLowerCase();
-      if (nav.indexOf("vi") === 0) want = "vi";
-      else want = null; // chưa kết luận -> để bước IP quyết định
-    }
+  if (!hasTranslation) return;
 
-    if (want && want !== window.__I18N.current) {
-      location.replace(want === "en" ? window.__I18N.enPath : window.__I18N.viPath);
-    }
-  })();
+  var stored = null;
+  try { stored = localStorage.getItem("lang"); } catch (e) {}
+
+  var want = stored;
+  if (want !== "vi" && want !== "en") {
+    var nav = (navigator.language || navigator.userLanguage || "").toLowerCase();
+    want = nav.indexOf("vi") === 0 ? "vi" : null;
+  }
+
+  if (want && want !== window.__I18N.current) {
+    location.replace(want === "en" ? window.__I18N.enPath : window.__I18N.viPath);
+  }
+})();
 </script>

@@ -64,9 +64,13 @@ $(function () {
   });
 });
 
-// ---------- nút đổi ngôn ngữ ----------
-// Chỉ hiện trên trang thật sự có bản dịch. Bấm vào là ghi lựa chọn xuống
-// localStorage, và từ đó máy không đoán nữa: lựa chọn của người đọc luôn thắng.
+/*
+  Nút đổi ngôn ngữ. Chỉ hiện trên trang thật sự có bản dịch. Bấm vào là ghi lựa
+  chọn xuống localStorage, và từ đó máy không đoán nữa.
+
+  LƯU Ý: chỉ dùng comment khối trong file này. Trình nén gộp tất cả vào một dòng,
+  comment một dòng sẽ giết phần code phía sau nó.
+*/
 $(function () {
   var I = window.__I18N;
   if (!I || !I.hasTranslation) return;
