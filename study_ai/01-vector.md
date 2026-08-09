@@ -320,7 +320,7 @@ The child is happy.        The child is sad.
 Model chỉ được train để **đoán token kế tiếp**. Với ngữ cảnh `The cat is ___`, cả
 `happy` lẫn `sad` đều là đáp án hợp lệ, nên gradient descent (chương 4) kéo hai
 embedding về cùng một vùng, vùng "tính từ trạng thái đứng sau `is`". Trái nghĩa là
-quan hệ **ngữ nghĩa**; thứ model học được là quan hệ **phân phối** (distributional).
+quan hệ ngữ nghĩa; thứ model học được là quan hệ **phân phối** (distributional).
 Diễn đạt cho chính xác: cosine cao không có nghĩa "đồng nghĩa", nó nói hai token có
 **xu hướng xuất hiện trong cùng loại ngữ cảnh**. Đó là xu hướng thống kê, không phải
 lời bảo đảm rằng thay từ này bằng từ kia thì câu vẫn đúng.
@@ -411,8 +411,8 @@ Bạn đã có sẵn câu trả lời từ §1.3: lấy dot product của `x` v�
 càng giống hướng đó, bằng 0 là vuông góc, không liên quan gì nhau.
 
 Và đó **chính xác là việc một lớp `nn.Linear` làm**, lặp lại hàng nghìn lần. Mỗi
-hàng `wᵢ` của ma trận trọng số là **một hướng**. Mỗi số ở đầu ra, `yᵢ = dot(wᵢ, x)`,
-trả lời **một câu hỏi**: "x giống hướng `wᵢ` bao nhiêu?". Một lớp Linear là cả một
+hàng `wᵢ` của ma trận trọng số là một hướng. Mỗi số ở đầu ra, `yᵢ = dot(wᵢ, x)`,
+trả lời một câu hỏi: "x giống hướng `wᵢ` bao nhiêu?". Một lớp Linear là cả một
 bộ câu hỏi như thế, hỏi cùng một lúc.
 
 Viết gọn lại thì đúng là công thức bạn đã gặp ở mọi nơi:
