@@ -6,9 +6,11 @@ image: /assets/images/og-study-ai-v2.jpg
 # 1. Vector: dữ liệu trong AI
 
 > Bài 1 trong loạt [AI cho kỹ sư nhúng](/study_ai/). Mọi đoạn code và mọi con số trong bài
-> đều lấy từ repo [**PLE TinyLM**](https://github.com/ninhnn2/machineai), mô hình
-> 28,9 triệu tham số chạy trên ESP32-S3. Clone repo về rồi đọc song song sẽ hiệu quả
-> hơn hẳn đọc chay.
+> đều lấy từ repo [**PLE TinyLM**](https://github.com/ninhnn2/machineai), một LLM
+> 28,9 triệu tham số chạy trên ESP32-S3 của
+> [Viacheslav Sierbov (slvDev)](https://x.com/slvDev), giấy phép MIT. Repo không phải
+> của mình; đây là ghi chép khi mình đọc và chạy lại nó. Clone về đọc song song sẽ
+> hiệu quả hơn hẳn đọc chay.
 
 Gần như mọi thứ AI xử lý (một từ, một token, một pixel, một đoạn âm thanh) trước
 khi vào mạng nơ-ron đều được đưa về **một dãy số có độ dài cố định**. Dãy số đó là

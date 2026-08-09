@@ -7,7 +7,9 @@ image: /assets/images/og-study-ai-v2.jpg
 
 > Bài 2 trong loạt [AI cho kỹ sư nhúng](/study_ai/). Bài này giả định bạn đã đọc
 > [bài 1, Vector](/study_ai/01-vector.html): weight chỉ là những vector và ma trận,
-> nên mọi thứ nói ở bài 1 vẫn dùng nguyên ở đây.
+> nên mọi thứ nói ở bài 1 vẫn dùng nguyên ở đây. Code trích trong bài là của repo
+> [PLE TinyLM](https://github.com/ninhnn2/machineai), tác giả
+> [Viacheslav Sierbov (slvDev)](https://x.com/slvDev), giấy phép MIT.
 
 Nếu vector (chương 1) là **dữ liệu**, weight là **cái biến dữ liệu này thành dữ liệu
 khác**. Toàn bộ "trí tuệ" cuả một model, 28.9 triệu tham số trong repo này, nằm ở

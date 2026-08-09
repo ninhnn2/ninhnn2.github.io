@@ -55,9 +55,10 @@ tiếp `model.bin`. Nói một phép toán mất bao lâu thì chạy benchmark 
 
 ## Không chỉ riêng ESP32
 
-ESP32-S3 chỉ là con chip mình chọn làm mốc, vì nó nhỏ tới mức mọi thứ lãng phí đều
-lộ ra ngay. Nhưng thứ mình thật sự muốn hiểu là **một model gặp một loại silicon thì
-chuyện gì xảy ra**, và chuyện đó lặp lại gần như y hệt trên mọi nền:
+ESP32-S3 là con chip của repo mình học theo (xem mục dưới), và nó là một cái mốc
+tốt vì nhỏ tới mức mọi thứ lãng phí đều lộ ra ngay. Nhưng thứ mình thật sự muốn hiểu
+là **một model gặp một loại silicon thì chuyện gì xảy ra**, và chuyện đó lặp lại gần
+như y hệt trên mọi nền:
 
 | Silicon | Đơn vị tăng tốc | Runtime | Ở series này |
 |---|---|---|---|
@@ -94,13 +95,23 @@ Thứ mình muốn hiểu nằm ở giao điểm giữa **AI và embedded**: nh�
 và biết nó sẽ trở thành những byte nào trong runtime; nhìn một vòng `for` trong C và
 nhận ra nó đang thực hiện phép toán nào của model.
 
-## Repo mình dùng để học
+## Repo mình học theo
 
-Mình dùng [**PLE TinyLM**](https://github.com/ninhnn2/machineai) làm repo xuyên suốt
-series.
+Nói thẳng để không ai hiểu nhầm: **PLE TinyLM không phải project của mình.**
 
-Đây là một LLM khoảng **28,9 triệu tham số**, có runtime chạy trên **ESP32-S3**,
-cùng các runtime cho CPU và Jetson.
+Nó là công trình của [**Viacheslav Sierbov (slvDev)**](https://x.com/slvDev), phát
+hành theo giấy phép MIT. Toàn bộ phần khó đều là của tác giả gốc: ý tưởng đưa
+Per-Layer Embeddings của Gemma xuống một MCU, cách chia weight theo kiểu truy cập để
+25 triệu tham số nằm được trong flash, runtime C viết tay cho Xtensa, và những con số
+đo trên board thật.
+
+Việc của mình đơn giản hơn nhiều: clone về, đọc, chạy lại, đo lại trên máy mình, rồi
+viết xuống những gì hiểu được. Series này là **ghi chép của người đọc code**, không
+phải bài giới thiệu của người viết ra nó. Bản mình dùng để nghịch nằm ở
+[github.com/ninhnn2/machineai](https://github.com/ninhnn2/machineai).
+
+Vì sao mình chọn học từ repo này: nó là một LLM khoảng **28,9 triệu tham số** chạy
+được thật trên **ESP32-S3**, chứ không phải một ví dụ đồ chơi.
 
 Điều mình thích ở repo này là cùng một file `model.bin` đi qua được nhiều tầng phần
 cứng khác hẳn nhau:
