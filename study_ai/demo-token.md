@@ -3,7 +3,7 @@ sort: 20
 image: /assets/images/og-study-ai-v2.jpg
 ---
 
-# Demo: mổ bụng một token
+# Demo: Phân tích cấu trúc một token
 
 > Thuộc loạt [AI cho kỹ sư nhúng](/study_ai/). Mọi con số trên trang này lấy từ
 > checkpoint thật `ple-jetson-s0.pt`, sinh bằng
