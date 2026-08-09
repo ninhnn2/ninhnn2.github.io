@@ -63,3 +63,22 @@ $(function () {
     $(pre).append(btn);
   });
 });
+
+// ---------- nút đổi ngôn ngữ ----------
+// Chỉ hiện trên trang thật sự có bản dịch. Bấm vào là ghi lựa chọn xuống
+// localStorage, và từ đó máy không đoán nữa: lựa chọn của người đọc luôn thắng.
+$(function () {
+  var I = window.__I18N;
+  if (!I || !I.hasTranslation) return;
+
+  var btn = $("#lang-toggle");
+  var other = I.current === "vi" ? "en" : "vi";
+  btn.text(other.toUpperCase())
+     .attr("title", other === "en" ? "Read in English" : "Đọc bản tiếng Việt")
+     .removeAttr("hidden");
+
+  btn.on("click", function () {
+    try { localStorage.setItem("lang", other); } catch (e) {}
+    location.href = other === "en" ? I.enPath : I.viPath;
+  });
+});

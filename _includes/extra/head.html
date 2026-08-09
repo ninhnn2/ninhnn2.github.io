@@ -14,3 +14,81 @@
     document.documentElement.setAttribute("data-theme", theme);
   })();
 </script>
+
+{%- comment -%}
+  hreflang: nói cho công cụ tìm kiếm biết hai URL là cùng một nội dung, khác thứ
+  tiếng. Thiếu nó thì Google coi bản Anh là nội dung trùng lặp của bản Việt.
+{%- endcomment -%}
+{%- if page.url contains '/en/' -%}
+  {%- assign vi_url = page.url | remove_first: '/en' -%}
+  {%- assign en_url = page.url -%}
+{%- else -%}
+  {%- assign vi_url = page.url -%}
+  {%- assign en_url = '/en' | append: page.url -%}
+{%- endif -%}
+{%- assign en_exists = site.pages | where: "url", en_url | size -%}
+{%- if en_exists > 0 -%}
+<link rel="alternate" hreflang="vi" href="{{ vi_url | absolute_url }}">
+<link rel="alternate" hreflang="en" href="{{ en_url | absolute_url }}">
+<link rel="alternate" hreflang="x-default" href="{{ vi_url | absolute_url }}">
+{%- endif -%}
+
+{%- comment -%}
+  Bảng trang đã dịch, sinh lúc build. Một trang chỉ có nút đổi ngôn ngữ khi nó
+  thật sự có bản dịch, nên không bao giờ đưa người đọc tới trang 404.
+{%- endcomment -%}
+<script>
+  window.__I18N_PAIRS = [
+    {%- assign en_pages = site.pages | where_exp: "p", "p.url contains '/en/'" -%}
+    {%- for p in en_pages -%}
+      {%- if p.url contains '.html' or p.url == '/en/' or p.url contains '/' -%}
+        {%- assign vi_url = p.url | remove_first: '/en' -%}
+        "{{ vi_url }}"{%- unless forloop.last -%},{%- endunless -%}
+      {%- endif -%}
+    {%- endfor -%}
+  ];
+</script>
+
+<script>
+  // Chọn ngôn ngữ TRƯỚC khi trang vẽ ra, để không nháy nội dung.
+  //
+  // Thứ tự ưu tiên, có lý do cho từng bước:
+  //   1. Lựa chọn đã lưu   -- người đọc bấm nút thì phải luôn thắng máy đoán.
+  //   2. Ngôn ngữ trình duyệt -- tín hiệu trực tiếp nhất về thứ tiếng họ đọc
+  //      được, và có ngay lập tức, không tốn một request nào.
+  //   3. Quốc gia theo IP  -- chỉ hỏi khi hai bước trên không kết luận được.
+  //      Đây là bước duy nhất cần mạng, nên nó chạy bất đồng bộ ở body.html
+  //      chứ không chặn việc hiển thị.
+  (function () {
+    var path = location.pathname;
+    var isEn = path.indexOf("/en/") === 0;
+    var viPath = isEn ? path.replace(/^\/en/, "") : path;
+    var pairs = window.__I18N_PAIRS || [];
+    var hasTranslation = pairs.indexOf(viPath) !== -1;
+
+    window.__I18N = {
+      current: isEn ? "en" : "vi",
+      viPath: viPath,
+      enPath: "/en" + viPath,
+      hasTranslation: hasTranslation
+    };
+
+    if (!hasTranslation) return; // trang chưa dịch: không đụng vào
+
+    var stored = null;
+    try {
+      stored = localStorage.getItem("lang");
+    } catch (e) {}
+
+    var want = stored;
+    if (want !== "vi" && want !== "en") {
+      var nav = (navigator.language || navigator.userLanguage || "").toLowerCase();
+      if (nav.indexOf("vi") === 0) want = "vi";
+      else want = null; // chưa kết luận -> để bước IP quyết định
+    }
+
+    if (want && want !== window.__I18N.current) {
+      location.replace(want === "en" ? window.__I18N.enPath : window.__I18N.viPath);
+    }
+  })();
+</script>

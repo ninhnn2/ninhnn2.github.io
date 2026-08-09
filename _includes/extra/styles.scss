@@ -511,7 +511,8 @@ html[data-theme="dark"] {
 
   // ----- widgets -----
 
-  #theme-toggle {
+  #theme-toggle,
+  #lang-toggle {
     background: $d-surface2;
     color: #e6edf3;
     border-color: $d-border;
@@ -551,4 +552,32 @@ html[data-theme="dark"] {
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
     }
   }
+}
+
+// ---------- language toggle ----------
+// Cùng khuôn với #theme-toggle, xếp ngay bên trên nó.
+
+#lang-toggle {
+  position: fixed;
+  right: 18px;
+  bottom: 72px;
+  z-index: 120;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  background: #ffffff;
+  color: #57606a;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+#lang-toggle:hover {
+  transform: translateY(-2px);
+  color: $accent;
 }
