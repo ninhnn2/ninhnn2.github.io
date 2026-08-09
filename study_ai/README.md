@@ -68,8 +68,8 @@ như y hệt trên mọi nền:
 | **TI** TDA4VM, AM68A, AM69A | **C7x DSP + MMA** | TIDL qua ONNX Runtime EP | chương 9, ánh xạ từng khái niệm sang TensorRT |
 | **Qualcomm** Snapdragon | **Hexagon Tensor Accelerator** | QNN, SNPE | mới nhắc ở chương 3, như một biến thể của cùng một MAC array |
 
-Nói thẳng để bạn khỏi mất công tìm: TI và NVIDIA có nội dung cụ thể, còn Hexagon thì
-hiện mới xuất hiện đúng một dòng trong bảng phần cứng ở chương 3. Mình để nó ở đó vì
+Để bạn khỏi mất công tìm: TI và NVIDIA có nội dung cụ thể, còn Hexagon hiện mới
+xuất hiện đúng một dòng trong bảng phần cứng ở chương 3. Mình để nó ở đó vì
 nó thuộc cùng một họ, chưa phải vì mình đã làm việc đủ sâu với nó.
 
 Điều mình thấy thú vị nhất khi đọc chéo: xem tài liệu TIDL của TI sau khi đã hiểu
@@ -97,7 +97,7 @@ nhận ra nó đang thực hiện phép toán nào của model.
 
 ## Repo mình học theo
 
-Nói thẳng để không ai hiểu nhầm: **PLE TinyLM không phải project của mình.**
+**PLE TinyLM không phải project của mình.**
 
 Nó là công trình của [**Viacheslav Sierbov (slvDev)**](https://x.com/slvDev), phát
 hành theo giấy phép MIT. Toàn bộ phần khó đều là của tác giả gốc: ý tưởng đưa
