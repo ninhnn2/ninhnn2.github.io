@@ -5,7 +5,7 @@ image: /assets/images/og-study-ai-v2.jpg
 
 # AI cho kỹ sư nhúng
 
-Chuyên mục này là một giáo trình AI viết riêng cho người đã làm firmware — không
+Chuyên mục này là một giáo trình AI viết riêng cho người đã làm firmware, không
 phải bản dịch của một khoá data science, cũng không phải hướng dẫn dùng ChatGPT.
 
 ## Học AI gì ở đây
@@ -33,18 +33,18 @@ Nói rõ ngay từ đầu để bạn khỏi mất thời gian:
 
 - **Không** dạy prompt engineering hay cách dùng API của các mô hình thương mại.
 - **Không** dạy data science, pandas, thống kê, hay quy trình phân tích dữ liệu.
-- **Không** dạy train mô hình nền tảng quy mô lớn — chuyện đó cần hàng nghìn GPU.
+- **Không** dạy train mô hình nền tảng quy mô lớn: chuyện đó cần hàng nghìn GPU.
 - **Không** dạy computer vision như một chuyên ngành riêng (chỉ chạm khi nói VLA cho
   robot ở chương cuối).
 
 Đổi lại, thứ bạn nhận được là năng lực hiếm: **đứng giữa hai thế giới AI và embedded
-mà dịch qua lại được** — nhìn một tensor PyTorch và biết nó nằm ở byte offset nào
+mà dịch qua lại được**: nhìn một tensor PyTorch và biết nó nằm ở byte offset nào
 trong flash, nhìn một vòng `for` trong C và biết nó đang tính lớp nào của mạng.
 
 ## Bãi thực hành
 
 Toàn bộ giáo trình bám vào một repo mã nguồn mở:
-[**PLE TinyLM**](https://github.com/ninhnn2/machineai) — một mô hình ngôn ngữ
+[**PLE TinyLM**](https://github.com/ninhnn2/machineai), một mô hình ngôn ngữ
 **28,9 triệu tham số chạy trên ESP32-S3**, con chip giá khoảng 8 đô, tốc độ ~9,5
 token/giây, không cần mạng, không gửi gì lên server.
 
@@ -57,13 +57,13 @@ src/model.py (PyTorch)  ──export──>  model.bin  ──┬──> ESP32-S
                                                   └──> Jetson     (CUDA)
 ```
 
-Cùng một thuật toán, ba nút thắt hiệu năng khác nhau. So sánh đó chính là bài học —
+Cùng một thuật toán, ba nút thắt hiệu năng khác nhau. So sánh đó chính là bài học,
 và nó chỉ hiện ra khi bạn tự đo, không ai kể lại thay được.
 
 ## Yêu cầu đầu vào
 
 Bạn cần biết C và quen với tư duy nhúng (con trỏ, bộ nhớ, fixed-point, DMA). Không
-cần biết Python nâng cao, **không cần biết gì về AI**, và **không cần GPU** — 8 trên
+cần biết Python nâng cao, **không cần biết gì về AI**, và **không cần GPU**, 8 trên
 10 chương chạy được trên laptop, kể cả MacBook Apple Silicon (dùng MPS) hay một máy
 x86-64 chỉ có CPU.
 
@@ -71,16 +71,16 @@ x86-64 chỉ có CPU.
 
 | # | Bài | Trạng thái |
 |---|---|---|
-| 1 | [Vector — dữ liệu trong AI](01-vector.html) | đã đăng |
-| 2 | [Weight — kiến thức của mô hình](02-weight.html) | đã đăng |
-| 3 | Matrix Multiplication — phép toán ăn 90% thời gian | đang viết |
-| 4 | Gradient — mô hình học bằng cách nào | đang viết |
+| 1 | [Vector, dữ liệu trong AI](01-vector.html) | đã đăng |
+| 2 | [Weight, kiến thức của mô hình](02-weight.html) | đã đăng |
+| 3 | Matrix Multiplication, phép toán ăn 90% thời gian | đang viết |
+| 4 | Gradient, mô hình học bằng cách nào | đang viết |
 | 5 | Backpropagation | đang viết |
-| 6 | Transformer thật — ráp 5 viên gạch đầu tiên | đang viết |
+| 6 | Transformer thật, ráp 5 viên gạch đầu tiên | đang viết |
 | 7 | KV Cache và Token Sampling | đang viết |
-| 8 | Quantization — từ Q15 bạn đã biết tới int4 | đang viết |
+| 8 | Quantization, từ Q15 bạn đã biết tới int4 | đang viết |
 | 9 | Runtime: TensorRT, ONNX Runtime, TIDL | đang viết |
-| 10 | VLA — mô hình ngôn ngữ cho robot | đang viết |
+| 10 | VLA, mô hình ngôn ngữ cho robot | đang viết |
 
 Bản đầy đủ của giáo trình (kể cả các chương chưa đăng ở đây) nằm trong
 [`docs/`](https://github.com/ninhnn2/machineai/tree/main/docs) của repo.
