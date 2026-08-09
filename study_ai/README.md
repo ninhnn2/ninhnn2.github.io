@@ -154,6 +154,7 @@ là nền móng của gần như toàn bộ phần còn lại.
 
 | # | Chủ đề | Trạng thái |
 |---|---|---|
+| D | [**Demo: mổ bụng một token**](demo-token.html) | tương tác, số thật từ checkpoint |
 | 1 | [Vector: dữ liệu trong AI](01-vector.html) | đã đăng |
 | 2 | [Weight: kiến thức của mô hình](02-weight.html) | đã đăng |
 | 3 | Matrix Multiplication: phép toán ăn 90% thời gian | đang viết |
