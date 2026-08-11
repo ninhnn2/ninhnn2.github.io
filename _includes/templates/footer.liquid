@@ -51,4 +51,16 @@
             <a href="https://rundocs.io" rel="noreferrer" target="_blank">RunDocs</a>.
         </div>
     {% endunless %}
+    {%- comment -%}
+      Khối số đếm. Ẩn sẵn và chỉ hiện ra khi common/goatcounter.liquid lấy được
+      số thật, để không bao giờ chớp một dấu gạch trống rồi mới thay bằng số.
+    {%- endcomment -%}
+    {%- if site.goatcounter != blank -%}
+        <div class="visits f6 pt-1" id="visit-counter" style="display: none" hidden>
+            <i class="fa fa-eye"></i>
+            <span id="visits-total">0</span> {{ __.visits | default: "views" }}
+            &middot;
+            <span id="visits-page">0</span> {{ __.visits_page | default: "views on this page" }}
+        </div>
+    {%- endif -%}
 </div>

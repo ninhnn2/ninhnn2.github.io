@@ -1,0 +1,81 @@
+{%- if site.goatcounter != blank -%}
+    {%- comment -%}
+      Đếm truy cập bằng GoatCounter.
+
+      Hai việc tách rời nhau:
+        1. count.js gửi một request ghi nhận lượt xem. Không cookie, không
+           localStorage, nên không cần banner đồng ý theo GDPR. Nó tự bỏ qua
+           localhost và trình duyệt bật Do Not Track.
+        2. Endpoint /counter/<path>.json đọc ngược con số đã đếm, để in ra
+           footer cho người đọc thấy. Phần này CHỈ chạy khi trong phần
+           Settings của GoatCounter đã bật "Allow adding visitor counts to
+           your website"; chưa bật thì API trả 403 và khối đếm ở footer im
+           lặng ẩn đi, trang vẫn bình thường.
+
+      Trang tĩnh trên GitHub Pages không có tầng server nào để tự đếm, nên cả
+      hai chiều đều phải đi qua dịch vụ ngoài. Hệ quả chấp nhận được: nếu
+      GoatCounter chết hoặc bị chặn, số đếm không hiện, không có gì vỡ.
+    {%- endcomment -%}
+    <script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+    <script>
+    /*
+      LƯU Ý: chỉ dùng comment khối, đừng dùng gạch chéo đôi. Trình nén của theme
+      (_layouts/tasks/compress.liquid) gộp cả script vào một dòng, và khi đó
+      comment một dòng sẽ nuốt sạch phần code phía sau nó.
+    */
+    (function () {
+      var box = document.getElementById("visit-counter");
+      if (!box) return;
+
+      var base = "https://{{ site.goatcounter }}.goatcounter.com/counter/";
+      var pending = 2;
+      var got = false;
+
+      /*
+        API trả về count dạng chuỗi đã chèn dấu phân cách kiểu Anh ("1,234").
+        Bóc hết ký tự không phải số rồi tự định dạng lại theo vi-VN, như vậy
+        không phụ thuộc vào việc endpoint có tôn trọng tham số no_sep hay không.
+      */
+      function format(raw) {
+        var digits = String(raw).replace(/[^0-9]/g, "");
+        if (!digits) return null;
+        var n = parseInt(digits, 10);
+        if (isNaN(n)) return null;
+        try {
+          return n.toLocaleString("vi-VN");
+        } catch (e) {
+          return String(n);
+        }
+      }
+
+      function done() {
+        pending -= 1;
+        if (pending !== 0 || !got) return;
+        /* Gỡ cả hai lớp che: thuộc tính hidden và inline style phòng khi CSS
+           của theme ghi đè [hidden]. */
+        box.hidden = false;
+        box.style.display = "";
+      }
+
+      function fill(id, url) {
+        fetch(url)
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (data) {
+            if (!data) return;
+            var text = format(data.count);
+            if (!text) return;
+            var el = document.getElementById(id);
+            if (!el) return;
+            el.textContent = text;
+            got = true;
+          })
+          .catch(function () {})
+          .then(done, done);
+      }
+
+      fill("visits-total", base + "TOTAL.json");
+      fill("visits-page", base + encodeURIComponent(location.pathname) + ".json");
+    })();
+    </script>
+{%- endif -%}

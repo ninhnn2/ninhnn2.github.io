@@ -47,10 +47,21 @@ translate:
   tip: Mẹo
   warning: Cảnh báo
   danger: Nguy hiểm
+  visits: lượt xem
+  visits_page: lượt xem trang này
 
 # Google
 google:
   adsense: ca-pub-2950224298461248
+
+# GoatCounter — đếm truy cập, không cookie nên không cần banner đồng ý.
+# Giá trị là phần subdomain của dashboard: fanning.goatcounter.com -> "fanning".
+# Để trống thì toàn bộ phần đếm biến mất lúc build: không script, không request,
+# không khối số ở footer.
+# Muốn số đếm hiện ra cho người đọc thì vào Settings của GoatCounter bật
+# "Allow adding visitor counts to your website"; chưa bật thì vẫn đếm bình
+# thường, chỉ là footer không hiện số.
+goatcounter: fanning
 
 exclude:
   - CNAME
