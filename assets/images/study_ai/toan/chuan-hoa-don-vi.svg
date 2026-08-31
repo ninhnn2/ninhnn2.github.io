@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 460" width="780" height="460" role="img" aria-label="Chuẩn hoá: ba vector khác độ dài về chung một đường tròn"><title>Chuẩn hoá: ba vector khác độ dài về chung một đường tròn</title><style>
+  :root{--bg:#ffffff;--grid:#e6eaef;--axis:#9aa5b1;--ink:#1f2937;--muted:#6b7280;
+        --a:#0366d6;--b:#8250df;--c:#1a7f37;--d:#cf222e;--e:#bf8700;
+        --fill:#0366d612;--fill2:#8250df14}
+  @media (prefers-color-scheme: dark){
+    :root{--bg:#0d1117;--grid:#1c2330;--axis:#54606f;--ink:#e6edf3;--muted:#9198a1;
+          --a:#58a6ff;--b:#bc8cff;--c:#3fb950;--d:#ff7b72;--e:#d29922;
+          --fill:#58a6ff1a;--fill2:#bc8cff1a}
+  }
+  .bg{fill:var(--bg)} .grid{stroke:var(--grid);stroke-width:1;fill:none}
+  .axis{stroke:var(--axis);stroke-width:1.5}
+  .ttl{font:600 16px -apple-system,'Helvetica Neue',Arial,sans-serif;fill:var(--ink)}
+  .lbl{font:500 14px -apple-system,'Helvetica Neue',Arial,sans-serif;fill:var(--ink)}
+  .sm{font:400 12.5px -apple-system,'Helvetica Neue',Arial,sans-serif;fill:var(--muted)}
+  .tick{font:400 11px -apple-system,'Helvetica Neue',Arial,sans-serif;fill:var(--muted)}
+  .mono{font:400 12px ui-monospace,'SF Mono',Menlo,monospace;fill:var(--ink)}
+  .va{stroke:var(--a);stroke-width:2.6;fill:none}
+  .vb{stroke:var(--b);stroke-width:2.6;fill:none}
+  .vc{stroke:var(--c);stroke-width:2.6;fill:none}
+  .vd{stroke:var(--d);stroke-width:2.4;fill:none}
+  .ve{stroke:var(--e);stroke-width:2.4;fill:none}
+  .dash{stroke:var(--d);stroke-width:1.4;stroke-dasharray:5 4;fill:none;opacity:.8}
+  .dashm{stroke:var(--muted);stroke-width:1.2;stroke-dasharray:4 4;fill:none;opacity:.6}
+  .ta{fill:var(--a)} .tb{fill:var(--b)} .tc{fill:var(--c)} .td{fill:var(--d)} .te{fill:var(--e)}
+  .arcline{stroke:var(--muted);stroke-width:1.3;fill:none;opacity:.85}
+</style><defs><marker id="ara" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="7" markerHeight="5.6" orient="auto"><path d="M0 0 L10 4 L0 8 z" fill="var(--a)"/></marker><marker id="arb" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="7" markerHeight="5.6" orient="auto"><path d="M0 0 L10 4 L0 8 z" fill="var(--b)"/></marker><marker id="arc" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="7" markerHeight="5.6" orient="auto"><path d="M0 0 L10 4 L0 8 z" fill="var(--c)"/></marker><marker id="ard" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="7" markerHeight="5.6" orient="auto"><path d="M0 0 L10 4 L0 8 z" fill="var(--d)"/></marker><marker id="are" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="7" markerHeight="5.6" orient="auto"><path d="M0 0 L10 4 L0 8 z" fill="var(--e)"/></marker><marker id="araxis" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="7" markerHeight="5.6" orient="auto"><path d="M0 0 L10 4 L0 8 z" fill="var(--axis)"/></marker><marker id="arink" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="7" markerHeight="5.6" orient="auto"><path d="M0 0 L10 4 L0 8 z" fill="var(--ink)"/></marker></defs><rect class="bg" width="780" height="460"/><text x="20.0" y="28.0" class="ttl" text-anchor="start">Chuẩn hoá: ba vector khác độ dài về chung một đường tròn</text><path d="M150 74 L150 398" class="grid"/><path d="M194 74 L194 398" class="grid"/><path d="M238 74 L238 398" class="grid"/><path d="M282 74 L282 398" class="grid"/><path d="M326 74 L326 398" class="grid"/><path d="M370 74 L370 398" class="grid"/><path d="M414 74 L414 398" class="grid"/><path d="M458 74 L458 398" class="grid"/><path d="M502 74 L502 398" class="grid"/><path d="M546 74 L546 398" class="grid"/><path d="M590 74 L590 398" class="grid"/><path d="M634 74 L634 398" class="grid"/><path d="M678 74 L678 398" class="grid"/><path d="M722 74 L722 398" class="grid"/><path d="M106 74 L106 398" class="grid"/><path d="M62 74 L62 398" class="grid"/><path d="M52 372 L754 372" class="grid"/><path d="M52 328 L754 328" class="grid"/><path d="M52 284 L754 284" class="grid"/><path d="M52 240 L754 240" class="grid"/><path d="M52 196 L754 196" class="grid"/><path d="M52 152 L754 152" class="grid"/><path d="M52 108 L754 108" class="grid"/><path d="M52.0 372.0 L754.0 372.0" class="axis" marker-end="url(#araxis)"/><path d="M150.0 398.0 L150.0 74.0" class="axis" marker-end="url(#araxis)"/><path d="M268 372 A118 118 0 0 0 150 254" class="arcline"/><path d="M150.0 372.0 L421.4 236.3" class="va" marker-end="url(#ara)"/><text x="433.4" y="230.3" class="sm ta" text-anchor="start">‖v0‖ = 2.57</text><path d="M150.0 372.0 L285.7 304.1" class="vb" marker-end="url(#arb)"/><text x="277.7" y="330.1" class="sm tb" text-anchor="start">‖v1‖ = 1.29</text><path d="M150.0 372.0 L214.9 82.9" class="vc" marker-end="url(#arc)"/><text x="226.9" y="76.9" class="sm tc" text-anchor="start">‖v2‖ = 2.51</text><circle cx="255.5" cy="319.2" r="5.5" class="ta"/><circle cx="255.5" cy="319.2" r="5.5" class="tb"/><circle cx="175.8" cy="256.9" r="5.5" class="tc"/><path d="M301.5 353.2 L262.5 324.2" class="dashm"/><text x="307.5" y="359.2" class="sm" text-anchor="start">v0 và v1 cùng hướng nên về ĐÚNG một điểm</text><text x="154.0" y="242.0" class="sm" text-anchor="start">đường tròn đơn vị</text><text x="20.0" y="420.0" class="mono" text-anchor="start">v / ‖v‖</text><text x="20.0" y="442.0" class="sm" text-anchor="start">RMSNorm làm đúng việc này ở đầu mỗi lớp, để lớp sau luôn nhận cùng thang đo</text></svg>

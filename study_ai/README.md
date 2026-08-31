@@ -28,6 +28,11 @@ Series đi qua ba lớp, nhưng mình không cố tách chúng thành những m�
 
 Vector, matrix, tích vô hướng, gradient, backpropagation.
 
+Phần này giờ có loạt bài riêng, viết cho người chỉ cần biết toán tới lớp 9:
+[**Toán cho AI nhúng**](/study_ai/toan/). Bảy bài, mỗi phép toán đi từ công thức
+tới ví dụ tính tay, rồi tới vòng `for` trong C, rồi tới phần cứng. Mỗi bài có một
+hình hình học vẽ đúng tỉ lệ từ chính model đã train.
+
 Đây là những thứ tưởng khá xa AI, nhưng khi nhìn từ góc độ embedded thì lại có rất
 nhiều thứ quen thuộc: mảng số, phép nhân-cộng, convolution, accumulation...
 

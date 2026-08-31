@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" width="760" height="420" role="img" aria-label="Chiếu vector: việc mà mỗi lớp Linear đang làm"><title>Chiếu vector: việc mà mỗi lớp Linear đang làm</title><style>
+  :root{--bg:#ffffff;--grid:#e6eaef;--axis:#9aa5b1;--ink:#1f2937;--muted:#6b7280;
+        --a:#0366d6;--b:#8250df;--c:#1a7f37;--d:#cf222e;--e:#bf8700;
+        --fill:#0366d612;--fill2:#8250df14}
+  @media (prefers-color-scheme: dark){
+    :root{--bg:#0d1117;--grid:#1c2330;--axis:#54606f;--ink:#e6edf3;--muted:#9198a1;
+          --a:#58a6ff;--b:#bc8cff;--c:#3fb950;--d:#ff7b72;--e:#d29922;
+          --fill:#58a6ff1a;--fill2:#bc8cff1a}
+  }
+  .bg{fill:var(--bg)} .grid{stroke:var(--grid);stroke-width:1;fill:none}
+  .axis{stroke:var(--axis);stroke-width:1.5}
+  .ttl{font:600 16px -apple-system,'Helvetica Neue',Arial,sans-serif;fill:var(--ink)}
+  .lbl{font:500 14px -apple-system,'Helvetica Neue',Arial,sans-serif;fill:var(--ink)}
+  .sm{font:400 12.5px -apple-system,'Helvetica Neue',Arial,sans-serif;fill:var(--muted)}
+  .tick{font:400 11px -apple-system,'Helvetica Neue',Arial,sans-serif;fill:var(--muted)}
+  .mono{font:400 12px ui-monospace,'SF Mono',Menlo,monospace;fill:var(--ink)}
+  .va{stroke:var(--a);stroke-width:2.6;fill:none}
+  .vb{stroke:var(--b);stroke-width:2.6;fill:none}
+  .vc{stroke:var(--c);stroke-width:2.6;fill:none}
+  .vd{stroke:var(--d);stroke-width:2.4;fill:none}
+  .ve{stroke:var(--e);stroke-width:2.4;fill:none}
+  .dash{stroke:var(--d);stroke-width:1.4;stroke-dasharray:5 4;fill:none;opacity:.8}
+  .dashm{stroke:var(--muted);stroke-width:1.2;stroke-dasharray:4 4;fill:none;opacity:.6}
+  .ta{fill:var(--a)} .tb{fill:var(--b)} .tc{fill:var(--c)} .td{fill:var(--d)} .te{fill:var(--e)}
+  .arcline{stroke:var(--muted);stroke-width:1.3;fill:none;opacity:.85}
+</style><defs><marker id="ara" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="7" markerHeight="5.6" orient="auto"><path d="M0 0 L10 4 L0 8 z" fill="var(--a)"/></marker><marker id="arb" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="7" markerHeight="5.6" orient="auto"><path d="M0 0 L10 4 L0 8 z" fill="var(--b)"/></marker><marker id="arc" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="7" markerHeight="5.6" orient="auto"><path d="M0 0 L10 4 L0 8 z" fill="var(--c)"/></marker><marker id="ard" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="7" markerHeight="5.6" orient="auto"><path d="M0 0 L10 4 L0 8 z" fill="var(--d)"/></marker><marker id="are" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="7" markerHeight="5.6" orient="auto"><path d="M0 0 L10 4 L0 8 z" fill="var(--e)"/></marker><marker id="araxis" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="7" markerHeight="5.6" orient="auto"><path d="M0 0 L10 4 L0 8 z" fill="var(--axis)"/></marker><marker id="arink" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="7" markerHeight="5.6" orient="auto"><path d="M0 0 L10 4 L0 8 z" fill="var(--ink)"/></marker></defs><rect class="bg" width="760" height="420"/><text x="20.0" y="28.0" class="ttl" text-anchor="start">Chiếu vector: việc mà mỗi lớp Linear đang làm</text><path d="M90 74 L90 298" class="grid"/><path d="M152 74 L152 298" class="grid"/><path d="M214 74 L214 298" class="grid"/><path d="M276 74 L276 298" class="grid"/><path d="M338 74 L338 298" class="grid"/><path d="M400 74 L400 298" class="grid"/><path d="M462 74 L462 298" class="grid"/><path d="M524 74 L524 298" class="grid"/><path d="M586 74 L586 298" class="grid"/><path d="M648 74 L648 298" class="grid"/><path d="M710 74 L710 298" class="grid"/><path d="M52 340 L734 340" class="grid"/><path d="M52 278 L734 278" class="grid"/><path d="M52 216 L734 216" class="grid"/><path d="M52 154 L734 154" class="grid"/><path d="M52 92 L734 92" class="grid"/><path d="M52.0 340.0 L734.0 340.0" class="axis" marker-end="url(#araxis)"/><path d="M90.0 298.0 L90.0 74.0" class="axis" marker-end="url(#araxis)"/><path d="M90.0 340.0 L679.0 222.2" class="dashm"/><path d="M90.0 340.0 L400.0 278.0" class="vb" marker-end="url(#arb)"/><path d="M90.0 340.0 L276.0 92.0" class="va" marker-end="url(#ara)"/><path d="M90.0 340.0 L316.5 294.7" class="vc" marker-end="url(#arc)"/><path d="M316.5 294.7 L276.0 92.0" class="dash"/><text x="284.0" y="86.0" class="lbl ta" text-anchor="start">a = (3, 4)</text><text x="410.0" y="296.0" class="lbl tb" text-anchor="start">b = (5, 1)</text><text x="310.5" y="320.7" class="lbl tc" text-anchor="start">song song = 0.731·b</text><text x="308.3" y="193.3" class="sm td" text-anchor="start">vuông góc</text><text x="20.0" y="376.0" class="mono" text-anchor="start">a · b = 19     ‖b‖² = 26     k = (a·b)/‖b‖² = 0.731</text><text x="20.0" y="396.0" class="sm" text-anchor="start">thành phần song song là phần b giữ lại, thành phần vuông góc là phần b bỏ đi</text></svg>
