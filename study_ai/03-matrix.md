@@ -14,10 +14,10 @@ Nếu phải xoá 95% code của mọi framework AI (PyTorch, TensorRT, TIDL...)
 lại một phép toán, bạn giữ lại **GEMM** (General Matrix Multiply). Trong repo này,
 ~90% thời gian mỗi token trên ESP32 nằm ở `matvec_q`/`matvec_q8`,
 [`llm.h:115-198`](https://github.com/ninhnn2/machineai/blob/main/firmware/common/llm.h#L115), tức chính là GEMM, chỉ thu hẹp
-về trường hợp một vector (batch=1). Chương này đi từ dot product một dòng lên tới
+về trường hợp một vector (batch=1). Chương này đi từ tích vô hướng một dòng lên tới
 tại sao Jetson của bạn có "Tensor Core" và DSP TI có "MAC array".
 
-## 3.1 Dot Product: viên gạch đầu tiên
+## 3.1 Tích vô hướng: viên gạch đầu tiên
 
 Đã nói ở chương 1 (§1.3): `dot(a,b) = Σ aᵢbᵢ`. Trong C, đây là vòng lặp bạn viết
 hàng trăm lần rồi:
@@ -39,7 +39,7 @@ xoay quanh việc làm nhanh hơn **đúng vòng lặp trên**.
 
 ```
 y = W x           W: [rows, cols]   x: [cols]   y: [rows]
-y[r] = dot(W[r, :], x)      -- MỖI HÀNG của W là một dot product với x
+y[r] = dot(W[r, :], x)      -- MỖI HÀNG của W là một tích vô hướng với x
 ```
 
 ```c
@@ -116,7 +116,7 @@ kiểu đánh đổi bạn đã quen từ lookup table trong DSP.
 
 ## 3.6 Attention: QKᵀ là matmul
 
-Đây là chỗ nối thẳng chương 1 (dot product, projection) với transformer thật
+Đây là chỗ nối thẳng chương 1 (tích vô hướng, projection) với transformer thật
 (chương 6). Từ [`model.py:104`](https://github.com/ninhnn2/machineai/blob/main/src/model.py#L104):
 
 ```python
@@ -149,7 +149,7 @@ FLOPs = 2 × rows × cols        (nhân rồi cộng, mỗi phần tử ma trậ
 |---|---|---|
 | matvec `[R,C]` | `O(R·C)` | mỗi phần tử ma trận 1 lần |
 | matmul `[M,K]×[K,N]` | `O(M·K·N)` |, bậc 3, tăng rất nhanh theo kích thước |
-| attention, 1 lớp | `O(T²·D)` | mọi cặp token (T) đều tính 1 dot product `D` chiều |
+| attention, 1 lớp | `O(T²·D)` | mọi cặp token (T) đều tính 1 tích vô hướng `D` chiều |
 
 `O(T²)` là lý do context dài đắt: gấp đôi độ dài chuỗi → **gấp 4 lần** tính toán
 attention (không phải gấp đôi). Đây là động lực chính sau các kỹ thuật giảm chi phí

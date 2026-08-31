@@ -127,8 +127,8 @@ Normalize (`v / ‖v‖`) là bước ép mọi vector về cùng biên độ đ
 đúng một điểm trên đường tròn đơn vị](/assets/images/study_ai/vector-normalize.svg)
 
 Vì `a` và `b` chỉ khác biên độ, sau normalize chúng **trùng khít** nhau. Đó chính là
-lý do cosine similarity (§1.3), vốn là dot product của hai vector đã normalize,
-phản ánh "giống nhau" tốt hơn dot product thô **khi bạn chỉ quan tâm tới hướng**.
+lý do cosine similarity (§1.3), vốn là tích vô hướng của hai vector đã normalize,
+phản ánh "giống nhau" tốt hơn tích vô hướng thô **khi bạn chỉ quan tâm tới hướng**.
 Khi độ lớn cũng mang thông tin (§1.3) thì ngược lại: bỏ nó đi là mất dữ kiện.
 
 Mối liên hệ giữa `magnitude` và **RMS** ở trên không phải trùng hợp:
@@ -290,7 +290,7 @@ ngay, nên câu hỏi luôn được đặt ở dạng so sánh, và công cụ 
 similarity (§1.3), đúng sáu dòng bạn vừa in ra.
 
 Từ đây trở đi, **mọi thứ transformer làm đều chỉ là biến đổi những vector như thế
-này**: Linear chiếu nó (§1.4), Attention so nó với các vector khác bằng dot product
+này**: Linear chiếu nó (§1.4), Attention so nó với các vector khác bằng tích vô hướng
 (§1.3), RMSNorm chia nó cho độ lớn của chính nó (§1.1). Không có bước nào quay lại
 với chữ `c-a-t` nữa, chuỗi ký tự chết ngay tại bảng embedding, và từ đó chỉ còn số.
 
@@ -348,7 +348,8 @@ Vòng lặp làm đúng hai việc: **nhân từng cặp phần tử**, rồi **
     4 + 10 + 18 = 32
 ```
 
-Toán học gọi phép tính đó là **dot product** (tích vô hướng). Đến giờ mới cần công
+Toán học gọi phép tính đó là **tích vô hướng**. Tài liệu tiếng Anh và tên hàm
+trong code gọi nó là `dot product`, cùng một thứ. Đến giờ mới cần công
 thức, và công thức chỉ là vòng `for` trên viết gọn lại:
 
 ```
@@ -364,8 +365,8 @@ dòng trả lời được câu "hai thứ này giống nhau tới đâu", đó 
 lớp của mọi mạng nơ-ron.
 
 Và bạn cũng đã viết đúng vòng lặp này trong bộ lọc FIR: `y[n] = Σ h[k]·x[n-k]` chính
-là dot product giữa vector hệ số `h` và cửa sổ tín hiệu. Attention (chương 6) không
-làm gì khác, hàng triệu dot product giữa vector "query" và vector "key", chỉ khác
+là tích vô hướng giữa vector hệ số `h` và cửa sổ tín hiệu. Attention (chương 6) không
+làm gì khác, hàng triệu tích vô hướng giữa vector "query" và vector "key", chỉ khác
 chỗ cả hai vector đều **học được** thay vì thiết kế bằng tay như hệ số FIR.
 
 Từ đúng công thức đó sinh ra ba phép đo, ba câu hỏi khác nhau, chọn sai phép đo là
@@ -373,12 +374,12 @@ lỗi hay gặp nhất:
 
 | Phép đo | Công thức | Đo cái gì | Dùng khi |
 |---|---|---|---|
-| **Dot product** | `Σ aᵢbᵢ` | vừa hướng vừa độ lớn | bên trong attention, bên trong mọi lớp Linear |
+| **Tích vô hướng** | `Σ aᵢbᵢ` | vừa hướng vừa độ lớn | bên trong attention, bên trong mọi lớp Linear |
 | **Cosine similarity** | `dot(a,b) / (‖a‖‖b‖)` | **chỉ hướng**, bỏ qua độ lớn | so sánh nghĩa của 2 embedding, tìm kiếm semantic |
 | **Euclidean distance** | `√Σ(aᵢ-bᵢ)²` | khoảng cách thật trong không gian | clustering, k-NN, khi độ lớn có ý nghĩa vật lý |
 
-**Vì sao dot product thô không dùng để so "giống nhau":** một vector dài (magnitude
-lớn) sẽ cho dot product lớn với mọi thứ, kể cả thứ không liên quan, độ lớn "che"
+**Vì sao tích vô hướng thô không dùng để so "giống nhau":** một vector dài (magnitude
+lớn) sẽ cho tích vô hướng lớn với mọi thứ, kể cả thứ không liên quan, độ lớn "che"
 mất thông tin hướng. Cosine similarity chia cho magnitude của cả hai để loại bỏ
 nhiễu đó, chỉ còn lại góc.
 
@@ -407,7 +408,7 @@ print("cos(a,c)   =", torch.cosine_similarity(a, c, dim=0).item())  # 0.0
 
 > Có một vector `x`. Làm sao biết nó **giống hướng A tới mức nào**?
 
-Bạn đã có sẵn câu trả lời từ §1.3: lấy dot product của `x` với A. Số càng lớn thì
+Bạn đã có sẵn câu trả lời từ §1.3: lấy tích vô hướng của `x` với A. Số càng lớn thì
 càng giống hướng đó, bằng 0 là vuông góc, không liên quan gì nhau.
 
 Và đó **chính xác là việc một lớp `nn.Linear` làm**, lặp lại hàng nghìn lần. Mỗi
@@ -523,7 +524,7 @@ Bốn ý phải mang theo sang chương sau:
 1. AI ép mọi dữ liệu về vector **để "giống nhau" trở thành phép toán**, không phải
    để lưu cho gọn (§1.0).
 2. Một vector có hai đại lượng độc lập: **hướng** và **độ lớn**. Cosine so hướng,
-   Euclid so vị trí, dot product trộn cả hai (§1.1, §1.3).
+   Euclid so vị trí, tích vô hướng trộn cả hai (§1.1, §1.3).
 3. Cosine cao nghĩa là **có xu hướng xuất hiện trong cùng loại ngữ cảnh**, không
    phải đồng nghĩa
    (§1.2, `happy`/`sad`).

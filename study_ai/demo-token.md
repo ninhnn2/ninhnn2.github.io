@@ -83,7 +83,7 @@ var TRACE = {"prompt":"The cat sat on the","checkpoint":"ple-jetson-s0.pt","conf
             "\nV = " + vecRow(d.qkv.v, 6) + "</pre>" +
             "<p>Một phép nhân ma trận-vector: <b>" + d.qkv.macs.toLocaleString() +
             " phép nhân-cộng</b> cho riêng bước này. Đây chính là <code>matvec_q()</code> " +
-            "trong <code>llm.h</code>, và là dot product của bài 1 lặp lại " +
+            "trong <code>llm.h</code>, và là tích vô hướng của bài 1 lặp lại " +
             d.qkv.shape_W[0] + " lần.</p>" },
 
     { id: "attn", name: "4. Attention", sub: "token này nhìn vào đâu",

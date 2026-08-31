@@ -11,7 +11,7 @@ một model AI đang làm gì.
 
 Vì vậy mình gom lại những gì mình học được trong series này.
 
-Mình bắt đầu từ những thứ rất cơ bản (**vector, matrix, dot product**) rồi đi dần
+Mình bắt đầu từ những thứ rất cơ bản (**vector, matrix, tích vô hướng**) rồi đi dần
 đến **embedding, Transformer, attention, quantization và runtime**. Mục tiêu cuối
 cùng không phải là biết gọi một API để chạy model, mà là có thể mở code lên và hiểu:
 
@@ -26,7 +26,7 @@ Series đi qua ba lớp, nhưng mình không cố tách chúng thành những m�
 
 **Đầu tiên là toán.**
 
-Vector, matrix, dot product, gradient, backpropagation.
+Vector, matrix, tích vô hướng, gradient, backpropagation.
 
 Đây là những thứ tưởng khá xa AI, nhưng khi nhìn từ góc độ embedded thì lại có rất
 nhiều thứ quen thuộc: mảng số, phép nhân-cộng, convolution, accumulation...

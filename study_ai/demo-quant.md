@@ -88,7 +88,7 @@ var Q = {"config":{"d_model":128,"vocab":4096,"group":128,"bits":4,"row":708,"ro
     '<div class="qb"><h4>4. Và rồi nó chạy trên silicon</h4>' +
     '<div class="qchain">nn.Linear(x)<br>&nbsp;&nbsp;= W &#183; x<br>' +
     "&nbsp;&nbsp;= matvec_q() trong llm.h<br>" +
-    "&nbsp;&nbsp;= dot product lặp lại nhiều lần<br>" +
+    "&nbsp;&nbsp;= tích vô hướng lặp lại nhiều lần<br>" +
     "&nbsp;&nbsp;= nhân-cộng (MAC) rất nhiều lần</div>" +
     "<p>Chuỗi này kết thúc ở phần cứng, và mỗi loại silicon gọi bước cuối bằng một " +
     "tên khác: <b>Tensor Core</b> của NVIDIA, <b>C7x + MMA</b> của TI, " +
